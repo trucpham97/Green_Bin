@@ -34,6 +34,9 @@ window.addEventListener('load', function () {
                 const data = await response.json();
                 console.log("Your product is :", data.product.product_name);
                 document.getElementById('product-id').textContent = data.product.product_name
+                console.log("image", data.product.image_url);
+                document.getElementById('product-images').innerHTML = '';
+                document.getElementById('product-images').insertAdjacentHTML('beforeend', `<img src="${data.product.image_url}" alt="product image">`);
             } catch (error) {
                 console.error('Erreur lors de la récupération du produit:', error);
             }
