@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   has_many :products, dependent: :destroy
 
-  validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
-  validates :location, presence: true
-  validates :emissions, presence: true
+  # validates :username, presence: true, uniqueness: true
+  # validates :email, presence: true, uniqueness: true
+  # validates :location, presence: true
+  # validates :emissions, presence: true
 end
