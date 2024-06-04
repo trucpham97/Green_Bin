@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  layout 'no_navbar', only: [:new, :create]
+
   def index
   end
 
