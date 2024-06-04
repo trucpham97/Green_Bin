@@ -1,0 +1,15 @@
+.scan-window {
+  display: flex;
+  width:300px;
+  position: relative;
+}
+.target-on-scan {
+  display: flex;
+  margin: auto;
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.2;
+}
