@@ -5,3 +5,8 @@
 <% else %>
   <%= link_to 'Sign in to scan a product', new_user_session_path, class: "booking-btn-link" %>
 <% end %>
+
+<div data-controller="test">
+  <button data-action="click->test#test">Click me</button>
+  <div data-test-target="output"></div>
+</div>
