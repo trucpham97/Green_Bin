@@ -1,0 +1,2 @@
+class RecyclingSpotTagsController < ApplicationController
+end
