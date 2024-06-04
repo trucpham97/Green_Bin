@@ -18,15 +18,16 @@
   <%= javascript_include_tag 'barcode_scanner' %>
 </head>
 
-<body>
+<body class="body-red">
 
   <main class="wrapper" style="padding-top:2em">
 
     <section class="container" id="demo-content">
       <h1 class="title">Green Bin Scan 🗑️</h1>
 
-      <div>
+      <div class="scan-window">
         <video id="video" width="300" height="200" style="border: 1px solid gray"></video>
+        <%= image_tag("target.png", alt: "Target on scan window", class: "target-on-scan") %>
       </div>
 
       <div id="sourceSelectPanel" style="display: none">
