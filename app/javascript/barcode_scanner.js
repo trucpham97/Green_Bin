@@ -27,6 +27,19 @@ window.addEventListener('load', function () {
         if (result) {
           console.log(result)
           document.getElementById('result').textContent = result.text
+
+          async function fetchProduct() {
+            try {
+                const response = await fetch(`https://world.openfoodfacts.org/api/v0/product/${result}.json`);
+                const data = await response.json();
+                console.log("Your product is :", data.product.product_name);
+                document.getElementById('product-id').textContent = data.product.product_name
+            } catch (error) {
+                console.error('Erreur lors de la récupération du produit:', error);
+            }
+        }
+
+        fetchProduct();
         }
         if (err && !(err instanceof ZXing.NotFoundException)) {
           console.error(err)
