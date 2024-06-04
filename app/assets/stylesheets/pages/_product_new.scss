@@ -1,7 +1,10 @@
+#no-scroll {
+  overflow: hidden;
+}
+
 .scan-window {
   display: flex;
   position: relative;
-  padding: 5px
 }
 
 .target-on-scan {
@@ -19,13 +22,14 @@
   // width: 300px;
   // height: 200px;
   display: flex;
-  border: 1px solid gray;
-  height: 100vh;
+  // border: 1px solid gray;
+  height: 110vh;
   width:100%;
-  margin: auto;
+  margin: 0;
+  padding: 0;
   object-fit: cover;
 }
 
-* {
-  border: red 1px solid;
-}
+// * {
+//   border: red 1px solid;
+// }
