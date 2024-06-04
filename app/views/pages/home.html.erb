@@ -1,3 +1,7 @@
 <h1>Magnifique page d'accueil</h1>
 
-<%= link_to 'Scan a product', new_user_product_path(current_user), class: "booking-btn-link" %>
+<% if user_signed_in? %>
+  <%= link_to 'Scan a product', new_user_product_path(current_user), class: "booking-btn-link" %>
+<% else %>
+  <%= link_to 'Sign in to scan a product', new_user_session_path, class: "booking-btn-link" %>
+<% end %>
