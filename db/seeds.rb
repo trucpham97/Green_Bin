@@ -24,3 +24,43 @@ glass_silo["values"].each do |glass|
     longitude: glass["lon"]
   )
 end
+
+house_waste_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.orduresmenageres/all.json?maxfeatures=-1&start=1"
+house_waste_silo_serialized = URI.open(house_waste_url).read
+house_waste_silo = JSON.parse(house_waste_silo_serialized)
+
+house_waste_silo["values"].each do |waste|
+  RecyclingSpot.create!(
+    address: waste["adresse"],
+    category: "house waste",
+    latitude: waste["lat"],
+    longitude: waste["lon"]
+  )
+end
+
+selective_collection_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.collecteselective/all.json?maxfeatures=-1&start=1"
+selective_collection_serialized = URI.open(selective_collection_url).read
+selective_collection = JSON.parse(selective_collection_serialized)
+
+selective_collection["values"].each do |waste|
+  RecyclingSpot.create!(
+    address: waste["adresse"],
+    category: "selective collection",
+    latitude: waste["lat"],
+    longitude: waste["lon"]
+  )
+end
+
+# recycling_center_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gip_proprete.gipdecheterie_3_0_0/all.json?maxfeatures=-1&start=1"
+# recycling_center_serialized = URI.open(recycling_center_url).read
+# recycling_center = JSON.parse(recycling_center_serialized)
+
+# Check data paths!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# recycling_center["values"].each do |waste|
+#   RecyclingSpot.create!(
+#     address: waste["adresse"],
+#     category: "recycling center",
+#     latitude: waste["lat"],
+#     longitude: waste["lon"]
+#   )
+# end
