@@ -1,8 +1,12 @@
+// #no-scroll {
+//   overflow: hidden;
+// }
+
 .scan-window {
   display: flex;
-  width:300px;
   position: relative;
 }
+
 .target-on-scan {
   display: flex;
   margin: auto;
@@ -13,3 +17,19 @@
   transform: translate(-50%, -50%);
   opacity: 0.2;
 }
+
+#video {
+  // width: 300px;
+  // height: 200px;
+  display: flex;
+  // border: 1px solid gray;
+  height: 110vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+}
+
+// * {
+//   border: red 1px solid;
+// }
