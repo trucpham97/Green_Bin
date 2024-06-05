@@ -48,6 +48,9 @@ window.addEventListener('load', function () {
                 document.getElementById('product-form').submit();
                 document.getElementById('product-card').innerHTML = '';
                 document.getElementById('product-card').insertAdjacentHTML('beforeend', `<div style="background-color: red">${data.product.product_name} <br> <img src="${data.product.image_url}"> </div>`);
+                // Custom Event for Stimulus in product_controller.js (ask Thomas for help if needed)
+                const newProduct = { name: data.product.product_name, imageUrl: data.product.image_url };
+                document.dispatchEvent(new CustomEvent('product:created', { detail: { product: newProduct } }));
 
 
             } catch (error) {
