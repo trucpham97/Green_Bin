@@ -1,2 +1,0 @@
-class ProductTagsController < ApplicationController
-end
