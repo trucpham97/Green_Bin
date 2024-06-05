@@ -37,6 +37,11 @@ window.addEventListener('load', function () {
                 console.log("image", data.product.image_url);
                 document.getElementById('product-images').innerHTML = '';
                 document.getElementById('product-images').insertAdjacentHTML('beforeend', `<img src="${data.product.image_url}" alt="product image">`);
+                // Fill Form with product data
+                document.getElementById('product_name').value = data.product.product_name;
+                document.getElementById('product_image_url').value = data.product.image_url;
+                // Form Auto-Submit
+                document.getElementById('product-form').submit();
             } catch (error) {
                 console.error('Erreur lors de la récupération du produit:', error);
             }

@@ -41,6 +41,14 @@
 
   </div>
 
+  <%= form_with(model: [@user, @product], local: true, id: "product-form") do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, id: "product_name" %>
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url, id: "product_image_url" %>
+    <%= f.submit "Create Product" %>
+  <% end %>
+
   <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
 </body>
 
