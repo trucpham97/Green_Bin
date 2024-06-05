@@ -37,10 +37,10 @@ window.addEventListener('load', function () {
                 const response = await fetch(`https://world.openfoodfacts.org/api/v0/product/${result}.json`);
                 const data = await response.json();
                 console.log("Your product is :", data.product.product_name);
-                document.getElementById('product-id').textContent = data.product.product_name
+                // document.getElementById('product-id').textContent = data.product.product_name
                 console.log("image", data.product.image_url);
-                document.getElementById('product-images').innerHTML = '';
-                document.getElementById('product-images').insertAdjacentHTML('beforeend', `<img src="${data.product.image_url}" alt="product image">`);
+                // document.getElementById('product-images').innerHTML = '';
+                // document.getElementById('product-images').insertAdjacentHTML('beforeend', `<img src="${data.product.image_url}" alt="product image">`);
                 // Fill Form with product data
                 document.getElementById('product_name').value = data.product.product_name;
                 document.getElementById('product_image_url').value = data.product.image_url;
