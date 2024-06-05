@@ -1,0 +1,19 @@
+.navbar-greenbin {
+  display: flex;
+  height: 10vh;
+  background: $primary-color;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-image: url('footer_image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+#logo {
+  border-radius: 50%;
+  height: 80%;
+  margin-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
