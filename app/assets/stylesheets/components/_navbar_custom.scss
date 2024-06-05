@@ -1,0 +1,17 @@
+.navbar-greenbin {
+  display: flex;
+  height: 10vh;
+  background: $primary-color;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+#logo {
+  border-radius: 50%;
+  height: 80%;
+  margin-left: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
