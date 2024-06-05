@@ -20,38 +20,37 @@
 
 <body id="no-scroll" data-controller="product">
 
-  <div>
-
-      <div class="scan-window">
-        <video id="video"></video>
-      </div>
-
-      <div id="sourceSelectPanel" style="display: none">
-        <label for="sourceSelect">Change video source:</label>
-        <select id="sourceSelect" style="max-width:400px">
-        </select>
-      </div>
-
-      <label>Result:</label>
-      <pre><code id="result"></code></pre>
-
-      <p id="product-id"></p>
-
-      <div id="product-images"></div>
-
+  <div class="scan-window">
+    <video id="video"></video>
+    <div id="product-card" class="d-none"></div>
   </div>
 
-  <%= form_with(model: [@user, @product], local: true, id: "product-form") do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, id: "product_name" %>
-    <%= f.label :image_url %>
-    <%= f.text_field :image_url, id: "product_image_url" %>
-    <%= f.submit "Create Product" %>
-  <% end %>
+  <%# This div should only be displayed for test purposes %>
+  <div id="sourceSelectPanel" style="display: none">
+    <label for="sourceSelect">Change video source:</label>
+    <select id="sourceSelect" style="max-width:400px">
+    </select>
+  </div>
 
-  <div id="product-card" style="background-color: red"></div>
+  <%# This div should only be displayed for test purposes %>
+  <div style="display: none">
+    <label>Result:</label>
+    <pre><code id="result"></code></pre>
+  </div>
 
+  <%# Form is not displayed but is used to create products seemlessly in the background %>
+  <div style="display: none">
+    <%= form_with(model: [@user, @product], local: true, id: "product-form") do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, id: "product_name" %>
+      <%= f.label :image_url %>
+      <%= f.text_field :image_url, id: "product_image_url" %>
+      <%= f.submit "Create Product" %>
+    <% end %>
+  </div>
+
+  <%# Script from ZXing library (Used to detect and scan barcodes) %>
   <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
-</body>
 
+</body>
 </html>
