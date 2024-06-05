@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_user, only: [:new, :create]
+  before_action :set_product, only: [:new, :create]
   before_action :authenticate_user!, except: [:index, :show]
   layout 'no_navbar', only: [:new, :create]
 
@@ -26,11 +26,11 @@ class ProductsController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:user_id])
+  def set_product
+    @product = Product.find(params[:user_id])
   end
 
   def product_params
-    params.require(:product).permit(:name, :image_url)
+    params.require(:product).permit(:name, :image_url, :score, :description, :material)
   end
 end
