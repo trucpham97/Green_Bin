@@ -25,11 +25,15 @@ window.addEventListener('load', function () {
       // Start scanning as soon as the page loads
       codeReader.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
         if (result) {
+          if (this.lastResultCode === result.text) return;
+          this.lastResultCode = result.text;
+
           console.log(result)
           document.getElementById('result').textContent = result.text
 
           async function fetchProduct() {
             try {
+
                 const response = await fetch(`https://world.openfoodfacts.org/api/v0/product/${result}.json`);
                 const data = await response.json();
                 console.log("Your product is :", data.product.product_name);
@@ -42,12 +46,17 @@ window.addEventListener('load', function () {
                 document.getElementById('product_image_url').value = data.product.image_url;
                 // Form Auto-Submit
                 document.getElementById('product-form').submit();
+                document.getElementById('product-card').innerHTML = '';
+                document.getElementById('product-card').insertAdjacentHTML('beforeend', `<div style="background-color: red">${data.product.product_name} <br> <img src="${data.product.image_url}"> </div>`);
+
+
             } catch (error) {
                 console.error('Erreur lors de la récupération du produit:', error);
             }
         }
 
         fetchProduct();
+
         }
         if (err && !(err instanceof ZXing.NotFoundException)) {
           console.error(err)
@@ -60,4 +69,4 @@ window.addEventListener('load', function () {
     .catch((err) => {
       console.error(err)
     })
-})
+}, {once: true})

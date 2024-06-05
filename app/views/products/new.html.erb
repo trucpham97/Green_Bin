@@ -18,7 +18,7 @@
   <%= javascript_include_tag 'barcode_scanner' %>
 </head>
 
-<body id="no-scroll">
+<body id="no-scroll" data-controller="product">
 
   <div>
 
@@ -48,6 +48,8 @@
     <%= f.text_field :image_url, id: "product_image_url" %>
     <%= f.submit "Create Product" %>
   <% end %>
+
+  <div id="product-card"></div>
 
   <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
 </body>
