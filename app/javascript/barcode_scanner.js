@@ -40,6 +40,8 @@ window.addEventListener('load', function () {
                 // Fill Form with product data
                 document.getElementById('product_name').value = data.product.product_name;
                 document.getElementById('product_image_url').value = data.product.image_url;
+                // Form Auto-Submit
+                document.getElementById('product-form').submit();
             } catch (error) {
                 console.error('Erreur lors de la récupération du produit:', error);
             }
