@@ -4,18 +4,20 @@ export default class extends Controller {
   static targets = ['output'];
 
   test() {
-    const url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.siloverre/all.json?maxfeatures=-1&start=1"
+    const url = "https://world.openfoodfacts.org/api/v2/product/3270720005174.json"
 
     fetch(url)
     .then(response => response.json())
     .then((data) => {
       console.log(data);
-      data.values.forEach(silo => {
-        console.log(silo.lon);
-        console.log(silo.lat);
-        console.log(silo.adresse);
-        console.log(silo.horaires);
-      });
+      console.log("name sans fr", data.product.product_name);
+      console.log("name avec fr", data.product.product_name_fr);
+      console.log("fr", data.product.packaging_text_fr);
+      console.log("Ø", data.product.packaging_text);
+      console.log("en", data.product.packaging_text_en);
+      console.log("pt", data.product.packaging_text_pt);
+      console.log("materiaux", data.product.packagings[0].material);
+      console.log("packaging tags", data.product.packaging_tags);
     })
   }
 }
