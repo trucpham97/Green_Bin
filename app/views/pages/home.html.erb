@@ -1,5 +1,6 @@
 
-<div>
+<div class="container">
+
 
   <div class="option-card">
     <p class="no-margin-p">Manual Searchbar</p>
@@ -13,9 +14,15 @@
   <div class="option-card">
     <p class="no-margin-p">Votre consommation: 44 kg de Co2</p>
   </div>
-  
+  <% 100.times do %>
+    <div class="circle-container">
+      <div class="circle"></div>
+    </div>
+  <% end %>
+
 </div>
 <!-- <div data-controller="test">
   <button data-action="click->test#test">Click me</button>
   <div data-test-target="output"></div>
 </div> -->
+
