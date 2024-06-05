@@ -3,16 +3,27 @@
 
 
   <div class="option-card">
-    <p class="no-margin-p">Manual Searchbar</p>
+    <p class="margin-p">Manual Searchbar</p>
+
     <% if user_signed_in? %>
-      <%= link_to 'Scan a product', new_product_path, class: "booking-btn-link" %>
+
+      <%= link_to new_product_path, class: "booking-btn-link"  do %>
+        <div class="booking-btn">
+          <p>Scan a product!</p>
+        </div>
+      <% end %>
     <% else %>
-      <%= link_to 'Sign in to scan a product', new_user_session_path, class: "booking-btn-link" %>
+
+      <%= link_to new_user_session_path, class: "booking-btn-link"  do %>
+        <div class="booking-btn">
+          <p>Log in to scan!</p>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
   <div class="option-card">
-    <p class="no-margin-p">Votre consommation: 44 kg de Co2</p>
+    <p class="margin-p">Votre consommation: 44 kg de Co2</p>
   </div>
   <% 100.times do %>
     <div class="circle-container">
@@ -25,4 +36,3 @@
   <button data-action="click->test#test">Click me</button>
   <div data-test-target="output"></div>
 </div> -->
-

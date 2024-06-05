@@ -1,8 +1,8 @@
 // Specific CSS for your home-page
 body {
-  background-color: $secondary-color;
-
+  background-color: $background-color;
 }
+
 .option-card {
   display: flex;
   align-items: center;
@@ -11,18 +11,56 @@ body {
 
   margin: auto;
   margin-top: 20px;
-  background-color: #f8f9e6;
+  background-color: $secondary-color;
 
-  border-radius: 5px;
+  border-radius: 10px;
 
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 10px;
 
   width: 80%;
 }
 
-.no-margin-p {
+.margin-p {
   margin: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.booking-btn {
+  // width: 200px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 120px;
+  // padding-top: 10px;
+  // padding-bottom: 10px;
+  // padding-left: 300px;
+  // padding-right: 300px;
+  padding: 10px;
+  width: 100%;
+  background-color: $contrast-color;
+  border: solid 2px $contrast-color;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  p {
+    margin: 0;
+    font-size: 20px;
+  }
+}
+
+.booking-btn-link {
+  color: white;
+  text-decoration: none;
 }
 
 
@@ -36,7 +74,7 @@ body {
 
 .circle-container {
   $particleNum: 50;
-  $particleColor: hsl(155, 92%, 29%);
+  $particleColor: hsl(113, 92%, 29%);
 
   position: absolute;
   transform: translateY(-10vh);
@@ -49,9 +87,9 @@ body {
     border-radius: 50%;
     mix-blend-mode: screen;
     background-image: radial-gradient(
-      hsl(155, 100%, 80%),
-      hsl(155, 100%, 80%) 10%,
-      hsla(155, 100%, 80%, 0) 56%
+      hsl(113, 100%, 80%),
+      hsl(113, 100%, 80%) 10%,
+      hsla(113, 100%, 80%, 0) 56%
     );
 
     animation: fadein-frames 200ms infinite, scale-frames 2s infinite;
