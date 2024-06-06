@@ -13,7 +13,7 @@ export default class extends Controller {
   // When the custom event is triggered in barcode_scanner.js, this function is called
   handleProductCreated(event) {
     const newProduct = event.detail.product;
-    console.log(`New product created: ${newProduct.name} (${newProduct.imageUrl})`);
+    console.log(`New product created: ${newProduct.name} (${newProduct.imageUrl}) (${newProduct.material})`);
 
     // Variable to check if the card is already displayed (different animation if it is already displayed)
     var card = document.getElementById('product-card');
@@ -29,6 +29,8 @@ export default class extends Controller {
                 <img src="${newProduct.imageUrl}">
                 <div>
                   <h1>${newProduct.name}</h1>
+                  <br>
+                  <h1>${newProduct.material}</h1>
                   <br>
                   <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
                 </div>
@@ -51,6 +53,8 @@ export default class extends Controller {
                   <img src="${newProduct.imageUrl}">
                   <div>
                     <h1>${newProduct.name}</h1>
+                    <br>
+                    <h1>${newProduct.material}</h1>
                     <br>
                     <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
                   </div>

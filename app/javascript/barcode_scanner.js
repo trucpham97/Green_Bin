@@ -43,7 +43,41 @@ window.addEventListener('load', function () {
                 // Fill Form with product data
                 document.getElementById('product_name').value = data.product.product_name;
                 document.getElementById('product_image_url').value = data.product.image_url;
+
                 const material = data?.product?.packagings[0]?.material ?? 'Information non disponible';
+                var material_fr;
+
+                // Translate material to French (I know it's ugly, but it works for now)
+                if (material.substr(3) === 'plastic') {
+                  var material_fr = 'Plastique';
+                } else if (material.substr(3) === 'pet-1-polyethylen-terephthalate') {
+                  var material_fr = 'Plastique';
+                } else if (material.substr(3) === 'pet-1-polyethylene-terephthalate') {
+                  var material_fr = 'Plastique';
+                } else if (material.substr(3) === 'glass') {
+                  var material_fr = 'Verre';
+                } else if (material.substr(3) === 'green-glass') {
+                  var material_fr = 'Verre';
+                } else if (material.substr(3) === 'clear-glass') {
+                  var material_fr = 'Verre';
+                } else if (material.substr(3) === 'bottle') {
+                  var material_fr = 'Verre';
+                } else if (material.substr(3) === 'cardboard') {
+                  var material_fr = 'Carton';
+                } else if (material.substr(3) === 'paperboard') {
+                  var material_fr = 'Carton';
+                } else if (material.substr(3) === 'aluminum') {
+                  var material_fr = 'Aluminium';
+                } else if (material.substr(3) === 'canned') {
+                  var material_fr = 'Aluminium';
+                } else if (material.substr(3) === 'metal') {
+                  var material_fr = 'Metal';
+                } else if (material.substr(3) === 'steel') {
+                  var material_fr = 'Metal';
+                } else {
+                  var material_fr = 'Indisponible';
+                }
+
                 document.getElementById('product_material').value = material;
                 console.log(data?.product?.packaging_text_fr);
                 const description = data?.product?.packaging_text_fr ?? 'Description non disponible';
@@ -68,7 +102,7 @@ window.addEventListener('load', function () {
                 // Custom Event for Stimulus in product_controller.js (ask Thomas for help if needed)
                 const newProduct = { name: data.product.product_name,
                   imageUrl: data.product.image_url,
-                  material: material};
+                  material: material_fr};
                 document.dispatchEvent(new CustomEvent('product:created', { detail: { product: newProduct } }));
 
             } catch (error) {
