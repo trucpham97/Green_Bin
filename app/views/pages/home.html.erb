@@ -1,16 +1,28 @@
 
+
+
 <div class="container">
 
 
   <div class="option-card">
-    <p class="margin-p">Manual Searchbar</p>
+
+    <p class="pill-btn">Rechercher</p>
 
     <% if user_signed_in? %>
 
       <%= link_to new_product_path, class: "booking-btn-link"  do %>
-        <div class="booking-btn">
+        <!-- <div class="booking-btn">
           <p>Scan a product!</p>
-        </div>
+        </div> -->
+
+        <button class="pushable">
+          <span class="shadow"></span>
+          <span class="edge"></span>
+          <span class="front">
+            SCAN
+          </span>
+        </button>
+
       <% end %>
     <% else %>
 
@@ -20,16 +32,28 @@
         </div>
       <% end %>
     <% end %>
+
+     <%# <button class="pushable">
+          <span class="shadow"></span>
+          <span class="edge"></span>
+          <span class="front">
+            SCAN
+          </span>
+        </button> %>
+
   </div>
+
+
 
   <div class="option-card">
     <p class="margin-p">Votre consommation: 44 kg de Co2</p>
   </div>
-  <% 100.times do %>
-    <div class="circle-container">
+
+  <%# 100.times do %>
+    <!-- <div class="circle-container">
       <div class="circle"></div>
-    </div>
-  <% end %>
+    </div> -->
+  <%# end %>
 
 </div>
 <!-- <div data-controller="test">
