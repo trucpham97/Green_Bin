@@ -8,13 +8,13 @@
   background-image: url('footer_image.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-
 }
 
 #logo {
   border-radius: 50%;
   height: 80%;
   margin-left: 10px;
+
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -25,13 +25,13 @@
 .neon {
 	font-weight: 100;
 	letter-spacing: 3px;
+  font-size: 16px;
 }
 
 /*Neon Variables*/
-
 $light-color: yellow;
-$light-offset: 3px;
-$light-diffusion: 4px;
+$light-offset: 2px;
+$light-diffusion: 3px;
 $animation-duration: 5s;
 $animation-steps: (
 	// 0%: on,
@@ -39,7 +39,6 @@ $animation-steps: (
 	// 5%: on,
 	// 15%: off,
 	// 100%: off
-
   0%: off,
 	3%: on,
 	5%: off,
@@ -48,7 +47,6 @@ $animation-steps: (
 );
 
 /*Neon Style*/
-
 @mixin bg-status($status) {
 	@if $status == "on" {
 		opacity: 0.7;

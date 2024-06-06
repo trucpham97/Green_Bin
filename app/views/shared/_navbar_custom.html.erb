@@ -1,33 +1,36 @@
 <nav class="navbar-greenbin">
+
   <img id="logo" src="https://as2.ftcdn.net/v2/jpg/01/31/17/71/1000_F_131177150_ve7CkQtGSRzDQ86tmQg9Lkb3Xke1IfZ3.jpg">
 
   <div class="neon">
-
     <span>GREEN </span>
-    BI<span>N</span>
+    BIN <!-- <span>N</span> -->
   </div>
 
-  <button class="navbar-toggler small-margin-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- <button class="navbar-toggler small-margin-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+  </button> -->
+    <div class="small-margin-right" id="navbarSupportedContent">
+      <ul class="navbar-nav">
         <% if user_signed_in? %>
+
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "avatar.png", class: "avatar", alt: "dropdown menu", id: "Avatar-Icon" %>
-            <%= image_tag "downArrow_icon.png", class: "avatar", id: "dropdown-arrow" %>
+            <!-- <%= image_tag "downArrow_icon.png", class: "avatar", id: "dropdown-arrow" %> -->
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" id="dropdown-list" >
               <%= link_to "Home", root_path, class: "dropdown-item", id: "dropdown-li" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item", id: "dropdown-li" %>
             </div>
           </li>
+
         <% else %>
+
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "btn btn-dark" %>
           </li>
+
         <% end %>
       </ul>
     </div>

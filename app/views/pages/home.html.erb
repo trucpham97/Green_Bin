@@ -7,9 +7,7 @@
   <div class="option-card">
 
     <p class="pill-btn">Rechercher</p>
-
     <% if user_signed_in? %>
-
       <%= link_to new_product_path, class: "pushable booking-btn-link" do %>
         <!-- <div class="booking-btn">
           <p>Scan a product!</p>
@@ -38,7 +36,8 @@
 
 
   <div class="option-card">
-    <p class="margin-p">Votre consommation: 44 kg de Co2</p>
+    <p class="margin-p">Votre consommation:</p>
+    <p class="margin-p">44 kg de Co2</p>
   </div>
 
   <%# 100.times do %>
