@@ -404,3 +404,73 @@ body {
 //     }
 //   }
 // }
+
+// Funny scan effect
+$componentSize: 143px;
+$maskSize: 50px;
+$speed: 3s;
+$borderOffset: 8px;
+
+$animationProps: $speed linear infinite alternate;
+
+@keyframes mask-move {
+  0%   {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX($componentSize - $maskSize);
+  }
+}
+
+@keyframes mask-inner-move {
+  0%   {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-($componentSize - $maskSize));
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
+.focus {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: .2rem;
+  line-height: 1;
+  position: relative;
+  width: $componentSize;
+  &:before {
+      content: 'SCAN';
+      filter: blur(3px);
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    width: $maskSize;
+    height: calc(100% + #{$borderOffset});
+    top: -($borderOffset / 2);
+    left: 0;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    animation: mask-move $animationProps;
+  }
+  &--mask {
+    overflow: hidden;
+    position: absolute;
+    width: $maskSize;
+    height: 100%;
+    top: 0;
+    left: 0;
+    animation: mask-move $animationProps;
+    &-inner {
+      animation: mask-inner-move $animationProps;
+    }
+  }
+}
