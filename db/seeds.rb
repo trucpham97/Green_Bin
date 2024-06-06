@@ -53,7 +53,7 @@ selective_collection["values"].each do |waste|
     latitude: waste["lat"],
     longitude: waste["lon"]
   )
-  silo.tag_list.add("glass", "plastic", "carton", "aluminum", "house waste")
+  silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal")
   silo.save!
 end
 

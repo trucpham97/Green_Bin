@@ -11,9 +11,29 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+  MATERIAL = {
+    "en:plastic" => "plastic",
+    "en:pet-1-polyethylen-terephthalate" => "plastic",
+    "en:glass" => "glass",
+    "en:green-glass" => "glass",
+    "en:clear-glass" => "glass",
+    "en:bottle" => "glass",
+    "en:cardboard" => "paper",
+    "en:paperboard" => "paper",
+    "en:aluminum" => "aluminum",
+    "en:canned" => "aluminum",
+    "en:metal" => "metal",
+    "en:steel" => "metal"
+  }
+
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    if MATERIAL.has_key?(@product.material)
+      @product.tag_list.add(MATERIAL[@product.material])
+    else
+      @product.tag_list.add("unknown material")
+    end
     @product.save!
   end
 
@@ -21,6 +41,7 @@ class ProductsController < ApplicationController
   end
 
   private
+  # no need to set user thanks to devise gem - use current_user
 
   # def set_user
   #   @user = User.find(params[:user_id])
