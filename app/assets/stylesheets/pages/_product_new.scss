@@ -18,6 +18,27 @@
   height: 25vh;
   padding: 20px;
   border-radius: 30px 30px 0 0;
+  // Pop-Up Animation
+  animation-name: popup;
+  animation-name: popdown;
+}
+
+@keyframes popup {
+  from {
+    bottom: -100vh;
+  }
+  to {
+    bottom: 10vh;
+  }
+}
+
+@keyframes popdown {
+  from {
+    bottom: 10vh;
+  }
+  to {
+    bottom: -100vh;
+  }
 }
 
 #product-card img {
