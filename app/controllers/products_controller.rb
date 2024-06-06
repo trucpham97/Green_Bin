@@ -45,6 +45,25 @@ class ProductsController < ApplicationController
   def show
   end
 
+  helper_method :display_material
+
+  def display_material(product)
+    case product.material
+    when 'en:pet-1-polyethylen-terephthalate' || 'en:plastic' || 'en:pet-1-polyethylene-terephthalate'
+      { name: 'Plastique', color: 'yellow' }
+    when 'en:glass' || 'en:green-glass' || 'en:clear-glass' || 'en:bottle'
+      { name: 'Verre', color: 'green' }
+    when "en:cardboard" || "en:paperboard"
+      { name: 'Carton', color: 'yellow' }
+    when "en:aluminum" || "en:canned"
+      { name: 'Aluminium', color: 'grey' }
+    when "en:metal" || "en:steel"
+      { name: 'Métal', color: 'grey' }
+    else
+      { name: 'Materiaux non disponibles', color: 'black' }
+    end
+  end
+
   private
   # no need to set user thanks to devise gem - use current_user instead
   # def set_user

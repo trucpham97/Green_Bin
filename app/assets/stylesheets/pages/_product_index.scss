@@ -12,6 +12,7 @@
   align-items: center;
   flex-direction: row;
   justify-content: flex-start;
+  gap: 10px;
 
   margin-right: 10px;
   margin-left: 10px;
@@ -28,7 +29,7 @@
 
 .small-square-image {
   border-radius: 10px;
-  height: 80px;
+  height: 90px;
   width: 80px;
   object-fit: cover;
 }
@@ -36,10 +37,28 @@
 .text-align-column-left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: flex-start;
+  height: 100%;
 }
 
 .p-no-margin-index {
   margin: 0;
+  font-size: small;
+
+}
+
+.product-index-name {
+  font-size: medium;
+}
+
+.material-gellule {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 999em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+
+  color: white;
 }
