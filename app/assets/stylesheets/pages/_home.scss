@@ -110,6 +110,7 @@ body {
   border: none;
   background: transparent;
 
+
   cursor: pointer;
   outline-offset: 4px;
   transition: filter 250ms;
@@ -171,6 +172,7 @@ body {
     align-items: center;
     position: relative;
     padding: 10px;
+
     // border-radius: 10px;
     // width: 125px; // adjust as needed
     // height: 125px;
@@ -184,7 +186,16 @@ body {
     // background: linear-gradient(61deg, rgba(30,111,81,1) 1%,
     //   rgba(125,172,66,1) 91%,
     //   rgba(203,212,60,1) 100%);
-    background: linear-gradient(61deg, rgba(30,111,81,1) 1%, rgba(125,172,66,1) 73%, rgba(203,212,60,1) 85%);
+
+    //background: linear-gradient(61deg, rgba(30,111,81,1) 1%, rgba(125,172,66,1) 73%, rgba(203,212,60,1) 85%);
+    //background-image: url('codebar.png');
+
+    background:
+      url('codebar4.png'),
+      linear-gradient(61deg, rgba(30,111,81,1) 1%, rgba(125,172,66,1) 73%, rgba(203,212,60,1) 85%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
     will-change: transform;
     transform: translateY(-6px);
     transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
