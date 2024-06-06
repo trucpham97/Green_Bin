@@ -2,10 +2,9 @@
   background-color: $primary-color;
   display: flex;
   height: 10vh;
-  background: $primary-color;
+  background: $secondary-color;
   justify-content: space-evenly;
   align-items: center;
-  background-image: url('footer_image.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -14,4 +13,39 @@
   left: 0;
   right: 0;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.navbar-footer {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.navbar-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-item {
+  padding: 10px;
+}
+
+.navbar-item a {
+  color: black;
+  text-decoration: none;
+}
+
+.navbar-item a:hover {
+  text-decoration: underline;
+}
+
+.nav-icon {
+  height: 30px;
+}
+
+.active-icon {
+  fill: green !important;
+  color: green !important;
 }
