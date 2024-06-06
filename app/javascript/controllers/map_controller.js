@@ -31,7 +31,7 @@ export default class extends Controller {
         new mapboxgl.Marker()
           .setLngLat(userLocation)
           .setPopup(new mapboxgl.Popup({ offset: 25 })
-          .setHTML('<h4>Je suis ici</h4>'))
+          .setHTML('<h4>🤡</h4>'))
           .addTo(this.map);
       }, (error) => {
         console.error('Error obtaining geolocation', error);
@@ -41,13 +41,24 @@ export default class extends Controller {
     }
 
     this.#addMarkersToMap()
+    this.#fitMapToMarkers()
   }
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map)
     })
+  }
+
+  #fitMapToMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+    // Limit the number of markers to 3
+    const limitedMarkers = this.markersValue.slice(0, 3)
+    limitedMarkers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    this.map.fitBounds(bounds, { padding: 30, maxZoom: 20, duration: 0 })
   }
 }

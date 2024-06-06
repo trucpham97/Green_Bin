@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   # resources :users, except: [:index, :new, :create]
 
-  resources :products, only: [:index, :new, :create, :show]
+  resources :products, only: [:index, :new, :create, :show] do
+    resources :recycling_spots, only: [:index, :show]
+  end
 
-  resources :recycling_spots, only: [:index, :show]
   # Defines the root path route ("/")
   # root "posts#index"
 end

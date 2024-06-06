@@ -30,9 +30,9 @@ export default class extends Controller {
                 <div>
                   <h1>${newProduct.name}</h1>
                   <br>
-                  <h1>${newProduct.material}</h1>
-                  <br>
-                  <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+                  <div id=${newProduct.material}>
+                    ${newProduct.material}
+                  </div>
                 </div>
 
         `);
@@ -54,9 +54,9 @@ export default class extends Controller {
                   <div>
                     <h1>${newProduct.name}</h1>
                     <br>
-                    <h1>${newProduct.material}</h1>
-                    <br>
-                    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+                    <div id=${newProduct.material}>
+                      ${newProduct.material}
+                    </div>
                   </div>
 
           `);

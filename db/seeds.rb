@@ -57,6 +57,16 @@ selective_collection["values"].each do |waste|
   silo.save!
 end
 
+# Robin seed perso because no camera
+# 5.times do
+#   product_seeds = Product.new(
+#     name: "Bouteille de merde",
+#     image_url: "https://souriredessaveurs.com/3696-large_default/eau-perrier-24-bouteilles-de-33-cl-en-verre-consigne-consigne-de-420-comprise-dans-le-prix.jpg"
+#   )
+#   # product_seeds.tag_list.add("glass")
+#   product_seeds.save!
+# end
+
 # recycling_center_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gip_proprete.gipdecheterie_3_0_0/all.json?maxfeatures=-1&start=1"
 # recycling_center_serialized = URI.open(recycling_center_url).read
 # recycling_center = JSON.parse(recycling_center_serialized)
