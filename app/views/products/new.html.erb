@@ -40,7 +40,7 @@
 
   <%# Form is not displayed but is used to create products seemlessly in the background %>
   <div style="display: none">
-    <%= form_with(model: [@user, @product], local: true, id: "product-form") do |f| %>
+    <%= form_with(model: @product, url: products_path( format: :json ), method: :post, local: true, id: "product-form") do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name, id: "product_name" %>
       <%= f.label :image_url %>

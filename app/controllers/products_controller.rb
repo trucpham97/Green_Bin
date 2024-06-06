@@ -35,6 +35,10 @@ class ProductsController < ApplicationController
       @product.tag_list.add("unknown material")
     end
     @product.save!
+    respond_to do |format|
+      format.html { redirect_to product_path(@product) }
+      format.json { render json: { id: @product.id } }
+    end
   end
 
   def show
