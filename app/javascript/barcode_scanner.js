@@ -39,7 +39,7 @@ window.addEventListener('load', function () {
                 // Different ways to get the material of the product
                 console.log(data?.product?.packagings[0]?.material ?? 'Information non disponible');
                 console.log(data?.product?.packaging_tags ?? 'Information non disponible');
-              
+
                 // Fill Form with product data
                 document.getElementById('product_name').value = data.product.product_name;
                 document.getElementById('product_image_url').value = data.product.image_url;
@@ -50,7 +50,19 @@ window.addEventListener('load', function () {
                 document.getElementById('product_description').value = description;
 
                 // Form Auto-Submit
-                document.getElementById('product-form').submit();
+                // document.getElementById('product-form').submit();
+                const form = document.getElementById('product-form');
+
+                const url = form.action;
+                const formData = new FormData(form);
+                fetch(url, {
+                  method: 'POST',
+                  'Accept': 'application/json',
+                  body: formData
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
+
                 document.getElementById('product-card').innerHTML = '';
 
                 // Custom Event for Stimulus in product_controller.js (ask Thomas for help if needed)
