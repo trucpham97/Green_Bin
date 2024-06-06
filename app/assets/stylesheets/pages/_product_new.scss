@@ -54,11 +54,66 @@
   color: black;
 }
 
-#product-card h2 {
-  font-size: 1.2rem;
-  margin: 0;
-  font-weight: 400;
-  color: rgb(0, 0, 0);
+// #product-card h2 {
+//   font-size: 1.2rem;
+//   margin: 0;
+//   font-weight: 400;
+//   color: rgb(0, 0, 0);
+// }
+
+#Plastique {
+  // General Tag Styling
+  border-radius: 999px;
+  width: fit-content;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  // Specific Tag Styling
+  background-color: rgb(58, 58, 255);
+  color: white;
+}
+
+#Verre {
+  // General Tag Styling
+  border-radius: 999px;
+  width: fit-content;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  // Specific Tag Styling
+  background-color: rgb(0, 93, 0);
+  color: white;
+}
+
+#Carton {
+  // General Tag Styling
+  border-radius: 999px;
+  width: fit-content;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  // Specific Tag Styling
+  background-color: yellow;
+  color: black
+}
+
+#Aluminium {
+  // General Tag Styling
+  border-radius: 999px;
+  width: fit-content;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  // Specific Tag Styling
+  background-color: rgb(58, 58, 255);
+  color: white;
+}
+
+#Metal {
+  // General Tag Styling
+  border-radius: 999px;
+  width: fit-content;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  // Specific Tag Styling
+  background-color: rgb(76, 76, 76);
+  color: white;
 }
 
 // .target-on-scan {
