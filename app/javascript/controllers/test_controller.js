@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ['output'];
 
   test() {
-    const url = "https://world.openfoodfacts.org/api/v2/product/3270720005174.json"
+    const url = "https://world.openfoodfacts.org/api/v2/product/5900130036298.json"
 
     fetch(url)
     .then(response => response.json())

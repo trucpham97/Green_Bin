@@ -41,15 +41,25 @@ window.addEventListener('load', function () {
                 console.log("image", data.product.image_url);
                 // document.getElementById('product-images').innerHTML = '';
                 // document.getElementById('product-images').insertAdjacentHTML('beforeend', `<img src="${data.product.image_url}" alt="product image">`);
+                // Different ways to get the material of the product
+                console.log(data?.product?.packagings[0]?.material ?? 'Information non disponible');
+                console.log(data?.product?.packaging_tags ?? 'Information non disponible')
                 // Fill Form with product data
                 document.getElementById('product_name').value = data.product.product_name;
                 document.getElementById('product_image_url').value = data.product.image_url;
+                const material = data?.product?.packagings[0]?.material ?? 'Information non disponible';
+                document.getElementById('product_material').value = material;
+                console.log(data?.product?.packaging_text_fr);
+                const description = data?.product?.packaging_text_fr ?? 'Description non disponible';
+                document.getElementById('product_description').value = description;
                 // Form Auto-Submit
                 document.getElementById('product-form').submit();
                 document.getElementById('product-card').innerHTML = '';
                 document.getElementById('product-card').insertAdjacentHTML('beforeend', `<div style="background-color: red">${data.product.product_name} <br> <img src="${data.product.image_url}"> </div>`);
                 // Custom Event for Stimulus in product_controller.js (ask Thomas for help if needed)
-                const newProduct = { name: data.product.product_name, imageUrl: data.product.image_url };
+                const newProduct = { name: data.product.product_name,
+                  imageUrl: data.product.image_url,
+                  material: material};
                 document.dispatchEvent(new CustomEvent('product:created', { detail: { product: newProduct } }));
 
 
