@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+
   MATERIAL = {
     "en:plastic" => "plastic",
     "en:pet-1-polyethylen-terephthalate" => "plastic",
@@ -45,8 +46,7 @@ class ProductsController < ApplicationController
   end
 
   private
-  # no need to set user thanks to devise gem - use current_user
-
+  # no need to set user thanks to devise gem - use current_user instead
   # def set_user
   #   @user = User.find(params[:user_id])
   # end
