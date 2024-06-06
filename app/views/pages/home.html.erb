@@ -1,7 +1,7 @@
 
 
 
-<div class="container">
+<div class="homepage-container">
 
 
   <div class="option-card">
@@ -10,7 +10,7 @@
 
     <% if user_signed_in? %>
 
-      <%= link_to new_product_path, class: "booking-btn-link"  do %>
+      <%= link_to new_product_path, class: "pushable booking-btn-link" do %>
         <!-- <div class="booking-btn">
           <p>Scan a product!</p>
         </div> -->
@@ -19,7 +19,7 @@
           <span class="shadow"></span>
           <span class="edge"></span>
           <span class="front">
-            SCAN
+            Click to scan!
           </span>
         </button>
 
@@ -32,14 +32,6 @@
         </div>
       <% end %>
     <% end %>
-
-     <%# <button class="pushable">
-          <span class="shadow"></span>
-          <span class="edge"></span>
-          <span class="front">
-            SCAN
-          </span>
-        </button> %>
 
   </div>
 
