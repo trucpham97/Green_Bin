@@ -61,6 +61,9 @@ body {
 }
 
 .booking-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   // width: 200px;
   margin: auto;
   margin-top: 20px;
@@ -97,12 +100,16 @@ body {
 
 // BIG GREEN NOT FUN BUTTON:
 .pushable {
+
   margin-bottom: 20px;
   margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
   position: relative;
   border: none;
   background: transparent;
-  padding: 0;
+
   cursor: pointer;
   outline-offset: 4px;
   transition: filter 250ms;
@@ -167,31 +174,41 @@ body {
     // border-radius: 10px;
     // width: 125px; // adjust as needed
     // height: 125px;
-    font-size: 1.25rem;
+    // font-size: 1.25rem;
     color: white;
     // background: hsl(345deg 100% 47%);
     // background: rgba(hsl(169, 58%, 23%), 1);
     // background: rgba(hsl(66, 70%, 50%), 1);
     // background-color: #C4D33C;
     // background: linear-gradient(to right, #1E6F51, #C4D33C);
-    background: linear-gradient(61deg, rgba(30,111,81,1) 1%,
-      rgba(125,172,66,1) 91%,
-      rgba(203,212,60,1) 100%);
+    // background: linear-gradient(61deg, rgba(30,111,81,1) 1%,
+    //   rgba(125,172,66,1) 91%,
+    //   rgba(203,212,60,1) 100%);
+    background: linear-gradient(61deg, rgba(30,111,81,1) 1%, rgba(125,172,66,1) 73%, rgba(203,212,60,1) 85%);
     will-change: transform;
     transform: translateY(-6px);
     transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
 
-    font-weight: bold;
     letter-spacing: 2px;
-    font-size: 18px;
+    font-size: 22px;
+
+    // font-family: "Libre Barcode 128 Text", system-ui;
+    // font-weight: 400;
+    // font-style: bold;
+    // font-size: 46px;
   }
 }
 
 .front, .edge, .shadow {
   border-radius: 10px;
   // width: 180px; // adjust as needed
-  width: 200px;
   height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
 }
 
 // BIG RED BUTTON:
