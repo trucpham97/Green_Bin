@@ -1,12 +1,38 @@
-<h1>Magnifique page d'accueil</h1>
 
-<% if user_signed_in? %>
-  <%= link_to 'Scan a product', new_user_product_path(current_user), class: "booking-btn-link" %>
-<% else %>
-  <%= link_to 'Sign in to scan a product', new_user_session_path, class: "booking-btn-link" %>
-<% end %>
+<div class="container">
 
-<div data-controller="test">
+
+  <div class="option-card">
+    <p class="margin-p">Manual Searchbar</p>
+
+    <% if user_signed_in? %>
+
+      <%= link_to new_product_path, class: "booking-btn-link"  do %>
+        <div class="booking-btn">
+          <p>Scan a product!</p>
+        </div>
+      <% end %>
+    <% else %>
+
+      <%= link_to new_user_session_path, class: "booking-btn-link"  do %>
+        <div class="booking-btn">
+          <p>Log in to scan!</p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="option-card">
+    <p class="margin-p">Votre consommation: 44 kg de Co2</p>
+  </div>
+  <% 100.times do %>
+    <div class="circle-container">
+      <div class="circle"></div>
+    </div>
+  <% end %>
+
+</div>
+<!-- <div data-controller="test">
   <button data-action="click->test#test">Click me</button>
   <div data-test-target="output"></div>
-</div>
+</div> -->

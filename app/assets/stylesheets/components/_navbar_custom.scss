@@ -1,0 +1,113 @@
+.navbar-greenbin {
+  display: flex;
+  height: 10vh;
+  background: $primary-color;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-image: url('footer_image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+#logo {
+  border-radius: 50%;
+  height: 80%;
+  margin-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.neon {
+	font-weight: 100;
+	letter-spacing: 3px;
+}
+
+/*Neon Variables*/
+
+$light-color: yellow;
+$light-offset: 3px;
+$light-diffusion: 4px;
+$animation-duration: 5s;
+$animation-steps: (
+	// 0%: on,
+	// 3%: off,
+	// 5%: on,
+	// 15%: off,
+	// 100%: off
+
+  0%: off,
+	3%: on,
+	5%: off,
+	15%: on,
+	100%: on
+);
+
+/*Neon Style*/
+
+@mixin bg-status($status) {
+	@if $status == "on" {
+		opacity: 0.7;
+	} @else if $status == "off" {
+		opacity: 0.4;
+	}
+}
+
+@mixin text-status($status) {
+	@if $status == "on" {
+		color: white;
+		text-shadow: (-$light-offset) (-$light-offset) $light-diffusion $light-color,
+			$light-offset (-$light-offset) $light-diffusion $light-color,
+			$light-offset $light-offset $light-diffusion $light-color,
+			(-$light-offset) $light-offset $light-diffusion $light-color;
+	} @else if $status == "off" {
+		color: darken(white, 60);
+		text-shadow: none;
+	}
+}
+
+@keyframes bg-animation {
+	@each $step, $value in $animation-steps {
+		#{$step} {
+			@include bg-status($value);
+		}
+	}
+}
+
+@keyframes text-animation {
+	@each $step, $value in $animation-steps {
+		#{$step} {
+			@include text-status($value);
+		}
+	}
+}
+
+.neon {
+	position: relative;
+	display: inline-block;
+	z-index: 1;
+	@include text-status(on);
+
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		transform: scale(2, 8);
+		animation-name: bg-animation;
+		animation-duration: $animation-duration;
+		animation-iteration-count: infinite;
+		background-image: radial-gradient($light-color 0%, transparent 70%);
+		@include bg-status(off);
+	}
+
+	span {
+		@include text-status(off);
+		animation-name: text-animation;
+		animation-duration: $animation-duration;
+		animation-iteration-count: infinite;
+	}
+}
