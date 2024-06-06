@@ -3,14 +3,46 @@ body {
   background-color: $background-color;
 }
 
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+}
+
+.pill-btn{
+  display: flex;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 80px;
+  padding-right: 80px;
+  background: $secondary-color;
+  border-radius: 999em;
+  text-decoration: none;
+  color: lightgray;
+  font-size: 16px;
+      vertical-align: bottom;
+    white-space: nowrap;
+  letter-spacing: 2px;
+  transition: .15s background-color,.15s border-color,.15s color,.15s fill;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .option-card {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 
-  margin: auto;
-  margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  // margin-top: 20px;
   background-color: $secondary-color;
 
   border-radius: 10px;
@@ -18,7 +50,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 10px;
 
-  width: 80%;
+  width: 92.5%;
 }
 
 .margin-p {
@@ -63,105 +95,284 @@ body {
   text-decoration: none;
 }
 
-
-// From here: fun particles stuff
-.container {
-  width: 100%;
-  height: 100%;
-  // overflow: hidden;
+// BIG GREEN NOT FUN BUTTON:
+.pushable {
+  margin-bottom: 20px;
+  margin-top: 20px;
   position: relative;
-}
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
 
-.circle-container {
-  $particleNum: 50;
-  $particleColor: hsl(113, 92%, 29%);
-
-  position: absolute;
-  transform: translateY(-10vh);
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-
-  .circle {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    mix-blend-mode: screen;
-    background-image: radial-gradient(
-      hsl(113, 100%, 80%),
-      hsl(113, 100%, 80%) 10%,
-      hsla(113, 100%, 80%, 0) 56%
-    );
-
-    animation: fadein-frames 200ms infinite, scale-frames 2s infinite;
-
-    @keyframes fade-frames {
-      0% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.7;
-      }
-
-      100% {
-        opacity: 1;
-      }
+  &:active {
+    .front {
+      transform: translateY(0px);
+      transition: transform 34ms;
     }
 
-    @keyframes scale-frames {
-      0% {
-        transform: scale3d(0.4, 0.4, 1);
-      }
-
-      50% {
-        transform: scale3d(2.2, 2.2, 1);
-      }
-
-      100% {
-        transform: scale3d(0.4, 0.4, 1);
-      }
+    .shadow {
+      transform: translateY(1px);
+      transition: transform 34ms;
     }
   }
 
-  $particleBaseSize: 8;
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
 
+  .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    // border-radius: 10px;
+    // width: 125px; // adjust as needed
+    // height: 125px;
+    background: rgba(hsl(0deg, 0%, 0%), 0.25);
+    // background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(10px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+  }
 
-  @for $i from 1 through $particleNum {
-    &:nth-child(#{$i}) {
-      $circleSize: random($particleBaseSize);
-      width: $circleSize + px;
-      height: $circleSize + px;
+  .edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    // border-radius: 10px;
+    // width: 125px; // adjust as needed
+    // height: 125px;
+    // background: linear-gradient(to left, hsl(340deg 100% 16%) 0%,
+    //  hsl(340deg 100% 32%) 8%,
+    //   hsl(340deg 100% 32%) 92%,
+    //    hsl(340deg 100% 16%) 100%);
+    background: linear-gradient(to left,
+      rgba(hsl(116, 74%, 17%), 1) 0%,
+      rgba(hsl(339, 100%, 6%), 1) 8%,
+      rgba(hsl(129, 70%, 21%), 1) 92%,
+      rgba(hsl(124, 51%, 10%), 1) 100%);
+    background-color: #195F5B;
+  }
 
-      // $startPositionY: random(10) + 100;
-      $startPositionY: ($i * 2) + 100;
-      $framesName: "move-frames-" + $i;
-      $moveDuration: 50000 + random(9000) + ms;
+  .front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 10px;
+    // border-radius: 10px;
+    // width: 125px; // adjust as needed
+    // height: 125px;
+    font-size: 1.25rem;
+    color: white;
+    // background: hsl(345deg 100% 47%);
+    // background: rgba(hsl(169, 58%, 23%), 1);
+    // background: rgba(hsl(66, 70%, 50%), 1);
+    // background-color: #C4D33C;
+    // background: linear-gradient(to right, #1E6F51, #C4D33C);
+    background: linear-gradient(61deg, rgba(30,111,81,1) 1%,
+      rgba(125,172,66,1) 91%,
+      rgba(203,212,60,1) 100%);
+    will-change: transform;
+    transform: translateY(-6px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
 
-      animation-name: #{$framesName};
-      animation-duration: $moveDuration;
-      animation-delay: random(100000) + ms;
-
-      @keyframes #{$framesName} {
-        from {
-          transform: translate3d(
-            #{random(100) + vw},
-            #{$startPositionY + vh},
-            0
-          );
-        }
-
-        to {
-          transform: translate3d(
-            #{random(100) + vw},
-            #{- $startPositionY - random(30) + vh},
-            0
-          );
-        }
-      }
-
-      .circle {
-        animation-delay: random(4000) + ms;
-      }
-    }
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 18px;
   }
 }
+
+.front, .edge, .shadow {
+  border-radius: 10px;
+  // width: 180px; // adjust as needed
+  width: 200px;
+  height: 100px;
+}
+
+// BIG RED BUTTON:
+// .pushable {
+//   margin-bottom: 20px;
+//   margin-top: 20px;
+//   position: relative;
+//   border: none;
+//   background: transparent;
+//   padding: 0;
+//   cursor: pointer;
+//   outline-offset: 4px;
+//   transition: filter 250ms;
+
+//   &:active {
+//     .front {
+//       transform: translateY(0px);
+//       transition: transform 34ms;
+//     }
+
+//     .shadow {
+//       transform: translateY(1px);
+//       transition: transform 34ms;
+//     }
+//   }
+
+//   &:focus:not(:focus-visible) {
+//     outline: none;
+//   }
+
+//   .shadow {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     padding: 10px;
+//     border-radius: 50%;
+//     width: 125px; // adjust as needed
+//     height: 125px;
+//     background: rgba(hsl(0deg, 0%, 0%), 0.25);
+//     // background: hsl(0deg 0% 0% / 0.25);
+//     will-change: transform;
+//     transform: translateY(10px);
+//     transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+//   }
+
+//   .edge {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     padding: 10px;
+//     border-radius: 50%;
+//     width: 125px; // adjust as needed
+//     height: 125px;
+//     // background: linear-gradient(to left, hsl(340deg 100% 16%) 0%,
+//     //  hsl(340deg 100% 32%) 8%,
+//     //   hsl(340deg 100% 32%) 92%,
+//     //    hsl(340deg 100% 16%) 100%);
+//     background: linear-gradient(to left,
+//       rgba(hsl(340, 100%, 10%), 1) 0%,
+//       rgba(hsl(339, 100%, 6%), 1) 8%,
+//       rgba(hsl(340deg, 100%, 32%), 1) 92%,
+//       rgba(hsl(340deg, 100%, 16%), 1) 100%);
+//   }
+
+//   .front {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     position: relative;
+//     padding: 10px;
+//     border-radius: 50%;
+//     width: 125px; // adjust as needed
+//     height: 125px;
+//     font-size: 1.25rem;
+//     color: white;
+//     // background: hsl(345deg 100% 47%);
+//     background: rgba(hsl(358, 87%, 33%), 1);
+//     will-change: transform;
+//     transform: translateY(-6px);
+//     transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+//   }
+// }
+
+// FUN PARTICLES STUFF
+// .container {
+//   width: 100%;
+//   height: 100%;
+//   // overflow: hidden;
+//   position: relative;
+// }
+
+// .circle-container {
+//   $particleNum: 50;
+//   $particleColor: hsl(113, 92%, 29%);
+
+//   position: absolute;
+//   transform: translateY(-10vh);
+//   animation-iteration-count: infinite;
+//   animation-timing-function: linear;
+
+//   .circle {
+//     width: 100%;
+//     height: 100%;
+//     border-radius: 50%;
+//     mix-blend-mode: screen;
+//     background-image: radial-gradient(
+//       hsl(113, 100%, 80%),
+//       hsl(113, 100%, 80%) 10%,
+//       hsla(113, 100%, 80%, 0) 56%
+//     );
+
+//     animation: fadein-frames 200ms infinite, scale-frames 2s infinite;
+
+//     @keyframes fade-frames {
+//       0% {
+//         opacity: 1;
+//       }
+
+//       50% {
+//         opacity: 0.7;
+//       }
+
+//       100% {
+//         opacity: 1;
+//       }
+//     }
+
+//     @keyframes scale-frames {
+//       0% {
+//         transform: scale3d(0.4, 0.4, 1);
+//       }
+
+//       50% {
+//         transform: scale3d(2.2, 2.2, 1);
+//       }
+
+//       100% {
+//         transform: scale3d(0.4, 0.4, 1);
+//       }
+//     }
+//   }
+
+//   $particleBaseSize: 8;
+
+
+//   @for $i from 1 through $particleNum {
+//     &:nth-child(#{$i}) {
+//       $circleSize: random($particleBaseSize);
+//       width: $circleSize + px;
+//       height: $circleSize + px;
+
+//       // $startPositionY: random(10) + 100;
+//       $startPositionY: ($i * 2) + 100;
+//       $framesName: "move-frames-" + $i;
+//       $moveDuration: 50000 + random(9000) + ms;
+
+//       animation-name: #{$framesName};
+//       animation-duration: $moveDuration;
+//       animation-delay: random(100000) + ms;
+
+//       @keyframes #{$framesName} {
+//         from {
+//           transform: translate3d(
+//             #{random(100) + vw},
+//             #{$startPositionY + vh},
+//             0
+//           );
+//         }
+
+//         to {
+//           transform: translate3d(
+//             #{random(100) + vw},
+//             #{- $startPositionY - random(30) + vh},
+//             0
+//           );
+//         }
+//       }
+
+//       .circle {
+//         animation-delay: random(4000) + ms;
+//       }
+//     }
+//   }
+// }
