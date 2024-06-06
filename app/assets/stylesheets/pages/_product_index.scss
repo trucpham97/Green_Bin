@@ -1,0 +1,45 @@
+.homepage-container-index-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80vh;
+  margin-top: 10px;
+}
+
+.index-card {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  background-color: $secondary-color;
+
+  border-radius: 10px;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  width: 92.5%;
+  overflow: hidden;
+}
+
+.small-square-image {
+  border-radius: 10px;
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+}
+
+.text-align-column-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.p-no-margin-index {
+  margin: 0;
+}
