@@ -32,15 +32,17 @@ $light-offset: 2px;
 $light-diffusion: 3px;
 $animation-duration: 5s;
 $animation-steps: (
-	// 0%: on,
-	// 3%: off,
-	// 5%: on,
-	// 15%: off,
-	// 100%: off
-  0%: off,
-	3%: on,
-	5%: off,
+  // 0%: off,
+	// 3%: on,
+	// 5%: off,
+	// 15%: on,
+	// 100%: on
+  0%: on,
+  5%:on,
+  10%: off,
 	15%: on,
+	20%: off,
+	25%: on,
 	100%: on
 );
 
