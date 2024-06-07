@@ -3,8 +3,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 80vh;
+  min-height: 80vh;
   margin-top: 10px;
+  overflow: scroll;
 }
 
 .index-card {
@@ -13,6 +14,7 @@
   flex-direction: row;
   justify-content: flex-start;
   gap: 10px;
+  flex-wrap: wrap;
 
   margin-right: 10px;
   margin-left: 10px;
