@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :recycling_spots, only: [:show]
   get "map", to: "recycling_spots#list"
-
+  get "score", to: "products#score"
   # Defines the root path route ("/")
   # root "posts#index"
 end
