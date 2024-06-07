@@ -33,6 +33,7 @@ export default class extends Controller {
                   <div id=${newProduct.material}>
                     ${newProduct.material}
                   </div>
+                  <a class="product-link btn btn-primary">Trier ${newProduct.name} </a>
                 </div>
 
         `);

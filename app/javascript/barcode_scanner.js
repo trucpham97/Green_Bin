@@ -95,15 +95,21 @@ window.addEventListener('load', function () {
                   body: formData
                 })
                 .then(response => response.json())
-                .then(data => console.log(data))
+                .then(data => {
+                  const id = data.id;
+                  const cardLink = document.querySelector('.product-link');
+                  cardLink.href = `/products/${id}/recycling_spots`;
+                  })
 
                 document.getElementById('product-card').innerHTML = '';
-
                 // Custom Event for Stimulus in product_controller.js (ask Thomas for help if needed)
-                const newProduct = { name: data.product.product_name,
+                const newProduct = {
+                  name: data.product.product_name,
                   imageUrl: data.product.image_url,
-                  material: material_fr};
+                  material: material_fr
+                };
                 document.dispatchEvent(new CustomEvent('product:created', { detail: { product: newProduct } }));
+
 
             } catch (error) {
                 console.error('Erreur lors de la récupération du produit:', error);

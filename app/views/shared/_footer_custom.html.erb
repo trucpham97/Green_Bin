@@ -5,7 +5,7 @@
         <%= link_to svg_tag('home_icon', alt: 'Home'), root_path, class: "#{'active-icon' if current_page?(root_path)}" %>
         </li>
       <li class="navbar-item">
-        <%= link_to svg_tag('map', alt: 'Map'), products_path, class: "#{'active-icon' if current_page?(products_path)}" %>
+        <%= link_to svg_tag('map', alt: 'Map'), map_path, class: "#{'active-icon' if current_page?(products_path)}" %>
       <li class="navbar-item">
         <%= link_to svg_tag('barcode', alt: 'Scan'), new_product_path, class: "#{'active-icon' if current_page?(new_product_path)}" %>
       <li class="navbar-item">
