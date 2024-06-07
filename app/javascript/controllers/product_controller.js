@@ -26,14 +26,22 @@ export default class extends Controller {
         document.getElementById('product-card').innerHTML = '';
         document.getElementById('product-card').insertAdjacentHTML('beforeend',`
 
-                <img src="${newProduct.imageUrl}">
-                <div>
-                  <h1>${newProduct.name}</h1>
-                  <br>
-                  <div id=${newProduct.material}>
-                    ${newProduct.material}
+                <div id="product-card-top">
+                  <div id="pill" ></div>
+                </div>
+                <div id="product-card-middle">
+                  <img src="${newProduct.imageUrl}">
+                  <div>
+                    <h1>${newProduct.name}</h1>
+                    <br>
+                    <div id=${newProduct.material}>
+                      ${newProduct.material}
+                    </div>
                   </div>
-                  <a class="product-link btn btn-primary">Trier ${newProduct.name} </a>
+                </div>
+                <div id="product-card-bottom">
+                  <a href=${newProduct.link} class="product-link">Localiser une borne de tri</a>
+                  <a class="smoke-screen">Signaler un problème</a>
                 </div>
 
         `);
@@ -51,14 +59,23 @@ export default class extends Controller {
           document.getElementById('product-card').innerHTML = '';
           document.getElementById('product-card').insertAdjacentHTML('beforeend',`
 
-                  <img src="${newProduct.imageUrl}">
-                  <div>
-                    <h1>${newProduct.name}</h1>
-                    <br>
-                    <div id=${newProduct.material}>
-                      ${newProduct.material}
-                    </div>
-                  </div>
+          <div id="product-card-top">
+            <div id="pill" ></div>
+          </div>
+          <div id="product-card-middle">
+            <img src="${newProduct.imageUrl}">
+            <div>
+              <h1>${newProduct.name}</h1>
+              <br>
+              <div id=${newProduct.material}>
+                ${newProduct.material}
+              </div>
+            </div>
+          </div>
+          <div id="product-card-bottom">
+            <a class="product-link">Localiser une borne de tri</a>
+            <a class="smoke-screen">Signaler un problème</a>
+          </div>
 
           `);
         }, 500);
