@@ -28,7 +28,12 @@ export default class extends Controller {
         this.map.setZoom(14);
 
         // Add a marker at the user's location
-        new mapboxgl.Marker()
+        // Customize the marker by creating a 'div' element with custom styles
+        const currentUserLocationMarker = document.createElement('div');
+        currentUserLocationMarker.className = 'user-marker';
+
+        // Add the custom marker to the map
+        new mapboxgl.Marker(currentUserLocationMarker)
           .setLngLat(userLocation)
           .setPopup(new mapboxgl.Popup({ offset: 25 })
           .setHTML('<h4>🤡</h4>'))
