@@ -1,6 +1,6 @@
 <div class="homepage-container-index-product">
 
-  <% @products.each do |product| %>
+  <% @products.reverse_each do |product| %>
 
     <div class="index-card">
       <%= image_tag product.image_url, class: "small-square-image"%>
