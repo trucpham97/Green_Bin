@@ -77,12 +77,13 @@ class ProductsController < ApplicationController
 
   #méthode pour calculer le score, à implémenter la deuxième semaine
   def score
-    current_user.emission = 0
+    @score = current_user.emission
+    @score = 0
     # current_user.products.each do |product|
     #   current_user.emission += product.emission
     # end
-    current_user.emission += 10
-    current_user.emission
+    @score += 10
+    @amount = Product.all.count
   end
 
   private
