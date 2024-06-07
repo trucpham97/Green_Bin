@@ -11,6 +11,17 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+  # def filter
+  #   @product = Product.find(params[:id])
+  #   @recycling_spots = RecyclingSpot.tagged_with(@product.tag_list, any: true)
+  #   @markers = @recycling_spots.map do |recycling_spot|
+  #     {
+  #       lat: recycling_spot.latitude,
+  #       lng: recycling_spot.longitude,
+  #       info_window_html: render_to_string(partial: "shared/info_window", locals: {recycling_spot: recycling_spot}),
+  #     }
+  #   end
+  # end
 
   MATERIAL = {
     "en:plastic" => "plastic",
