@@ -486,7 +486,7 @@ $animationProps: $speed linear infinite alternate;
   width: $componentSize;
   &:before {
       content: 'SCAN';
-      filter: blur(3px);
+      filter: blur(2px);
   }
   &:after {
     content: '';
