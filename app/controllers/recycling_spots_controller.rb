@@ -1,5 +1,6 @@
 class RecyclingSpotsController < ApplicationController
   before_action :set_product, only: [:index]
+  layout 'just_no_navbar', only: [:index, :list]
   def index
     @recycling_spots = RecyclingSpot.tagged_with(@product.tag_list, any: true)
     set_markers
