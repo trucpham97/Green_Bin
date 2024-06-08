@@ -10,6 +10,11 @@
 
         <p class="p-no-margin-index material-gellule" style="background-color: <%= display_material(product)[:color] %>;"><%= display_material(product)[:name] %></p>
       </div>
+        <%= form_with url: product_path(product), method: :delete, local: true do %>
+            <button type="submit" style="background: none; border: none;">
+              <%= image_tag "bin_icon.png", alt: "Delete", class: "small-bin-icon"%>
+            </button>
+        <% end %>
     </div>
   <% end %>
 

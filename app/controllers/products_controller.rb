@@ -54,6 +54,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   helper_method :display_material
@@ -77,8 +78,12 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    flash[:notice] = "Product was successfully deleted" if @product.destroy
-    redirect_to root_path
+    if @product.destroy
+      flash[:notice] = "Product was successfully deleted"
+    else
+      flash[:alert] = "There was an error deleting the product"
+    end
+    redirect_to products_path
   end
 
   #méthode pour calculer le score, à implémenter la deuxième semaine
