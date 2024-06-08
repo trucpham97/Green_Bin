@@ -60,19 +60,25 @@ class ProductsController < ApplicationController
 
   def display_material(product)
     case product.material
-    when 'en:pet-1-polyethylen-terephthalate' || 'en:plastic' || 'en:pet-1-polyethylene-terephthalate'
+    when 'plastic'
       { name: 'Plastique', color: 'yellow' }
-    when 'en:glass' || 'en:green-glass' || 'en:clear-glass' || 'en:bottle'
+    when 'glass'
       { name: 'Verre', color: 'green' }
-    when "en:cardboard" || "en:paperboard"
+    when "paper"
       { name: 'Carton', color: 'yellow' }
-    when "en:aluminum" || "en:canned"
+    when "aluminum"
       { name: 'Aluminium', color: 'grey' }
-    when "en:metal" || "en:steel"
+    when "metal"
       { name: 'Métal', color: 'grey' }
     else
       { name: 'Materiaux non disponibles', color: 'black' }
     end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    flash[:notice] = "Product was successfully deleted" if @product.destroy
+    redirect_to root_path
   end
 
   #méthode pour calculer le score, à implémenter la deuxième semaine
