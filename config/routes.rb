@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   # resources :users, except: [:index, :new, :create]
 
-  resources :products, only: [:index, :new, :create, :show] do
+  resources :products, only: [:index, :new, :create, :show, :destroy] do
     resources :recycling_spots, only: [:index]
   end
 

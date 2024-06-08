@@ -30,6 +30,8 @@
 
   width: 92.5%;
   overflow: hidden;
+
+  position: relative;
 }
 
 .small-square-image {
@@ -69,4 +71,17 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
 
   color: white;
+}
+
+.small-bin-icon {
+  height: 30px;
+  width: 30px;
+
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.small-bin-icon:active {
+  transform: scale(0.8);
 }
