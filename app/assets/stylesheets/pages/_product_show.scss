@@ -1,0 +1,14 @@
+.clickable-icon svg{
+  //transition: transform 0.2s ease;
+  width: 55px;
+  height: 55px;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  fill: #1B615D;
+}
+
+.clickable-icon:active svg {
+  transform: scale(0.6);
+}

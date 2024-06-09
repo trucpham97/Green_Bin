@@ -12,13 +12,11 @@ require 'json'
 
 RecyclingSpot.destroy_all
 
-puts "(1/6) Opening API grandlyon for glass silos..."
-
 url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.siloverre/all.json?maxfeatures=-1"
 glass_silo_serialized = URI.open(url).read
 glass_silo = JSON.parse(glass_silo_serialized)
 
-puts "(2/6) Creating glass silos..."
+puts "(1/3) Creating glass silos..."
 
 glass_silo["values"].each do |glass|
   silo = RecyclingSpot.new(
@@ -31,13 +29,11 @@ glass_silo["values"].each do |glass|
   silo.save!
 end
 
-puts "(3/6) Opening API grandlyon for paper silos..."
-
 house_waste_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.orduresmenageres/all.json?maxfeatures=-1&start=1"
 house_waste_silo_serialized = URI.open(house_waste_url).read
 house_waste_silo = JSON.parse(house_waste_silo_serialized)
 
-puts "(4/6) Creating house waste silos..."
+puts "(2/3) Creating house waste silos..."
 house_waste_silo["values"].each do |waste|
   silo = RecyclingSpot.new(
     address: waste["adresse"],
@@ -49,13 +45,11 @@ house_waste_silo["values"].each do |waste|
   silo.save!
 end
 
-puts "(5/6) Opening API grandlyon for selective collection silos..."
-
 selective_collection_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.collecteselective/all.json?maxfeatures=-1&start=1"
 selective_collection_serialized = URI.open(selective_collection_url).read
 selective_collection = JSON.parse(selective_collection_serialized)
 
-puts "(6/6) Creating selective collection silos..."
+puts "(3/3) Creating selective collection silos..."
 
 selective_collection["values"].each do |waste|
   silo = RecyclingSpot.new(

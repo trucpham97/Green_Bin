@@ -2,6 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
+
 // Variables html
 @import "config/variables";
 
@@ -14,6 +15,17 @@
 @import "components/index";
 @import "pages/index";
 
-// Product new scss
+// Product scss
 @import "pages/product_new";
 @import "pages/product_index";
+@import "pages/product_show";
+
+
+// Fonts for app
+body {
+  font-family: $headers-font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $body-font;
+}
