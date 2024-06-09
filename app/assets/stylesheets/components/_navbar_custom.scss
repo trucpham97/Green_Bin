@@ -24,10 +24,29 @@
   margin-right: 10px;
 }
 
+.logo-title {
+  font-family: $title-font;
+  font-size: 24px;
+  color: white;
+  letter-spacing: 2px;
+  //font-weight: bold;
+
+  margin: 0;
+
+  // display: block;
+  // margin-left: auto;
+  // margin-right: auto;
+}
+
 .neon {
 	font-weight: 100;
 	letter-spacing: 3px;
   font-size: 20px;
+}
+
+.profile-custom-class {
+  margin-right: 10px;
+  
 }
 
 /*Neon Variables*/

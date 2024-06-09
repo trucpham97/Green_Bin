@@ -17,3 +17,12 @@
 // Product new scss
 @import "pages/product_new";
 @import "pages/product_index";
+
+// Fonts for app
+body {
+  font-family: $headers-font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $body-font;
+}

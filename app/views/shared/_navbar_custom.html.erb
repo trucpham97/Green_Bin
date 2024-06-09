@@ -4,22 +4,26 @@
 
   <%= image_tag("Green_Bin_Logo.png", id: "logo") %>
 
-  <div class="neon">
+  <!-- <div class="neon">
     <span>GREEN </span>
-    BIN <!-- <span>N</span> -->
-  </div>
+    BIN
+  </div> -->
+
+  <h1 class="logo-title">GREEN BIN</h1>
 
   <!-- <button class="navbar-toggler small-margin-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button> -->
-    <div class="small-margin-right" id="navbarSupportedContent">
+    <div id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
 
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <!--<a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+          <a href="#" class="profile-custom-class" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true">
+
             <%= image_tag "profile_lines.png", class: "avatar", alt: "dropdown menu", id: "Avatar-Icon" %>
-            
+
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" id="dropdown-list" >
               <%= link_to "Home", root_path, class: "dropdown-item", id: "dropdown-li" %>
