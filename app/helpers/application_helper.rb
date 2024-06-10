@@ -17,4 +17,9 @@ module ApplicationHelper
 
     raw svg_content
   end
+
+  # Saving cookies for camera permission (See Thomas for help if needed)
+  def camera_permission_granted?
+    cookies[:camera_permission] == 'granted'
+  end
 end
