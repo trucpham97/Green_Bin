@@ -165,7 +165,7 @@ User.create!(
 
 User.create!(
   username: '@Mercuriot',
-  emission: '72',
+  emission: '79',
   email: 'test3@gmail.com',
   password: '123456',
   avatar: 'userpictures/ThoMercuriot.jpg'
