@@ -12,57 +12,59 @@ require 'json'
 
 
 # DECOMMENTER CE PASSAGE POUR SEED LES SILOS:
-# RecyclingSpot.destroy_all
+puts "Destroying all Recycling spots"
+RecyclingSpot.destroy_all
 
-# url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.siloverre/all.json?maxfeatures=-1"
-# glass_silo_serialized = URI.open(url).read
-# glass_silo = JSON.parse(glass_silo_serialized)
+puts "Starting to seed the Recycling spots"
+url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.siloverre/all.json?maxfeatures=-1"
+glass_silo_serialized = URI.open(url).read
+glass_silo = JSON.parse(glass_silo_serialized)
 
-# puts "(1/3) Creating glass silos..."
+puts "(1/3) Creating glass silos..."
 
-# glass_silo["values"].each do |glass|
-#   silo = RecyclingSpot.new(
-#     address: glass["adresse"],
-#     category: "glass",
-#     latitude: glass["lat"],
-#     longitude: glass["lon"]
-#   )
-#   silo.tag_list.add("glass")
-#   silo.save!
-# end
+glass_silo["values"].each do |glass|
+  silo = RecyclingSpot.new(
+    address: glass["adresse"],
+    category: "glass",
+    latitude: glass["lat"],
+    longitude: glass["lon"]
+  )
+  silo.tag_list.add("glass")
+  silo.save!
+end
 
-# house_waste_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.orduresmenageres/all.json?maxfeatures=-1&start=1"
-# house_waste_silo_serialized = URI.open(house_waste_url).read
-# house_waste_silo = JSON.parse(house_waste_silo_serialized)
+house_waste_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.orduresmenageres/all.json?maxfeatures=-1&start=1"
+house_waste_silo_serialized = URI.open(house_waste_url).read
+house_waste_silo = JSON.parse(house_waste_silo_serialized)
 
-# puts "(2/3) Creating house waste silos..."
-# house_waste_silo["values"].each do |waste|
-#   silo = RecyclingSpot.new(
-#     address: waste["adresse"],
-#     category: "house waste",
-#     latitude: waste["lat"],
-#     longitude: waste["lon"]
-#   )
-#   silo.tag_list.add("house waste")
-#   silo.save!
-# end
+puts "(2/3) Creating house waste silos..."
+house_waste_silo["values"].each do |waste|
+  silo = RecyclingSpot.new(
+    address: waste["adresse"],
+    category: "house waste",
+    latitude: waste["lat"],
+    longitude: waste["lon"]
+  )
+  silo.tag_list.add("house waste")
+  silo.save!
+end
 
-# selective_collection_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.collecteselective/all.json?maxfeatures=-1&start=1"
-# selective_collection_serialized = URI.open(selective_collection_url).read
-# selective_collection = JSON.parse(selective_collection_serialized)
+selective_collection_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.collecteselective/all.json?maxfeatures=-1&start=1"
+selective_collection_serialized = URI.open(selective_collection_url).read
+selective_collection = JSON.parse(selective_collection_serialized)
 
-# puts "(3/3) Creating selective collection silos..."
+puts "(3/3) Creating selective collection silos..."
 
-# selective_collection["values"].each do |waste|
-#   silo = RecyclingSpot.new(
-#     address: waste["adresse"],
-#     category: "selective collection",
-#     latitude: waste["lat"],
-#     longitude: waste["lon"]
-#   )
-#   silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal")
-#   silo.save!
-# end
+selective_collection["values"].each do |waste|
+  silo = RecyclingSpot.new(
+    address: waste["adresse"],
+    category: "selective collection",
+    latitude: waste["lat"],
+    longitude: waste["lon"]
+  )
+  silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal")
+  silo.save!
+end
 
 # Robin seed perso because no camera
 # Create a user
@@ -75,7 +77,8 @@ user_test = User.create!(
   username: '@1648-RPZ',
   emission: '60',
   email: 'lewagon@lewagon.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/BatchPicture.jpg'
 )
 puts "Seeding products"
 
@@ -148,108 +151,122 @@ User.create!(
   username: '@DenverLeDernierDino',
   emission: '1',
   email: 'test1@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/Denverthelastdino.jpg'
 )
 
 User.create!(
   username: '@AlexMieral',
   emission: '8',
   email: 'test2@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/Alex.jpg'
 )
 
 User.create!(
-  username: '@ThomasMerc',
+  username: '@Mercuriot',
   emission: '72',
   email: 'test3@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/ThoMercuriot.jpg'
 )
 
 User.create!(
   username: '@TrucPham',
   emission: '41',
   email: 'test4@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/TrucBidon.png'
 )
 
 User.create!(
   username: '@Messycodegames',
   emission: '42',
   email: 'test5@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/Rob1.jpg'
 )
 
 User.create!(
   username: '@Choucrouteland',
   emission: '13',
   email: 'test6@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/Ptitien.jpg'
 )
 
 User.create!(
   username: '@TheG',
   emission: '61',
   email: 'test7@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/GGraldine.jpg'
 )
 
 User.create!(
   username: '@Anatole',
   emission: '51',
   email: 'test8@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/Joaquin.jpg'
 )
 
 User.create!(
   username: '@xX_T-O_Xx',
   emission: '38',
   email: 'test9@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/Theo.jpg'
 )
 
 User.create!(
   username: '@Egovox',
   emission: '44',
   email: 'test10@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/Steph.jpg'
 )
 
 User.create!(
   username: '@EtLesHautNords',
   emission: '33',
   email: 'test11@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/Eleonore.jpg'
 )
 
 User.create!(
   username: '@LadyCapulet',
   emission: '29',
   email: 'test12@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/Jess.jpg'
 )
 
 User.create!(
   username: '@BCBen',
   emission: '22',
   email: 'test13@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/Ben.png'
 )
 
 User.create!(
   username: '@Yanis51commelepastis',
   emission: '7',
   email: 'test14@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/YanisPastis.png'
 )
 
 User.create!(
   username: '@NicoGone69',
   emission: '38',
   email: 'test15@gmail.com',
-  password: '123456'
+  password: '123456',
+  avatar: 'userpictures/Nico.jpg'
 )
 
-puts "Seeds are all done"
 # recycling_center_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gip_proprete.gipdecheterie_3_0_0/all.json?maxfeatures=-1&start=1"
 # recycling_center_serialized = URI.open(recycling_center_url).read
 # recycling_center = JSON.parse(recycling_center_serialized)
@@ -263,3 +280,6 @@ puts "Seeds are all done"
 #     longitude: waste["lon"]
 #   )
 # end
+
+puts "Seeds are all done"
+puts "Now get back to work or I'll fire you"
