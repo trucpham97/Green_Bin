@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  layout 'no_navbar', only: [:intro]
 
   def show
     @user = User.find(params[:id])
@@ -24,6 +25,10 @@ class UsersController < ApplicationController
 
   def score
     @users = User.all.sort_by(&:total_emission).reverse
+  end
+
+  def intro
+    @user = current_user
   end
 
   private
