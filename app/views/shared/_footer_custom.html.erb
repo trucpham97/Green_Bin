@@ -1,4 +1,4 @@
-<div class="footer-container">
+<!-- <div class="footer-container">
   <div class="navbar-footer">
     <ul class="navbar-list">
       <li class="navbar-item ">
@@ -14,4 +14,60 @@
         <%= link_to svg_tag('list', alt: 'List'), products_path, class: "#{'active-icon' if current_page?(products_path)}" %></li>
     </ul>
   </div>
+</div> -->
+<div class="footer-body">
+
+  <div id="page" class ="site">
+    <div class="container">
+      <nav class="footer-navigator">
+        <ul class="footer-list">
+
+          <li class="<%= 'active' if current_page?(root_path) %>">
+            <%= link_to root_path do %>
+              <span>Accueil</span>
+              <%= svg_tag('home_icon', alt: 'Home') %>
+            <% end %>
+          </li>
+
+          <li class="<%= 'active' if current_page?( map_path) %>">
+            <%= link_to map_path do %>
+              <span>Carte</span>
+              <%= svg_tag('map', alt: 'Map') %>
+            <% end %>
+          </li>
+
+          <li class="<%= 'active' if current_page?(new_product_path) %>">
+            <%= link_to new_product_path do %>
+              <span>Scan</span>
+              <%= svg_tag('barcode', alt: 'Scan') %>
+            <% end %>
+          </li>
+
+          <li class="<%= 'active' if current_page?(score_path) %>">
+            <%= link_to score_path do %>
+              <span>Score</span>
+              <%= svg_tag('score', alt: 'Score') %>
+            <% end %>
+          </li>
+
+          <li class="<%= 'active' if (current_page?(products_path) || (controller_name == 'products' && action_name == 'show')) %>">
+            <%= link_to products_path do %>
+              <span>Liste</span>
+              <%= svg_tag('list', alt: 'List') %>
+            <% end %>
+          </li>
+
+          <!-- <li class="active"><a href="#" id="home"><span>Accueil</span><i class="ri-home-smile-line"></i></a></li> -->
+          <!-- <li><a href="#" id="map"><span>Carte</span><i class="ri-map-pin-5-line"></i></a></li>
+          <li><a href="#" id="scan"><span>Scan</span><i class="ri-barcode-line"></i></a></li>
+          <li><a href="#" id="score"><span>Score</span><i class="ri-bar-chart-2-line"></i></a></li>
+          <li><a href="#" id="list"><span>Liste</span><i class="ri-file-list-3-line"></i></a></li> -->
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+
 </div>
+
+<script> src="footer.js" </script>
