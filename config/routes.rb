@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  get "informations", to: "pages#informations"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -17,7 +18,6 @@ Rails.application.routes.draw do
 
   resources :recycling_spots, only: [:show]
   get "map", to: "recycling_spots#list"
-  get "score", to: "products#score"
   # Defines the root path route ("/")
   # root "posts#index"
 end
