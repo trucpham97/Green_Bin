@@ -28,7 +28,6 @@ class UsersController < ApplicationController
   end
 
   def intro
-    @user = current_user
   end
 
   private
