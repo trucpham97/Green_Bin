@@ -1,2 +1,24 @@
-<p><%= recycling_spot.address%></p>
-<p><%= recycling_spot.category%></p>
+<% if recycling_spot.tag_list == ["glass", "plastic", "paper", "aluminum", "house waste", "metal"] %>
+  <h5>Borne à collection sélective</h5>
+  <p><%= recycling_spot.address%></p>
+  <div class= "d-flex gap-1 flex-wrap">
+    <span class="badge rounded-pill bg-dark-subtle">Ordures ménagères</span>
+    <span class="badge rounded-pill bg-warning">Plastique</span>
+    <span class="badge rounded-pill bg-success">Verre</span>
+    <span class="badge rounded-pill bg-primary">Carton</span>
+    <span class="badge rounded-pill bg-secondary">Métal</span>
+    <span class="badge rounded-pill bg-secondary">Aluminium</span>
+  </div>
+<% elsif recycling_spot.tag_list == ["house waste"] %>
+  <h5>Borne à ordures ménagères</h5>
+  <p><%= recycling_spot.address%></p>
+  <span class="badge rounded-pill bg-tertiary">Ordures ménagères</span>
+<% elsif recycling_spot.tag_list == ["glass"] %>
+  <h5>Silo à verre</h5>
+  <p><%= recycling_spot.address%></p>
+  <span class="badge rounded-pill bg-success">Verre</span>
+<% elsif recycling_spot.tag_list == ["paper"] %>
+  <h5>Silo à carton</h5>
+  <p><%= recycling_spot.address%></p>
+  <span class="badge rounded-pill bg-success">Carton</span>
+<% end %>

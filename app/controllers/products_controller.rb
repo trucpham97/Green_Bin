@@ -66,7 +66,7 @@ class ProductsController < ApplicationController
     when 'glass'
       { name: 'Verre', color: 'green' }
     when "paper"
-      { name: 'Carton', color: 'yellow' }
+      { name: 'Carton', color: 'blue' }
     when "aluminum"
       { name: 'Aluminium', color: 'grey' }
     when "metal"
