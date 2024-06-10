@@ -10,4 +10,7 @@ class User < ApplicationRecord
   # validates :email, presence: true, uniqueness: true
   # validates :location, presence: true
   # validates :emissions, presence: true
+  def total_emission
+    emission + products.count
+  end
 end
