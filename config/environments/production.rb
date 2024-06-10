@@ -95,4 +95,8 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  # Add ngrok subdomain to allowed hosts (See Thomas for help if needed)
+  # Command line ==> ngrok http http://localhost:3000
+  Rails.application.config.hosts << /.*\.ngrok-free\.app/
 end
