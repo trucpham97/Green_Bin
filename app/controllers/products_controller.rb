@@ -87,14 +87,14 @@ class ProductsController < ApplicationController
   end
 
   #méthode pour calculer le score, à implémenter la deuxième semaine
-  def score
-    @score = current_user.emission
-    # current_user.products.each do |product|
-    #   current_user.emission += product.emission
-    # end
-    @amount = Product.all.count
-    @score = @amount * 15
-  end
+  # def score
+  #   @score = current_user.emission
+  #   # current_user.products.each do |product|
+  #   #   current_user.emission += product.emission
+  #   # end
+  #   @amount = Product.all.count
+  #   @score = @amount * 15
+  # end
 
   private
   # no need to set user thanks to devise gem - use current_user instead

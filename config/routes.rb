@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :users, only: [:show]
+  get "score", to: "users#score"
   # resources :users, except: [:index, :new, :create]
 
   resources :products, only: [:index, :new, :create, :show, :destroy] do
