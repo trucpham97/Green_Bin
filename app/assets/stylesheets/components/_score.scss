@@ -1,0 +1,12 @@
+.current-user {
+  background-color: green;
+  color: white;
+}
+
+.avatar {
+  width: 50px; /* Adjust size as needed */
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover; /* Ensures the image covers the circle without distortion */
+  margin-right: 10px; /* Space between avatar and username */
+}

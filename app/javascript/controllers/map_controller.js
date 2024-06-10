@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="map"
 export default class extends Controller {
@@ -47,12 +48,19 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
+    // Add the search to the map
+    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl }))
   }
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-      new mapboxgl.Marker()
+      const spot = document.createElement("div")
+      spot.innerHTML = marker.marker_html
+
+      new mapboxgl.Marker(spot)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)

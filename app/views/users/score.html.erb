@@ -1,0 +1,6 @@
+<h1 class="m-4 text-center">Eco-Classement :</h1>
+<% @users.each_with_index do |user, index| %>
+<div class="d-flex flex-column align-items-center option-card <%= 'current-user' if user == current_user %>">
+  <p><%= index + 1 %>   -   <%= image_tag(asset_path(user.avatar), class: 'avatar') %> <%= user.username %>   -   <%= user.emission.to_i %></p>
+</div>
+<% end %>
