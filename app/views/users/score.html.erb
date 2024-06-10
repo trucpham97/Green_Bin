@@ -1,4 +1,5 @@
-<h1 class="m-4 text-center">Eco-Classement :</h1>
+<h1 class="m-4 text-center">🏆 Classement 🏆</h1>
+<h2 class="m-4 text-center sub-title">Nombre de produits recyclés</h2>
 <div class="bigcontainer">
   <% @users.each_with_index do |user, index| %>
     <div class="option-card2 <%= 'current-user' if user == current_user %> <%= rank_class(index) %>">
