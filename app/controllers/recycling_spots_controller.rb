@@ -7,8 +7,9 @@ class RecyclingSpotsController < ApplicationController
   end
 
   def list
-    # @recycling_spots = RecyclingSpot.near([current_user.latitude, current_user.longitude], 5)
-    @recycling_spots = RecyclingSpot.near("20 rue des Capucins, Lyon", 3)
+    # @recycling_spots = RecyclingSpot.near([current_user.latitude, current_user.longitude], 2)
+    # @recycling_spots.concat(RecyclingSpot.near("Place Jean Macé, Lyon", 2))
+    @recycling_spots = RecyclingSpot.near("20 rue des Capucins, Lyon", 2)
     set_markers
   end
 
