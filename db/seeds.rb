@@ -149,7 +149,7 @@ Product.create!(
 puts "Seeding users"
 User.create!(
   username: '@DenverLeDernierDino',
-  emission: '1',
+  emission: '0',
   email: 'test1@gmail.com',
   password: '123456',
   avatar: 'userpictures/Denverthelastdino.jpg'
@@ -176,7 +176,7 @@ User.create!(
   emission: '41',
   email: 'test4@gmail.com',
   password: '123456',
-  avatar: 'userpictures/TrucBidon.png'
+  avatar: 'userpictures/TrucBTSLover.png'
 )
 
 User.create!(
@@ -267,6 +267,13 @@ User.create!(
   avatar: 'userpictures/Nico.jpg'
 )
 
+User.create!(
+  username: '@LeWagon',
+  emission: '73',
+  email: 'test16@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Lewagon.jpg'
+)
 # recycling_center_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gip_proprete.gipdecheterie_3_0_0/all.json?maxfeatures=-1&start=1"
 # recycling_center_serialized = URI.open(recycling_center_url).read
 # recycling_center = JSON.parse(recycling_center_serialized)

@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def score
-    @users = User.order(emission: :desc)
+    @users = User.all.sort_by(&:total_emission).reverse
   end
 
   private

@@ -1,6 +1,18 @@
 <h1 class="m-4 text-center">Eco-Classement :</h1>
-<% @users.each_with_index do |user, index| %>
-<div class="d-flex flex-column align-items-center option-card <%= 'current-user' if user == current_user %>">
-  <p><%= index + 1 %>   -   <%= image_tag(asset_path(user.avatar), class: 'avatar') %> <%= user.username %>   -   <%= user.emission.to_i %></p>
+<div class="bigcontainer">
+  <% @users.each_with_index do |user, index| %>
+    <div class="option-card2 <%= 'current-user' if user == current_user %> <%= rank_class(index) %>">
+      <div class="ranking-number">
+        <p><%= index + 1 %>.</p>
+      </div>
+      <div class="user-info position-relative">
+        <%= image_tag(asset_path(user.avatar), class: "avatar #{'current-avatar' if user == current_user}") %>
+        <% if index == 0 %>
+          <%= image_tag('rank1crown.png', class: 'crown-overlay') %>
+        <% end %>
+        <p class="username"><%= user.username %></p>
+        <p class="total-emission"><%= user.total_emission.to_i %></p>
+      </div>
+    </div>
+  <% end %>
 </div>
-<% end %>
