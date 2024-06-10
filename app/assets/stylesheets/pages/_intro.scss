@@ -16,6 +16,19 @@
   align-items: center;
   margin: auto;
 
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+
+
+  p {
+    display: flex;
+    color: white;
+    margin-bottom: 100px;
+
+  }
+
 }
 
 .intro-container {
@@ -29,7 +42,7 @@
   margin: auto;
   gap: 40px;
 
-  transform: translateY(-40px);
+  // transform: translateY(-20px);
 }
 
 .logo-intro {
@@ -53,19 +66,114 @@
   color: white;
 }
 
+// Pushable button
+.booking-btn-link-intro {
+  color: white;
+  text-decoration: none;
 
-
-
-// particles effects
-.particle-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
+  p {
+    margin: 0;
+    // font-size: 18px;
+  }
 }
 
+.pushable-intro {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
+  position: relative;
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+
+  &:active {
+    .front-intro {
+      transform: translateY(0px);
+      transition: transform 34ms;
+    }
+
+    .shadow-intro {
+      transform: translateY(1px);
+      transition: transform 34ms;
+    }
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  .shadow-intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+
+    background: rgba(hsl(0deg, 0%, 0%), 0.25);
+
+    will-change: transform;
+    transform: translateY(10px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+  }
+
+  .edge-intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+
+    background: linear-gradient(to left,
+      rgba(hsl(116, 74%, 17%), 1) 0%,
+      rgba(hsl(339, 100%, 6%), 1) 8%,
+      rgba(hsl(129, 70%, 21%), 1) 92%,
+      rgba(hsl(124, 51%, 10%), 1) 100%);
+    background-color: #195F5B;
+  }
+
+  .front-intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 30px;
+    padding-right: 40px;
+    padding-left: 40px;
+
+    color: white;
+
+    background:
+      url('codebar4.png'),
+      linear-gradient(61deg, rgba(30,111,81,1) 1%, rgba(125,172,66,1) 73%, rgba(203,212,60,1) 85%);
+    background-repeat: no-repeat;
+    background-position: center;
+    // background-size: 100% auto;
+    background-size: contain;
+    will-change: transform;
+    transform: translateY(-6px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+
+    // letter-spacing: 2px;
+    font-size: 18px;
+  }
+}
+
+.front-intro, .edge-intro, .shadow-intro {
+  border-radius: 10px;
+  // width: 180px; // adjust as needed
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+// Particles
 .circle-container {
-  $particleNum: 50;
+  $particleNum: 25;
   $particleColor:  hsl(120, 50%, 55%);
 
   position: absolute;
