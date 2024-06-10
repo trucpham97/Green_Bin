@@ -1,0 +1,12 @@
+<div class="badge rounded-pill fs-6
+  <% if recycling_spot.tag_list == ["glass", "plastic", "paper", "aluminum", "house waste", "metal"] %>
+    bg-danger-subtle
+  <% elsif recycling_spot.tag_list == ["plastic"] %>
+    bg-warning
+  <% elsif recycling_spot.tag_list == ["glass"] %>
+    bg-success
+  <% else %>
+    bg-tertiary
+  <% end %> ">
+  <%= image_tag "bin.svg", height: 20, width: 20, alt: "poubelle tri" %>
+</div>
