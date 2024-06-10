@@ -51,7 +51,7 @@ ul {
   margin-right: 15px;
   margin-left: 15px;
 
-  bottom: 5px;
+  bottom: 10px;
   left: 0;
   right: 0;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -83,6 +83,7 @@ nav ul li a {
 
 nav ul li a span {
   font-size: 12px;
+  z-index: 1;
 }
 
 ol, ul, dl {
