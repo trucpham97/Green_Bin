@@ -8,7 +8,7 @@ class RecyclingSpotsController < ApplicationController
 
   def list
     # @recycling_spots = RecyclingSpot.near([current_user.latitude, current_user.longitude], 5)
-    @recycling_spots = RecyclingSpot.near("20 rue des Capucins, Lyon", 1)
+    @recycling_spots = RecyclingSpot.near("20 rue des Capucins, Lyon", 3)
     set_markers
   end
 
@@ -27,6 +27,7 @@ class RecyclingSpotsController < ApplicationController
         lat: recycling_spot.latitude,
         lng: recycling_spot.longitude,
         info_window_html: render_to_string(partial: "shared/info_window", locals: {recycling_spot: recycling_spot}),
+        marker_html: render_to_string(partial: "shared/marker", locals: {recycling_spot: recycling_spot})
       }
     end
   end
