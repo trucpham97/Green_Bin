@@ -16,14 +16,15 @@
   align-items: stretch;
   flex-direction: row;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 15px;
   flex-wrap: nowrap;
 
   background-color: $secondary-color;
 
   border-radius: 10px;
 
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+  box-shadow: $shadow-card;
 
   width: 100%;
   flex-shrink: 0;
@@ -69,7 +70,7 @@
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 999em;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+  box-shadow: rgba(211, 200, 200, 0.35) 0px 5px 5px;
 
   color: white;
 }
@@ -102,7 +103,7 @@
 
   margin-right: 10px;
   margin-left: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .product-link:active {
