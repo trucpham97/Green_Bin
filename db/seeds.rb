@@ -184,7 +184,15 @@ Product.create!(
   barcode: '4002359018268'
 )
 
-
+Product.create!(
+  user: user_test,
+  name: 'Lutti surffizz fruits 200g',
+  material: 'plastic',
+  score: '90',
+  image_url: 'products/lutti.jpg',
+  description: '1 emballage plastique à trier',
+  barcode: '3116740033882'
+)
 
 # Seeds d'utilisateurs pour le classement
 puts "Seeding users"
@@ -331,3 +339,4 @@ User.create!(
 
 puts "Seeds are all done"
 puts "Now get back to work or I'll fire you"
+puts "Surtout toi, Truc !"
