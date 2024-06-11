@@ -17,7 +17,8 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/trucpham97/clx33jtwc01rh01ny0m5u1w1y",
       center: [0, 0], // starting position [lng, lat], this will be updated later
-      zoom: 2
+      zoom: 2,
+      attributionControl: false
     })
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
