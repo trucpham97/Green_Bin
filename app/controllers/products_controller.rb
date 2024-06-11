@@ -64,7 +64,7 @@ class ProductsController < ApplicationController
   def display_material(product)
     case product.material
     when 'plastic'
-      { name: 'Plastique', color: 'yellow' }
+      { name: 'Plastique', color: 'yellow', text: 'black'}
     when 'glass'
       { name: 'Verre', color: 'green' }
     when "paper"
@@ -81,9 +81,9 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     if @product.destroy
-      flash[:notice] = "Product was successfully deleted"
+      flash[:notice] = "Produit supprimé avec succès"
     else
-      flash[:alert] = "There was an error deleting the product"
+      flash[:alert] = "Erreur lors de la suppression du produit"
     end
     redirect_to products_path
   end
