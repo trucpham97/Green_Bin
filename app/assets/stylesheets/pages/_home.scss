@@ -27,7 +27,8 @@ body {
     white-space: nowrap;
   letter-spacing: 2px;
   transition: .15s background-color,.15s border-color,.15s color,.15s fill;
-  box-shadow: rgba(48, 123, 78, 0.35) 0px 5px 5px;
+  // box-shadow: rgba(48, 123, 78, 0.35) 0px 5px 5px;
+  box-shadow: $shadow-card;
   margin: 0;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -43,7 +44,8 @@ body {
   // margin-top: 20px;
   background-color: $secondary-color;
   border-radius: 10px;
-  box-shadow: rgba(48, 123, 78, 0.35) 0px 5px 15px;
+  // box-shadow: rgba(48, 123, 78, 0.35) 0px 5px 15px;
+  box-shadow: $shadow-card;
   padding: 10px;
   width: 92.5%;
 }
@@ -79,6 +81,7 @@ body {
   text-align: center;
 
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  
   p {
     margin: 0;
     font-size: 20px;
