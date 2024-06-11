@@ -9,6 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png">
+    <link rel="apple-touch-startup-image" href="/splashscreens/green-bin-loading-white.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -21,10 +22,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-    
+
   </head>
 
   <body>
+
     <%# <%= render "shared/navbar" %>
     <%= render "shared/navbar_custom" %>
     <%= render "shared/flashes" %>
@@ -32,5 +34,6 @@
     <%= yield %>
 
     <%= render "shared/footer_custom" %>
+
   </body>
 </html>

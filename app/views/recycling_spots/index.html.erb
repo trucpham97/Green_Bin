@@ -1,5 +1,17 @@
+<div id="animated-splash-screen">
+  <img id="animated-splash-screen" src="/splashscreens/apple-splash-1170x2532.gif" alt="Loading...">
+</div>
+
 <!-- Map for filtered recycling centers -->
 <div style="width: 100%; height: 100vh;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      document.getElementById('animated-splash-screen').style.display = 'none';
+    }, 1500); // Durée de l'animation en millisecondes
+  });
+</script>
