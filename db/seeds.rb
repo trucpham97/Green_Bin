@@ -144,45 +144,45 @@ Product.create!(
   barcode: '3017620422003'
 )
 
-# Product.create!(
-#   user: user_test,
-#   name: '',
-#   material: '',
-#   score: '',
-#   image_url: '',
-#   description: '',
-#   barcode: '8711000522967'
-# )
+Product.create!(
+  user: user_test,
+  name: "Huilde d'olive vierge extra 50cl",
+  material: 'glass',
+  score: '81',
+  image_url: 'products/huileolive.webp',
+  description: '1 bouteille en verre à recycler, 1 bouchon en métal à recycler',
+  barcode: '3270190008279'
+)
 
-# Product.create!(
-#   user: user_test,
-#   name: '',
-#   material: '',
-#   score: '',
-#   image_url: '',
-#   description: '',
-#   barcode: ''
-# )
+Product.create!(
+  user: user_test,
+  name: 'President Camembert',
+  material: 'paper',
+  score: '92',
+  image_url: 'products/camembert.jpg',
+  description: '1 emballage carton à recycler',
+  barcode: '3228021170039'
+)
 
-# Product.create!(
-#   user: user_test,
-#   name: ,
-#   material: ,
-#   score: ,
-#   image_url: ,
-#   description: ,
-#   barcode:
-# )
+Product.create!(
+  user: user_test,
+  name: 'Madeleines Moelleuses',
+  material: 'plastic',
+  score: '54',
+  image_url: 'products/madeleines.jpg',
+  description: '1 emballage plastique à trier',
+  barcode: '3270190207887'
+)
 
-# Product.create!(
-#   user: user_test,
-#   name: ,
-#   material: ,
-#   score: ,
-#   image_url: ,
-#   description: ,
-#   barcode:
-# )
+Product.create!(
+  user: user_test,
+  name: 'Sauce soja salée Suzy Wan 143ml',
+  material: 'glass',
+  score: '71',
+  image_url: 'products/soja.webp',
+  description: '1 boouteille en verre à recycler, 1 bouchon en plastique à trier',
+  barcode: '4002359018268'
+)
 
 
 
