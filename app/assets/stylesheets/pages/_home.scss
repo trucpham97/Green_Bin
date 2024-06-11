@@ -41,9 +41,11 @@ body {
 }
 
 .search-bar {
-  margin: 20px auto;
+  //margin: 20px auto;
+  margin-top: 0px;
+  margin-bottom: 20px;
   width: 100%;
-  padding: 10px 20px;
+  padding: 15px 40px;
   outline: none;
   border: none;
   border-radius: 50px;
@@ -60,12 +62,12 @@ body {
 
 .looking-btn {
   position: absolute;
-  top: 50%;
+  top: 38%;
   right: -20px;
   transform: translateY(-50%);
 
-  width: 55px;
-  height: 55px;
+  width: 60px;
+  height: 60px;
   border-radius: 50px;
   border: none;
   background-color: #378E4D;
@@ -78,8 +80,6 @@ body {
   color: #fff;
   font-size: 20px;
 }
-
-
 
 
 
