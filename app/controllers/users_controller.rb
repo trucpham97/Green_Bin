@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  layout 'no_navbar', only: [:intro]
-  layout 'just_no_navbar', only: [:score]
+  layout :resolve_layout
+  # layout 'just_no_navbar', only: [:score]
+  # layout 'no_navbar', only: [:intro]
+
 
   def show
     @user = User.find(params[:id])
@@ -39,5 +41,16 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def resolve_layout
+    case action_name
+    when "score"
+      "just_no_navbar"
+    when "intro"
+      "no_navbar"
+    else
+      "application" # default layout
+    end
   end
 end
