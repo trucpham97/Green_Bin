@@ -41,7 +41,6 @@ export default class extends Controller {
                 </div>
                 <div id="product-card-bottom">
                   <a href=${newProduct.link} class="product-link">Localiser une borne de tri</a>
-                  <a class="smoke-screen">Signaler un problème</a>
                 </div>
 
         `);
@@ -74,7 +73,6 @@ export default class extends Controller {
           </div>
           <div id="product-card-bottom">
             <a class="product-link">Localiser une borne de tri</a>
-            <a class="smoke-screen">Signaler un problème</a>
           </div>
 
           `);
