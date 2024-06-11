@@ -1,14 +1,5 @@
 class RecyclingSpotInfosController < ApplicationController
 
-  # def index
-  #   @spots = RecyclingPointInfo.all
-  #   if params[:query].present?
-  #     @spots.map(&:packaging).flatten.uniq.select { |packaging| packaging.include?(params[:query]) }
-  #     sql_subquery = "title ILIKE :query"
-  #     @spots = @spots.where(sql_subquery, query: "%#{params[:query]}%")
-  #   end
-  # end
-
   def index
     @spots = RecyclingPointInfo.all
     if params[:query].present?
@@ -19,4 +10,5 @@ class RecyclingSpotInfosController < ApplicationController
       end
     end
   end
+  
 end

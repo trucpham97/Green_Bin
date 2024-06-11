@@ -96,13 +96,23 @@ RecyclingPointInfo.create!(
 )
 
 RecyclingPointInfo.create!(
-  title: "Bac à couvercle bleu ou point de collecte",
+  title: "Bac à compostage",
   illustration: "trash_bins/point_de_collecte.jpg",
-  packaging: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
-              "Courriers, enveloppes et livres"]
+  packaging: ["Matières brunes", "Matières vertes"]
 )
 
+RecyclingPointInfo.create!(
+  title: "Bac à couvercle gris ou point de collecte",
+  illustration: "trash_bins/point_de_collecte.jpg",
+  packaging: ["Ce qu'il reste après le tri"]
+)
 
+RecyclingPointInfo.create!(
+  title: "En déchèterie",
+  illustration: "trash_bins/point_de_collecte.jpg",
+  packaging: ["Vaisselle en verre ou en porcelaine", "Objets en plastique",
+            "Déchets textiles"]
+)
 
 # Users #
 user_test = User.create!(

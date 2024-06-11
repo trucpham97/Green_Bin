@@ -2,8 +2,8 @@
   <% @spots.each do |spot| %>
     <h4><%= spot.title %></h4>
     <p><%= spot.packaging %></p>
-    <!-- <img src="<%= spot.illustration %>" alt=""> -->
+    <%= image_tag spot.illustration %>
   <% end %>
 <% else %>
-  <em>Désolé, pas d'information retrouvé</em>
+  <em>Désolé, pas d'information retrouvée</em>
 <% end %>
