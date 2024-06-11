@@ -18,3 +18,11 @@
 .mapboxgl-ctrl-logo {
   display: none !important;
 }
+
+.mapboxgl-ctrl-geocoder--input {
+  max-width: 100vw !important;
+  position: fixed;
+  margin-right: 15px;
+  margin-left: 15px;
+  border-radius: 999px;
+}

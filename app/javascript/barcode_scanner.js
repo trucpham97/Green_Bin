@@ -46,11 +46,15 @@ function startCamera() {
 
   codeReader.listVideoInputDevices()
     .then((videoInputDevices) => {
-      selectedDeviceId = videoInputDevices[0].deviceId;
+      selectedDeviceId = videoInputDevices[1].deviceId;
+      console.log('videoInputDevices', videoInputDevices);
+      console.log('deviceId', selectedDeviceId);
       if (videoInputDevices.length >= 1) {
         const sourceSelect = document.getElementById('sourceSelect');
+        console.log('sourceSelect', sourceSelect);
         videoInputDevices.forEach((element) => {
           const sourceOption = document.createElement('option');
+          console.log('sourceOption', sourceOption);
           sourceOption.text = element.label;
           sourceOption.value = element.deviceId;
           sourceSelect.appendChild(sourceOption);
