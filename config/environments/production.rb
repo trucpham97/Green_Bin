@@ -98,5 +98,5 @@ Rails.application.configure do
 
   # Add ngrok subdomain to allowed hosts (See Thomas for help if needed)
   # Command line ==> ngrok http http://localhost:3000
-  Rails.application.config.hosts << /.*\.ngrok-free\.app/
+  # Rails.application.config.hosts << /.*\.ngrok-free\.app/
 end
