@@ -13,7 +13,7 @@ body {
 
 .pill-btn{
   display: flex;
-  box-sizing: border-box;
+  // box-sizing: border-box;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 80px;
@@ -33,6 +33,55 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+// search bar
+
+.searchbar-container {
+  position: relative;
+}
+
+.search-bar {
+  margin: 20px auto;
+  width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  box-shadow: $shadow-card;
+  background-color: #F4F4F4;
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.looking-btn {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+
+  width: 55px;
+  height: 55px;
+  border-radius: 50px;
+  border: none;
+  background-color: #378E4D;
+  box-shadow: $shadow-card;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.loupe {
+  color: #fff;
+  font-size: 20px;
+}
+
+
+
+
 
 .option-card {
   display: flex;
@@ -81,7 +130,7 @@ body {
   text-align: center;
 
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  
+
   p {
     margin: 0;
     font-size: 20px;

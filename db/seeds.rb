@@ -114,10 +114,11 @@ RecyclingPointInfo.create!(
   we_win: "En buvant l'eau du robinet du Grand Lyon, une famille de 4 personnes économise environ 200 euros en moyenne chaque année!",
   helper: "Vidés, non lavés, non imbriqués et en vrac. Cartons à plat",
   no_no: ["Sacs d'ordures ménagères", "Couches", "Piles et batteries", "Objets plastiques"],
-  search_terms_hidden: ["Briques alimentaire", "Emballages en carton", "Emballages en métal",
+  search_terms_hidden: ["Briques alimentaire", "Emballages en carton", "Emballages",
                       "Emballages en plastique", "Bouteilles et flacons en plastique", "Bouteilles en plastique",
                       "Pots de yaourt", "Sachets de surgelés", "Canettes", "Capsules de café", "Conserves",
-                      "Cartons à pizza", "Enveloppes", "Boîtes", "Sachets", "Produits en vrac", "Grands formats", "Papiers"]
+                      "Cartons à pizza", "Enveloppes", "Boîtes", "Sachets", "Produits en vrac", "Grands formats", "Papiers",
+                    "journal", "journaux"]
 )
 
 RecyclingPointInfo.create!(
@@ -146,7 +147,7 @@ RecyclingPointInfo.create!(
   helper: "",
   no_no: [],
   search_terms_hidden: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
-              "Courriers, enveloppes et livres", "Papiers"]
+              "Courriers, enveloppes et livres", "Papiers", "journal"]
 )
 
 # Bac a compostage
