@@ -87,7 +87,7 @@ puts "Seeding products"
 Product.create!(
   user: user_test,
   name: 'Porc à la Dijonnaise et ses pommees de terre',
-  material: 'en:cardboard',
+  material: 'plastic',
   score: '92',
   image_url: 'products/Porcdijonnaise.jpg',
   description: '1 étui en carton à recycler, 1 barquette en plastique à trier, 1 opercule en plastique à trier',
@@ -97,7 +97,7 @@ Product.create!(
 Product.create!(
   user: user_test,
   name: 'Haribo Croco',
-  material: 'en:plastic',
+  material: 'plastic',
   score: '74',
   image_url: 'products/Haribocroco.jpg',
   description: '1 emballage plastique à trier',
@@ -107,7 +107,7 @@ Product.create!(
 Product.create!(
   user: user_test,
   name: 'Bière 1664 25cl',
-  material: 'en:green-glass',
+  material: 'glass',
   score: '81',
   image_url: 'products/Biere1664.png',
   description: '1 bouteille en verre à recycler, 1 capsule en métal à recycler',
@@ -117,7 +117,7 @@ Product.create!(
 Product.create!(
   user: user_test,
   name: "Sardines de Bretagne préparées à l'ancienne à l'huilde d'olive",
-  material: 'en:aluminium',
+  material: 'aluminum',
   score: '64',
   image_url: 'products/SardinesBretagne.png',
   description: '1 conserve en almunium à recycler, 1 emballage carton à recycler',
@@ -127,7 +127,7 @@ Product.create!(
 Product.create!(
   user: user_test,
   name: 'Ananas en morceaux',
-  material: 'en:metal',
+  material: 'metal',
   score: '76',
   image_url: 'products/Ananas.jpg',
   description: '1 boîte de conserve à recycler',
@@ -137,7 +137,7 @@ Product.create!(
 Product.create!(
   user: user_test,
   name: 'Nutella',
-  material: 'en:clear-glass',
+  material: 'glass',
   score: '22',
   image_url: 'products/Nutella.jpg',
   description: '1 pot en verre à recycler, 1 bouchon en plastique à trier',
