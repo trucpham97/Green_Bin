@@ -181,7 +181,7 @@ RecyclingPointInfo.create!(
   helper: "Dans un sac fermé",
   no_no: ["Piles et batteries", "Ampoules"],
   search_terms_hidden: ["Ce qu'il reste après le tri", "impossible",
-"couches", "vaisselle cassée", "verre", "porcelaine", "objets plastiques", "essuie-tout",
+"couches", "vaisselle cassée", "porcelaine", "essuie-tout",
 "mouchoirs", "lingettes"]
 )
 

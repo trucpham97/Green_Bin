@@ -1,3 +1,9 @@
+.sticky-sticky-icon {
+  position: sticky;
+  top: 10vh;
+  z-index: 1000;
+}
+
 .info-page-container {
   display: flex;
   flex-direction: column;
