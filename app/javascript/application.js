@@ -4,5 +4,3 @@
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-
-// import 'search'

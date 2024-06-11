@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
   # before_action :set_user, only: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :show]
-  layout 'no_navbar', only: [:new, :create]
-  layout 'just_no_navbar', only: [:index, :show]
+  layout :resolve_layout
+  # layout 'no_navbar', only: [:new, :create]
+  # layout 'just_no_navbar', only: [:index, :show]
 
   def index
     @products = Product.all
@@ -105,5 +106,16 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :image_url, :score, :description, :material)
+  end
+
+  def resolve_layout
+    case action_name
+    when "new", "create"
+      "no_navbar"
+    when "index", "show"
+      "just_no_navbar"
+    else
+      "application" # default layout
+    end
   end
 end
