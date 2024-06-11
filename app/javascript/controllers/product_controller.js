@@ -40,6 +40,7 @@ export default class extends Controller {
                   </div>
                 </div>
                 <div id="product-card-bottom">
+                  <span class="product-link">Poubelle ${newProduct.material}</span>
                   <a href=${newProduct.link} class="product-link">Localiser une borne de tri</a>
                 </div>
 
@@ -72,6 +73,7 @@ export default class extends Controller {
             </div>
           </div>
           <div id="product-card-bottom">
+          <span class="product-link">Poubelle ${newProduct.material}</span>
             <a class="product-link">Localiser une borne de tri</a>
           </div>
 

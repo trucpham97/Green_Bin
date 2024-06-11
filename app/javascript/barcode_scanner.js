@@ -46,7 +46,7 @@ function startCamera() {
 
   codeReader.listVideoInputDevices()
     .then((videoInputDevices) => {
-      selectedDeviceId = videoInputDevices[1].deviceId;
+      selectedDeviceId = videoInputDevices[0].deviceId;
       console.log('videoInputDevices', videoInputDevices);
       console.log('deviceId', selectedDeviceId);
       if (videoInputDevices.length >= 1) {
