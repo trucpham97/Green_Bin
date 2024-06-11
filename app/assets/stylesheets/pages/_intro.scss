@@ -5,8 +5,17 @@
 
 .banner-intro {
   display: flex;
-  background-image: url(wallp_3.jpg);
-  background-size: cover;
+  // background-image: url(wallp_3.jpg);
+  // background: rgb(24,109,88);
+  // background: linear-gradient(45deg, rgba(24,109,88,1) 0%, rgba(68,139,82,1) 22%, rgba(24,109,88,1) 30%, rgba(68,139,82,1) 38%, rgba(127,172,72,1) 55%, rgba(206,216,59,1) 100%);
+  // background: rgb(24,109,88);
+  // background: linear-gradient(38deg, rgba(24,109,88,1) 0%, rgba(68,139,82,1) 19%, rgba(24,109,88,1) 32%, rgba(68,139,82,1) 46%, rgba(127,172,72,1) 61%, rgba(225,240,16,1) 100%);
+
+  // background: rgb(24,109,88);
+  // background: linear-gradient(45deg, rgba(24,109,88,1) 0%, rgba(68,139,82,1) 22%, rgba(24,109,88,1) 30%, rgba(68,139,82,1) 38%, rgba(127,172,72,1) 55%, rgba(206,216,59,1) 100%);
+  background: rgb(24,109,88);
+  background: linear-gradient(34deg, rgba(24,109,88,1) 0%, rgba(24,109,88,1) 12%, rgba(73,142,82,1) 19%, rgba(24,109,88,1) 32%, rgba(73,142,82,1) 46%, rgba(148,187,64,1) 75%, rgba(218,236,14,1) 100%);
+background-size: cover;
   background-position: center;
 
   height: 100vh;
@@ -141,8 +150,9 @@
     color: white;
 
     background:
-      url('codebar4.png'),
-      linear-gradient(61deg, rgba(30,111,81,1) 1%, rgba(125,172,66,1) 73%, rgba(203,212,60,1) 85%);
+      url('codebar4.png');
+      // linear-gradient(61deg, rgba(30,111,81,1) 1%, rgba(125,172,66,1) 73%, rgba(203,212,60,1) 85%);
+    background-color: #1A605D;
     background-repeat: no-repeat;
     background-position: center;
     // background-size: 100% auto;
