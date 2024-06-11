@@ -20,6 +20,10 @@
 
 <body id="no-scroll" data-controller="product">
 
+  <div id="animated-splash-screen">
+    <img id="animated-splash-screen" src="/splashscreens/apple-splash-1170x2532.gif" alt="Loading...">
+  </div>
+
   <div class="scan-window">
     <video id="video"></video>
     <div id="product-card" class="d-none"></div>
@@ -58,6 +62,14 @@
 
   <%# Footer displayed (add d-none class if you want to hide) %>
   <%= render "shared/footer_custom" %>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.getElementById('animated-splash-screen').style.display = 'none';
+      }, 3000); // Durée de l'animation en millisecondes
+    });
+  </script>
 
 </body>
 </html>
