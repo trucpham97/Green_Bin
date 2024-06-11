@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   layout 'no_navbar', only: [:intro]
+  layout 'just_no_navbar', only: [:score]
 
   def show
     @user = User.find(params[:id])
