@@ -1,0 +1,26 @@
+<div class="intro-body particle-container">
+  <div class="banner-intro">
+
+    <div class="intro-container">
+
+      <%= image_tag("Green_Bin_Logo.png", class: "logo-intro") %>
+      <h1 class="logo-title-intro">GREEN BIN</h1>
+
+      <%= link_to root_path, class: "pushable-intro booking-btn-link-intro" do %>
+        <span class="shadow-intro"></span>
+        <span class="edge-intro"></span>
+        <span class="front-intro"><p>C'est parti!</p></span>
+      <% end %>
+    </div>
+
+    <p>Découvrir &lt;&lt;</p>
+
+  </div>
+
+
+  <% (1..100).each do |i| %>
+    <div class="circle-container">
+      <div class="circle"></div>
+    </div>
+  <% end %>
+</div>

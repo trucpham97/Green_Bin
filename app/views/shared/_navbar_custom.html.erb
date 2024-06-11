@@ -2,7 +2,7 @@
 
   <!-- <img id="logo" src="Green_Bin_Logo.png"> -->
 
-  <%= image_tag("Green_Bin_Logo.png", id: "logo") %>
+  <%= image_tag("Green_Bin_Logo.png", class: "logo") %>
 
   <!-- <div class="neon">
     <span>GREEN </span>
@@ -26,9 +26,9 @@
 
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" id="dropdown-list" >
-              <%= link_to "Home", root_path, class: "dropdown-item", id: "dropdown-li" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item", id: "dropdown-li" %>
-              <p>Tutorial</p>
+              <%= link_to "Accueil", root_path, class: "dropdown-item", id: "dropdown-li" %>
+              <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item", id: "dropdown-li" %>
+              <%= link_to "Tutorial", intro_path, class: "dropdown-item", id: "dropdown-li" %>
             </div>
           </li>
 
