@@ -32,7 +32,7 @@
         <div class="text-align-column-left">
           <p class="p-no-margin-index product-index-name"><%= product.name %></p>
           <p class="p-no-margin-index material-gellule" style="background-color:
-            <%= display_material(product)[:color] %>;">
+            <%= display_material(product)[:color] %>; color:<%= display_material(product)[:text]%>">
             <%= display_material(product)[:name] %>
           </p>
         </div>
