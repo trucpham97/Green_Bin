@@ -1,70 +1,63 @@
 require 'open-uri'
 require 'json'
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 
 # DECOMMENTER CE PASSAGE POUR SEED LES SILOS:
-# puts "Destroying all Recycling spots"
-# RecyclingSpot.destroy_all
+puts "Destroying all Recycling spots"
+RecyclingSpot.destroy_all
 
-# puts "Starting to seed the Recycling spots"
-# url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.siloverre/all.json?maxfeatures=-1"
-# glass_silo_serialized = URI.open(url).read
-# glass_silo = JSON.parse(glass_silo_serialized)
+puts "Starting to seed the Recycling spots"
+url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.siloverre/all.json?maxfeatures=-1"
+glass_silo_serialized = URI.open(url).read
+glass_silo = JSON.parse(glass_silo_serialized)
 
-# puts "(1/3) Creating glass silos..."
+puts "(1/3) Creating glass silos..."
 
-# glass_silo["values"].each do |glass|
-#   silo = RecyclingSpot.new(
-#     address: glass["adresse"],
-#     category: "glass",
-#     latitude: glass["lat"],
-#     longitude: glass["lon"]
-#   )
-#   silo.tag_list.add("glass")
-#   silo.save!
-# end
+glass_silo["values"].each do |glass|
+  puts "#{RecyclingSpot.count} silos created"
+  silo = RecyclingSpot.new(
+    address: glass["adresse"],
+    category: "glass",
+    latitude: glass["lat"],
+    longitude: glass["lon"]
+  )
+  silo.tag_list.add("glass")
+  silo.save!
+end
 
-# house_waste_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.orduresmenageres/all.json?maxfeatures=-1&start=1"
-# house_waste_silo_serialized = URI.open(house_waste_url).read
-# house_waste_silo = JSON.parse(house_waste_silo_serialized)
+house_waste_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.orduresmenageres/all.json?maxfeatures=-1&start=1"
+house_waste_silo_serialized = URI.open(house_waste_url).read
+house_waste_silo = JSON.parse(house_waste_silo_serialized)
 
-# puts "(2/3) Creating house waste silos..."
-# house_waste_silo["values"].each do |waste|
-#   silo = RecyclingSpot.new(
-#     address: waste["adresse"],
-#     category: "house waste",
-#     latitude: waste["lat"],
-#     longitude: waste["lon"]
-#   )
-#   silo.tag_list.add("house waste")
-#   silo.save!
-# end
+puts "(2/3) Creating house waste silos..."
+house_waste_silo["values"].each do |waste|
+  puts "#{RecyclingSpot.count} silos created"
+  silo = RecyclingSpot.new(
+    address: waste["adresse"],
+    category: "house waste",
+    latitude: waste["lat"],
+    longitude: waste["lon"]
+  )
+  silo.tag_list.add("house waste")
+  silo.save!
+end
 
-# selective_collection_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.collecteselective/all.json?maxfeatures=-1&start=1"
-# selective_collection_serialized = URI.open(selective_collection_url).read
-# selective_collection = JSON.parse(selective_collection_serialized)
+selective_collection_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.collecteselective/all.json?maxfeatures=-1&start=1"
+selective_collection_serialized = URI.open(selective_collection_url).read
+selective_collection = JSON.parse(selective_collection_serialized)
 
-# puts "(3/3) Creating selective collection silos..."
+puts "(3/3) Creating selective collection silos..."
 
-# selective_collection["values"].each do |waste|
-#   silo = RecyclingSpot.new(
-#     address: waste["adresse"],
-#     category: "selective collection",
-#     latitude: waste["lat"],
-#     longitude: waste["lon"]
-#   )
-#   silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal")
-#   silo.save!
-# end
+selective_collection["values"].each do |waste|
+  puts "#{RecyclingSpot.count} silos created"
+  silo = RecyclingSpot.new(
+    address: waste["adresse"],
+    category: "selective collection",
+    latitude: waste["lat"],
+    longitude: waste["lon"]
+  )
+  silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal")
+  silo.save!
+end
 
 # Robin seed perso because no camera
 # Create a user
