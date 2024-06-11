@@ -74,21 +74,21 @@ require 'json'
 #   silo.save!
 # end
 
-composting_silo_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.bornecompost/all.json?maxfeatures=-1&start=1"
-composting_silo_serialized = URI.open(composting_silo_url).read
-composting_silo = JSON.parse(composting_silo_serialized)
+# composting_silo_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.bornecompost/all.json?maxfeatures=-1&start=1"
+# composting_silo_serialized = URI.open(composting_silo_url).read
+# composting_silo = JSON.parse(composting_silo_serialized)
 
-puts "(5/5) Creating recycling center silos..."
-composting_silo["values"].each do |waste|
-  silo = RecyclingSpot.new(
-    address: waste["adresse"],
-    category: "composting silo",
-    latitude: waste["lat"],
-    longitude: waste["lon"]
-  )
-  silo.tag_list.add("compost")
-  silo.save!
-end
+# puts "(5/5) Creating recycling center silos..."
+# composting_silo["values"].each do |waste|
+#   silo = RecyclingSpot.new(
+#     address: waste["adresse"],
+#     category: "composting silo",
+#     latitude: waste["lat"],
+#     longitude: waste["lon"]
+#   )
+#   silo.tag_list.add("compost")
+#   silo.save!
+# end
 
 
 puts "Recycling spots are all seeded"
@@ -98,45 +98,111 @@ User.destroy_all
 puts "Destroying products"
 Product.destroy_all
 puts "Destroying informations"
+RecyclingPointInfo.destroy_all
 
 puts "Creating informations..."
 RecyclingPointInfo.create!(
-  title: "Bac à couvercle jaune ou point de collecte",
-  illustration: "trash_bins/bac_jaune.jpg",
-  packaging: ["Briques alimentaire","Emballages en carton", "Emballages en métal", "Papiers",
-              "Emballages en plastique", "Bouteilles et flacons en plastique"]
-)
-
-RecyclingPointInfo.create!(
-  title: "Point de collecte",
+  title: "Bac à couvercle jaune",
+  subheading: "Tous les emballages et papiers",
   illustration: "trash_bins/point_de_collecte.jpg",
-  packaging: ["Pots et bocaux en verre","Bouteilles en verre"]
+  packaging: ["Emballages en plastique: bouteilles, pots de yaourt, sachets de surgelés...",
+              "Emballages en métal: canettes, capsules de café, conserves...",
+            "Papiers et emballages en carton: cartons à pizza, enveloppes..."],
+  description_title: "Pour éviter les emballages et papiers durant mes courses:",
+  descriptions: ["Je présente mes propres contenants réutilisables (boîtes, sachets) aux commerçants, ces derniers ne pouvant pas les refuser",
+                "Je privilégie les produits en vrac et les grands formats"],
+  we_win: "En buvant l'eau du robinet du Grand Lyon, une famille de 4 personnes économise environ 200 euros en moyenne chaque année!",
+  helper: "Vidés, non lavés, non imbriqués et en vrac. Cartons à plat",
+  no_no: ["Sacs d'ordures ménagères", "Couches", "Piles et batteries", "Objets plastiques"],
+  search_terms_hidden: ["Briques alimentaire", "Emballages en carton", "Emballages",
+                      "Emballages en plastique", "Bouteilles et flacons en plastique", "Bouteilles en plastique",
+                      "Pots de yaourt", "Sachets de surgelés", "Canettes", "Capsules de café", "Conserves",
+                      "Cartons à pizza", "Enveloppes", "Boîtes", "Sachets", "Produits en vrac", "Grands formats", "Papiers",
+                    "journal", "journaux"]
 )
 
 RecyclingPointInfo.create!(
-  title: "Bac à couvercle bleu ou point de collecte",
+  title: "Poubelle à verre",
+  subheading: "Recyclage",
+  illustration: "trash_bins/point_de_collecte.jpg",
+  packaging: ["Bouteilles", "Bocaux", "Flacons"],
+  description_title: "Pour limiter mes déchets:",
+  descriptions: ["J'achète des bouteilles et bocaux consignés. Une fois rapportés en magasin, les contenants sont réutilisés"],
+  we_win: "Chaque tonne consignée ou triée se transforme en un don pour la recherche contre le cancer",
+  helper: "Vidés, sans couvercle et en vrac",
+  no_no: ["Vaisselle cassée", "Miroirs cassés"],
+  search_terms_hidden: ["Pots et bocaux en verre", "Bouteilles en verre", "bocal", "flacon", "bouteille", "verre",
+                        "pot en verre"]
+)
+
+RecyclingPointInfo.create!(
+  title: "Bac à couvercle bleu",
+  subheading: "Papiers, journaux, prospectus...",
   illustration: "trash_bins/point_de_collecte.jpg",
   packaging: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
-              "Courriers, enveloppes et livres"]
+              "Courriers, enveloppes et livres"],
+  description_title: "",
+  descriptions: [""],
+  we_win: "",
+  helper: "",
+  no_no: [],
+  search_terms_hidden: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
+              "Courriers, enveloppes et livres", "Papiers", "journal"]
 )
 
+# Bac a compostage
 RecyclingPointInfo.create!(
   title: "Bac à compostage",
+  subheading: "Déchets alimentaires",
   illustration: "trash_bins/point_de_collecte.jpg",
-  packaging: ["Matières brunes", "Matières vertes"]
+  packaging: ["Préparations de repas et restes", "Marc de café et thé",
+            "Aliments périmés sans emballage"],
+  description_title: "Pour éviter le gaspillage alimentaire au quotidien:",
+  descriptions: ["Je fais mes courses selon mon menu de la semaine.",
+                "S'il y a des restes, je congèle"],
+  we_win: "Le compost naturel obtenu permet d'enrichir les sols",
+  helper: "En vrac ou dans un sac en papier",
+  no_no: ["Sacs plastiques même compostables"],
+  search_terms_hidden: ["compost", "compostage", "composter", "composteur",
+                        "déchets alimentaires", "déchets organiques", "déchets verts",
+                      "Matières brunes", "Matières vertes", "déchets de cuisine","banane",
+                    "fruits", "légumes", "épluchures", "restes de repas", "pain", "pâtes",
+                  "riz", "pâtes", "pommes de terre", "coquilles d'oeufs", "marc de café",
+                "thé", "filtre à café", "sachet de thé", "sachet de café", "sachet de thé"]
 )
 
 RecyclingPointInfo.create!(
-  title: "Bac à couvercle gris ou point de collecte",
+  title: "Bac à couvercle gris",
+  subheading: "Ordures ménagères, incinération",
   illustration: "trash_bins/point_de_collecte.jpg",
-  packaging: ["Ce qu'il reste après le tri"]
+  packaging: ["Couches", "Objets plastiques", "Vaisselle cassée en verre ou en porcelaine", "Essuie-tout, mouchoirs et lingettes"],
+  description_title: "Pour ce qui n'a pu être trié:",
+  descriptions: ["Je jette les déchets qui n'ont pu être évités et qui ne peuvent être ni recyclés ni compostés"],
+  we_win: "",
+  helper: "Dans un sac fermé",
+  no_no: ["Piles et batteries", "Ampoules"],
+  search_terms_hidden: ["Ce qu'il reste après le tri", "impossible",
+"couches", "vaisselle cassée", "porcelaine", "essuie-tout",
+"mouchoirs", "lingettes"]
 )
 
 RecyclingPointInfo.create!(
   title: "En déchèterie",
+  subheading: "Déchets occasionnels, réemploi et recyclage",
   illustration: "trash_bins/point_de_collecte.jpg",
-  packaging: ["Vaisselle en verre ou en porcelaine", "Objets en plastique",
-            "Déchets textiles"]
+  packaging: ["Déchets verts", "Electroménager, appareils électriques et électroniques",
+              "Bois", "Déchets dangereux", "Meubles abîmés, encombrants", "Métal",
+              "Gravats et plâtre", "Cartons"],
+  description_title: "Pour éviter de jeter un objet:",
+  descriptions: ["J'essaie de le réparer", "Je le réemploie autrement",
+              "Je le donne"],
+  we_win: "Les donneries installées dans les déchèteries sont des espaces de dons d'objets encore en bon état. Ces derniers sont remis à des associations partenaires qui les redistribuent",
+  helper: "Je rapporte en magasin: piles, ampoules, petits appareils électriques, jouets, articles de sport, articles de bricolage",
+  no_no: [],
+  search_terms_hidden: ["Déchets verts", "Electroménager, appareils électriques et électroniques",
+  "Bois", "Déchets dangereux", "Meubles abîmés, encombrants", "Métal",
+  "Gravats et plâtre", "Cartons", "Déchèterie", "déchetterie", "déchetteries",
+  "déchèteries", "déchets occasionnels", "réemploi", "recyclage", "réparer"]
 )
 
 # user_test = User.create!(
@@ -386,4 +452,3 @@ RecyclingPointInfo.create!(
 
 # puts "Seeds are all done"
 # puts "Now get back to work or I'll fire you"
-

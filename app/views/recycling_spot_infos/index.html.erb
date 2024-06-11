@@ -1,9 +1,78 @@
+<%= link_to root_path, class: "clickable-icon sticky-sticky-icon" do %>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <rect width="512" height="512" fill="white" rx="256" ry="256" />
+    <path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM217.4 376.9L117.5 269.8c-3.5-3.8-5.5-8.7-5.5-13.8s2-10.1 5.5-13.8l99.9-107.1c4.2-4.5 10.1-7.1 16.3-7.1c12.3 0 22.3 10 22.3 22.3l0 57.7 96 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32l-96 0 0 57.7c0 12.3-10 22.3-22.3 22.3c-6.2 0-12.1-2.6-16.3-7.1z"/>
+  </svg>
+<% end %>
+
+<h1>Informations</h1>
+
+<% if params[:query].present? %>
+  <p>Votre recherche pour: "<%= params[:query] %>"</p>
+<% end %>
+
 <% if @spots.any? %>
+
+  <div class="info-page-container">
   <% @spots.each do |spot| %>
-    <h4><%= spot.title %></h4>
-    <p><%= spot.packaging %></p>
-    <%= image_tag spot.illustration %>
+
+    <div class="info-card">
+
+      <h3><strong><%= spot.title %></strong></h3>
+      <h4><%= spot.subheading %></h4>
+
+      <hr>
+
+      <div class="spot-illustration-helper">
+        <%= image_tag spot.illustration, class: "small-image-info" %>
+
+        <% unless spot.helper.empty? %>
+          <i class="fa-solid fa-arrow-left left-arrow-icon"></i>
+          <p><strong><%= spot.helper %></strong></p>
+        <% end %>
+      </div>
+
+      <hr>
+
+      <% spot.packaging.each do |pack| %>
+        <span><i class="fa-solid fa-thumbs-up thumb-icon"></i> <%= pack %></span>
+      <% end %>
+
+
+      <% unless (spot.no_no.empty? && spot.we_win.empty?) %>
+        <hr>
+
+        <div class="nono-win">
+          <div class="nono">
+            <% spot.no_no.each do |no| %>
+              <span><i class="fa-solid fa-ban nope-icon"></i> <%= no %></span>
+              <br>
+            <% end %>
+          </div>
+
+          <% unless spot.we_win.empty? %>
+            <div class="win sketchy">
+              <p><em><%= spot.we_win %></em></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% unless spot.description_title.empty? %>
+        <hr>
+        <p><strong><%= spot.description_title %></strong></p>
+        <% spot.descriptions.each do |desc| %>
+          <p>><%= desc %></p>
+        <% end %>
+      <% end %>
+    </div>
+
   <% end %>
+</div>
+
+
+
+
 <% else %>
   <em>Désolé, pas d'information retrouvée</em>
 <% end %>
