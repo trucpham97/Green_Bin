@@ -74,11 +74,11 @@ User.destroy_all
 # Product.destroy_all
 
 user_test = User.create!(
-  username: '@1648-RPZ',
+  username: '@TimTeam',
   emission: '60',
   email: 'lewagon@lewagon.com',
   password: '123456',
-  avatar: 'userpictures/BatchPicture.jpg'
+  avatar: 'userpictures/photo Tim.jpg'
 )
 # puts "Seeding products"
 
