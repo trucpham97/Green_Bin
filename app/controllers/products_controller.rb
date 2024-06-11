@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   # before_action :set_user, only: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :show]
   layout 'no_navbar', only: [:new, :create]
+  layout 'just_no_navbar', only: [:index, :show]
 
   def index
     @products = Product.all
