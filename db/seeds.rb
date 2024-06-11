@@ -1,15 +1,5 @@
 require 'open-uri'
 require 'json'
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 
 # DECOMMENTER CE PASSAGE POUR SEED LES SILOS:
 # puts "Destroying all Recycling spots"
@@ -67,7 +57,6 @@ require 'json'
 # end
 
 # puts "(4/5) Creating recycling centers..."
-
 # recycling_center_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gip_proprete.gipdecheterie_3_0_0/all.json?maxfeatures=-1&start=1"
 # recycling_center_serialized = URI.open(recycling_center_url).read
 # recycling_center = JSON.parse(recycling_center_serialized)
@@ -104,12 +93,51 @@ end
 
 puts "Recycling spots are all seeded"
 
-# Robin seed perso because no camera
-# Create a user
-# puts "Destroying users"
-# User.destroy_all
-# puts "Destroying products"
-# Product.destroy_all
+puts "Destroying users"
+User.destroy_all
+puts "Destroying products"
+Product.destroy_all
+puts "Destroying informations"
+
+puts "Creating informations..."
+RecyclingPointInfo.create!(
+  title: "Bac à couvercle jaune ou point de collecte",
+  illustration: "trash_bins/bac_jaune.jpg",
+  packaging: ["Briques alimentaire","Emballages en carton", "Emballages en métal", "Papiers",
+              "Emballages en plastique", "Bouteilles et flacons en plastique"]
+)
+
+RecyclingPointInfo.create!(
+  title: "Point de collecte",
+  illustration: "trash_bins/point_de_collecte.jpg",
+  packaging: ["Pots et bocaux en verre","Bouteilles en verre"]
+)
+
+RecyclingPointInfo.create!(
+  title: "Bac à couvercle bleu ou point de collecte",
+  illustration: "trash_bins/point_de_collecte.jpg",
+  packaging: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
+              "Courriers, enveloppes et livres"]
+)
+
+RecyclingPointInfo.create!(
+  title: "Bac à compostage",
+  illustration: "trash_bins/point_de_collecte.jpg",
+  packaging: ["Matières brunes", "Matières vertes"]
+)
+
+RecyclingPointInfo.create!(
+  title: "Bac à couvercle gris ou point de collecte",
+  illustration: "trash_bins/point_de_collecte.jpg",
+  packaging: ["Ce qu'il reste après le tri"]
+)
+
+RecyclingPointInfo.create!(
+  title: "En déchèterie",
+  illustration: "trash_bins/point_de_collecte.jpg",
+  packaging: ["Vaisselle en verre ou en porcelaine", "Objets en plastique",
+            "Déchets textiles"]
+)
 
 # user_test = User.create!(
 #   username: '@TimTeam',
@@ -354,5 +382,8 @@ puts "Recycling spots are all seeded"
 #   avatar: 'userpictures/Lewagon.jpg'
 # )
 
+
+
 # puts "Seeds are all done"
 # puts "Now get back to work or I'll fire you"
+

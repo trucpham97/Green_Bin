@@ -1,0 +1,9 @@
+<% if @spots.any? %>
+  <% @spots.each do |spot| %>
+    <h4><%= spot.title %></h4>
+    <p><%= spot.packaging %></p>
+    <%= image_tag spot.illustration %>
+  <% end %>
+<% else %>
+  <em>Désolé, pas d'information retrouvée</em>
+<% end %>

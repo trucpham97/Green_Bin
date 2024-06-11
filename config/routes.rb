@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   get "score", to: "users#score"
   get 'intro', to: 'users#intro', as: 'intro'
+
+  resources :recycling_spot_infos, only: :index
   # resources :users, except: [:index, :new, :create]
 
   resources :products, only: [:index, :new, :create, :show, :destroy] do

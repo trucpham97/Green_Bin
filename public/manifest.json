@@ -1,7 +1,7 @@
 {
   "name": "GreenBin",
   "short_name": "GreenBin",
-  "start_url": "./",
+  "start_url": "./intro",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",

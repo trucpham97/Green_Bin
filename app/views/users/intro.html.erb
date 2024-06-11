@@ -1,3 +1,7 @@
+<div id="animated-splash-screen">
+  <img id="animated-splash-screen" src="/splashscreens/apple-splash-1170x2532.gif" alt="Loading...">
+</div>
+
 <div class="intro-body particle-container">
   <div class="banner-intro">
 
@@ -24,3 +28,11 @@
     </div>
   <% end %>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      document.getElementById('animated-splash-screen').style.display = 'none';
+    }, 1000); // Durée de l'animation en millisecondes
+  });
+</script>
