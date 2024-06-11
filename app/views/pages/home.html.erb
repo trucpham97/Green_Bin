@@ -4,10 +4,6 @@
 
     <p class="pill-btn">Rechercher</p>
 
-    <div class="search-bar">
-      <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for words..">
-    </div>
-
     <% if user_signed_in? %>
       <%= link_to new_product_path, class: "pushable booking-btn-link" do %>
           <span class="shadow"></span>
