@@ -4,6 +4,17 @@
 
     <p class="pill-btn">Rechercher</p>
 
+
+    <%= form_with url: recycling_spot_infos_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Chercher un materiaux..."
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+
+
     <% if user_signed_in? %>
       <%= link_to new_product_path, class: "pushable booking-btn-link" do %>
           <span class="shadow"></span>

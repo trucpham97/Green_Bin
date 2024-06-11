@@ -72,7 +72,39 @@ puts "Destroying users"
 User.destroy_all
 puts "Destroying products"
 Product.destroy_all
+puts "Destroying informations"
 
+puts "Creating informations..."
+RecyclingPointInfo.create!(
+  title: "Bac à couvercle jaune ou point de collecte",
+  illustration: "trash_bins/bac_jaune.jpg",
+  packaging: ["Briques alimentaire","Emballages en carton", "Emballages en métal", "Papiers",
+              "Emballages en plastique", "Bouteilles et flacons en plastique"]
+)
+
+RecyclingPointInfo.create!(
+  title: "Point de collecte",
+  illustration: "trash_bins/point_de_collecte.jpg",
+  packaging: ["Pots et bocaux en verre","Bouteilles en verre"]
+)
+
+RecyclingPointInfo.create!(
+  title: "Bac à couvercle bleu ou point de collecte",
+  illustration: "trash_bins/point_de_collecte.jpg",
+  packaging: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
+              "Courriers, enveloppes et livres"]
+)
+
+RecyclingPointInfo.create!(
+  title: "Bac à couvercle bleu ou point de collecte",
+  illustration: "trash_bins/point_de_collecte.jpg",
+  packaging: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
+              "Courriers, enveloppes et livres"]
+)
+
+
+
+# Users #
 user_test = User.create!(
   username: '@TimTeam',
   emission: '60',
