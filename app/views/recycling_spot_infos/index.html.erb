@@ -1,9 +1,62 @@
+
+
 <% if @spots.any? %>
+
+  <div class="info-page-container">
   <% @spots.each do |spot| %>
-    <h4><%= spot.title %></h4>
-    <p><%= spot.packaging %></p>
-    <%= image_tag spot.illustration %>
+
+    <div class="info-card">
+
+      <h3><strong><%= spot.title %></strong></h3>
+      <h4><%= spot.subheading %></h4>
+
+      <hr>
+
+      <div class="spot-illustration-helper">
+        <%= image_tag spot.illustration, class: "small-image-info" %>
+
+        <i class="fa-solid fa-arrow-left left-arrow-icon"></i>
+
+        <p><strong><%= spot.helper %></strong></p>
+      </div>
+
+      <hr>
+
+      <% spot.packaging.each do |pack| %>
+        <span><i class="fa-solid fa-thumbs-up thumb-icon"></i> <%= pack %></span>
+      <% end %>
+
+      <hr>
+
+      <div class="nono-win">
+        <div class="nono">
+          <% spot.no_no.each do |no| %>
+            <span><i class="fa-solid fa-ban nope-icon"></i> <%= no %></span>
+            <br>
+          <% end %>
+        </div>
+        <div class="win sketchy">
+          <p><em><%= spot.we_win %></em></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <p><strong><%= spot.description_title %></strong></p>
+
+      <% spot.descriptions.each do |desc| %>
+        <p>><%= desc %></p>
+      <% end %>
+
+    </div>
+
+
   <% end %>
+</div>
+
+
+
+
 <% else %>
   <em>Désolé, pas d'information retrouvée</em>
 <% end %>
