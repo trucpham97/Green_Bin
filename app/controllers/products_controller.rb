@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
   # layout 'no_navbar', only: [:new, :create]
   # layout 'just_no_navbar', only: [:index, :show]
 
+  caches_action :index, :new, :create, :show, :display_material, expires_in: 24.hours
+
   def index
     @products = Product.all
   end
@@ -63,15 +65,15 @@ class ProductsController < ApplicationController
 
   def display_material(product)
     case product.material
-    when 'plastic'
+    when 'en:plastic' || "en:pet-1-polyethylen-terephthalate"
       { name: 'Plastique', color: 'yellow', text: 'black'}
-    when 'glass'
+    when 'en:glass' || "en:green-glass" || "en:clear-glass" || "en:bottle"
       { name: 'Verre', color: 'green' }
-    when "paper"
+    when "en:cardboard" || "en:paperboard"
       { name: 'Carton', color: 'blue' }
-    when "aluminum"
+    when "en:aluminum"  || "en:canned"
       { name: 'Aluminium', color: 'grey' }
-    when "metal"
+    when "en:metal" || "en:steel"
       { name: 'Métal', color: 'grey' }
     else
       { name: 'Materiaux non disponibles', color: 'black' }
