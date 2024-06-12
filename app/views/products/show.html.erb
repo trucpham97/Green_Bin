@@ -19,3 +19,11 @@
 <p>Eco score: <%= @product.score %></p>
 
 <p>Description: <%= @product.description %></p>
+
+<div class="spot-btn-container">
+  <%= link_to map_path, class: "pushable-spot booking-btn-link-spot" do %>
+    <span class="shadow-spot"></span>
+    <span class="edge-spot"></span>
+    <span class="front-spot"><span>Voir la carte</span><i class="fa-solid fa-map-location-dot"></i></span>
+  <% end %>
+</div>

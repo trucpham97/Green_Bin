@@ -1,4 +1,5 @@
 class RecyclingSpotInfosController < ApplicationController
+  layout 'just_no_navbar', only: [:index]
 
   def index
     @spots = RecyclingPointInfo.all

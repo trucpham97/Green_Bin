@@ -2,23 +2,10 @@
 
   <div class="option-card">
 
-    <!-- <p class="pill-btn">Rechercher</p>-->
-
-    <!-- <%= form_with url: recycling_spot_infos_path, method: :get, class: "pill-btn" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Chercher un materiaux..."
-        %>
-      <%= submit_tag "Search", name: "", class: "fas fa-search" %> , class: "btn btn-primary">
-    <% end %> -->
-
-    <br>
     <div class= "searchbar-container">
       <%= form_with url: recycling_spot_infos_path, method: :get do %>
         <%= text_field_tag :query,
               params[:query],
-              # class: "form-control",
               placeholder: "Chercher un materiau...",
               class: "search-bar"
           %>
