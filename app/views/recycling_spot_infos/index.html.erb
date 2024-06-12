@@ -5,10 +5,10 @@
   </svg>
 <% end %>
 
-<h1>Informations</h1>
+<h1 class="infos-spot-title-elements">Informations</h1>
 
 <% if params[:query].present? %>
-  <p>Votre recherche pour: "<%= params[:query] %>"</p>
+  <p class="infos-spot-title-elements">Votre recherche pour: "<%= params[:query] %>"</p>
 <% end %>
 
 <% if @spots.any? %>
@@ -16,7 +16,15 @@
   <div class="info-page-container">
   <% @spots.each do |spot| %>
 
-    <div class="info-card">
+    <div class="<%= 'info-card' + case spot.title
+                             when 'Bac à couvercle jaune' then ' yellow-card'
+                             when 'Poubelle à verre' then ' greeen-card'
+                             when 'Bac à couvercle bleu' then ' blue-card'
+                             when 'Bac à compostage' then ' brown-card'
+                             when 'Bac à couvercle gris' then ' black-card'
+                             when 'En déchèterie' then ' grey-card'
+                             else ''
+                             end %>">
 
       <h3><strong><%= spot.title %></strong></h3>
       <h4><%= spot.subheading %></h4>
@@ -35,9 +43,11 @@
       <hr>
 
       <% spot.packaging.each do |pack| %>
-        <span><i class="fa-solid fa-thumbs-up thumb-icon"></i> <%= pack %></span>
+        <div class="pack-div">
+          <span><i class="fa-solid fa-thumbs-up thumb-icon"></i></span>
+          <span class="packaging-content"><%= pack %></span>
+        </div>
       <% end %>
-
 
       <% unless (spot.no_no.empty? && spot.we_win.empty?) %>
         <hr>
@@ -45,8 +55,10 @@
         <div class="nono-win">
           <div class="nono">
             <% spot.no_no.each do |no| %>
-              <span><i class="fa-solid fa-ban nope-icon"></i> <%= no %></span>
-              <br>
+            <div class="pack-div-smallgap">
+              <span><i class="fa-solid fa-ban nope-icon"></i></span>
+              <span class="nono-content"><%= no %></span>
+            </div>
             <% end %>
           </div>
 
@@ -60,10 +72,15 @@
 
       <% unless spot.description_title.empty? %>
         <hr>
-        <p><strong><%= spot.description_title %></strong></p>
-        <% spot.descriptions.each do |desc| %>
-          <p>><%= desc %></p>
-        <% end %>
+        <div class="so-much-divs">
+          <p><strong><%= spot.description_title %></strong></p>
+          <% spot.descriptions.each do |desc| %>
+            <div class="pack-div">
+              <span><strong>></strong></span>
+              <span class="packaging-content"><%= desc %></span>
+            </div>
+          <% end %>
+        </div>
       <% end %>
 
       <!-- bouton map -->

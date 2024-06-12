@@ -1,7 +1,41 @@
+.infos-spot-title-elements {
+  margin-left: 40px;
+}
+
 .sticky-sticky-icon {
   position: sticky;
   top: 1.5vh;
   z-index: 1000;
+}
+
+.yellow-card {
+  background: rgb(240,255,69);
+  background: linear-gradient(180deg, rgba(240,255,69,1) 0%, rgba(240,255,69,1) 15%, rgba(243,255,239,1) 63%);
+}
+
+.greeen-card {
+  background: rgb(15,244,15);
+  background: linear-gradient(180deg, rgba(15,244,15,1) 0%, rgba(15,244,15,1) 15%, rgba(243,255,239,1) 63%);
+}
+
+.blue-card {
+  background: rgb(15,189,244);
+background: linear-gradient(180deg, rgba(15,189,244,1) 0%, rgba(15,189,244,1) 15%, rgba(243,255,239,1) 63%);
+}
+
+.brown-card {
+  background: rgb(250,163,0);
+  background: linear-gradient(180deg, rgba(250,163,0,1) 0%, rgba(250,163,0,1) 15%, rgba(243,255,239,1) 63%);
+}
+
+.grey-card {
+  background: rgb(161,161,161);
+background: linear-gradient(180deg, rgba(161,161,161,1) 0%, rgba(161,161,161,1) 15%, rgba(243,255,239,1) 63%);
+}
+
+.black-card {
+  background: rgb(230,104,255);
+  background: linear-gradient(180deg, rgba(230,104,255,1) 0%, rgba(230,104,255,1) 15%, rgba(243,255,239,1) 63%);
 }
 
 .info-page-container {
@@ -9,9 +43,10 @@
   flex-direction: column;
   justify-content: flex-start;
 
+  width: 90%;
   min-height: 80vh;
+  margin: auto;
   margin-top: 20px;
-
   padding-bottom: 10vh;
 }
 
@@ -20,17 +55,17 @@
 }
 
 .info-page-container hr {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 40px;
-  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  // margin-right: 10px;
+  // margin-left: 10px;
 }
 
 .info-card {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  background-color: $secondary-color;
+  gap: 20px;
+  // background-color: $secondary-color;
   border-radius: 10px;
   box-shadow: $shadow-card;
   width: 95%;
@@ -38,7 +73,7 @@
   margin-bottom: 20px;
   margin-right: 10px;
   margin-left: 10px;
-  padding: 5px;
+  padding: 20px;
 }
 
 // picture div
@@ -56,7 +91,7 @@
   height: 150px;
   width: auto;
 
-  border-radius: 10px;
+  border-radius: 50%;
 }
 
 .left-arrow-icon {
@@ -67,8 +102,25 @@
 
 // Produits recyclables
 .thumb-icon {
-  color: black;
-  font-size: 20px;
+  color: #186D58;
+  font-size: 24px;
+}
+
+// .indent-skip-line {
+//   padding-left: 1.5em;
+//   text-indent:-1.5em;
+// }
+
+.pack-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.packaging-content {
+  text-align: justify;
+  text-justify: auto;
 }
 
 // nono win
@@ -77,23 +129,47 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 .nono, .win {
   flex: 1;
 }
 
+.nono-content {
+  margin-bottom: 20px;
+}
+
 .win {
   text-align: center;
+  background-color: white;
 }
 
 .nono fa-solid {
   color: black;
   font-size: 20px;
+  gap: 20px;
 }
 
 .nope-icon {
   color: darkred;
-  font-size: 20px;
+  font-size: 24px;
+}
+
+.pack-div-smallgap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.so-much-divs {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  gap: 10px;
+  padding-right: 20px;
+
 }
 
 .sketchy {

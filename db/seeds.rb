@@ -105,7 +105,7 @@ puts "Creating informations..."
 RecyclingPointInfo.create!(
   title: "Bac à couvercle jaune",
   subheading: "Tous les emballages et papiers",
-  illustration: "trash_bins/point_de_collecte.jpg",
+  illustration: "trash_bins/yellow_trash.png",
   packaging: ["Emballages en plastique: bouteilles, pots de yaourt, sachets de surgelés...",
               "Emballages en métal: canettes, capsules de café, conserves...",
             "Papiers et emballages en carton: cartons à pizza, enveloppes..."],
@@ -125,7 +125,7 @@ RecyclingPointInfo.create!(
 RecyclingPointInfo.create!(
   title: "Poubelle à verre",
   subheading: "Recyclage",
-  illustration: "trash_bins/point_de_collecte.jpg",
+  illustration: "trash_bins/green_trash.png",
   packaging: ["Bouteilles", "Bocaux", "Flacons"],
   description_title: "Pour limiter mes déchets:",
   descriptions: ["J'achète des bouteilles et bocaux consignés. Une fois rapportés en magasin, les contenants sont réutilisés"],
@@ -139,7 +139,7 @@ RecyclingPointInfo.create!(
 RecyclingPointInfo.create!(
   title: "Bac à couvercle bleu",
   subheading: "Papiers, journaux, prospectus...",
-  illustration: "trash_bins/point_de_collecte.jpg",
+  illustration: "trash_bins/blue_trash.png",
   packaging: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
               "Courriers, enveloppes et livres"],
   description_title: "",
@@ -155,7 +155,7 @@ RecyclingPointInfo.create!(
 RecyclingPointInfo.create!(
   title: "Bac à compostage",
   subheading: "Déchets alimentaires",
-  illustration: "trash_bins/point_de_collecte.jpg",
+  illustration: "trash_bins/composte_trash.png",
   packaging: ["Préparations de repas et restes", "Marc de café et thé",
             "Aliments périmés sans emballage"],
   description_title: "Pour éviter le gaspillage alimentaire au quotidien:",
@@ -175,7 +175,7 @@ RecyclingPointInfo.create!(
 RecyclingPointInfo.create!(
   title: "Bac à couvercle gris",
   subheading: "Ordures ménagères, incinération",
-  illustration: "trash_bins/point_de_collecte.jpg",
+  illustration: "trash_bins/trash_trash.png",
   packaging: ["Couches", "Objets plastiques", "Vaisselle cassée en verre ou en porcelaine", "Essuie-tout, mouchoirs et lingettes"],
   description_title: "Pour ce qui n'a pu être trié:",
   descriptions: ["Je jette les déchets qui n'ont pu être évités et qui ne peuvent être ni recyclés ni compostés"],
@@ -190,7 +190,7 @@ RecyclingPointInfo.create!(
 RecyclingPointInfo.create!(
   title: "En déchèterie",
   subheading: "Déchets occasionnels, réemploi et recyclage",
-  illustration: "trash_bins/point_de_collecte.jpg",
+  illustration: "trash_bins/decheterie_trash.png",
   packaging: ["Déchets verts", "Electroménager, appareils électriques et électroniques",
               "Bois", "Déchets dangereux", "Meubles abîmés, encombrants", "Métal",
               "Gravats et plâtre", "Cartons"],
