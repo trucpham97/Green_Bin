@@ -1,18 +1,29 @@
-<div class="badge rounded-pill fs-6
-  <% if recycling_spot.tag_list == ["glass", "plastic", "paper", "aluminum", "house waste", "metal"] %>
-    bg-danger-subtle
-  <% elsif recycling_spot.tag_list == ["glass", "plastic", "paper", "aluminum", "house waste", "metal", "household applicances", "batteries"] %>
-    bg-primary-subtle
-  <% elsif recycling_spot.tag_list == ["compost"] %>
-    bg-success-subtle
-  <% elsif recycling_spot.tag_list == ["plastic"] %>
-    bg-warning
-  <% elsif recycling_spot.tag_list == ["glass"] %>
-    bg-success
-  <% elsif recycling_spot.tag_list == ["house waste"] %>
-    bg-secondary bg-gradient
-  <% else %>
-    bg-tertiary
-  <% end %> ">
-  <%= image_tag "pin.svg", height: 20, width: 20, alt: "poubelle tri" %>
-</div>
+<% if recycling_spot.tag_list == ["glass", "plastic", "paper", "aluminum", "house waste", "metal"] %>
+  <div class="badge rounded-pill fs-6 bg-danger-subtle">
+    <%= image_tag "pins/silo.svg", height: 20, width: 20, alt: "borne à collection selective" %>
+  </div>
+<% elsif recycling_spot.tag_list == ["glass", "plastic", "paper", "aluminum", "house waste", "metal", "household applicances", "batteries"] %>
+  <div class="badge rounded-pill fs-6 bg-primary-subtle">
+    <%= image_tag "pins/center.svg", height: 20, width: 20, alt: "déchèterie" %>
+  </div>
+<% elsif recycling_spot.tag_list == ["compost"] %>
+  <div class="badge rounded-pill fs-6 bg-success-subtle">
+    <%= image_tag "pins/fish.svg", height: 20, width: 20, alt: "borne à compost" %>
+  </div>
+<% elsif recycling_spot.tag_list == ["plastic"] %>
+  <div class="badge rounded-pill fs-6 bg-warning">
+    <%= image_tag "pins/pin.svg", height: 20, width: 20, alt: "poubelle jaune" %>
+  </div>
+<% elsif recycling_spot.tag_list == ["glass"] %>
+  <div class="badge rounded-pill fs-6 bg-success">
+    <%= image_tag "pins/glass.svg", height: 20, width: 20, alt: "silo à verre" %>
+  </div>
+<% elsif recycling_spot.tag_list == ["house waste"] %>
+  <div class="badge rounded-pill fs-6 bg-secondary bg-gradient">
+    <%= image_tag "pins/mask.svg", height: 20, width: 20, alt: "poubelle d'ordures ménagères" %>
+  </div>
+<% else %>
+  <div class="badge rounded-pill fs-6 bg-tertiary">
+    <%= image_tag "pins/pin.svg", height: 20, width: 20, alt: "poubelle tri" %>
+  </div>
+<% end %>
