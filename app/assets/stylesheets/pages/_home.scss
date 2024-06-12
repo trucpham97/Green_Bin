@@ -11,7 +11,7 @@ body {
   height: 80vh;
 }
 
-.pill-btn{
+.pill-btn {
   display: flex;
   // box-sizing: border-box;
   padding-top: 10px;
@@ -36,13 +36,14 @@ body {
 
 // search bar
 .searchbar-container {
-  position: relative;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .search-bar {
   //margin: 20px auto;
-  margin-top: 0px;
-  margin-bottom: 20px;
+  position: relative;
   width: 100%;
   padding: 15px 40px;
   outline: none;
@@ -61,15 +62,19 @@ body {
 
 .looking-btn {
   position: absolute;
-  top: 38%;
-  right: -20px;
-  transform: translateY(-50%);
+  top: auto;
+  right: 40px;
+  transform: translateY(0%);
 
   width: 60px;
   height: 60px;
   border-radius: 50px;
   border: none;
   background-color: #378E4D;
+
+  background: rgb(218,236,14);
+  background: radial-gradient(ellipse at right top, rgba(218,236,14,1) 0%, rgba(148,187,64,1) 32%, rgba(73,142,82,1) 62%, rgba(24,109,88,1) 82%, rgba(24,109,88,1) 99%);
+
   box-shadow: $shadow-card;
   outline: none;
   transition: all 0.3s ease;
@@ -85,15 +90,12 @@ body {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin-right: 10px;
-  margin-left: 10px;
-  // margin-top: 20px;
+
   background-color: $secondary-color;
   border-radius: 10px;
-  // box-shadow: rgba(48, 123, 78, 0.35) 0px 5px 15px;
   box-shadow: $shadow-card;
   padding: 10px;
-  width: 92.5%;
+  width: 90%;
 }
 
 .margin-p {
