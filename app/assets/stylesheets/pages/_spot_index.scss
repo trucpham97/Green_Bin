@@ -1,7 +1,44 @@
+.infos-spot-title-elements {
+  margin-left: 40px;
+}
+
 .sticky-sticky-icon {
   position: sticky;
   top: 1.5vh;
   z-index: 1000;
+}
+
+.yellow-card {
+  background: rgb(240,255,69);
+  background: linear-gradient(180deg, rgba(240,255,69,1) 0%, rgba(240,255,69,1) 15%, rgba(243,255,239,1) 63%);
+}
+
+.greeen-card {
+  background: rgb(34,221,84);
+  background: linear-gradient(180deg, rgba(34,221,84,1) 0%, rgba(34,221,84,1) 15%, rgba(243,255,239,1) 63%);
+}
+
+.blue-card {
+  background: rgb(15,189,244);
+background: linear-gradient(180deg, rgba(15,189,244,1) 0%, rgba(15,189,244,1) 15%, rgba(243,255,239,1) 63%);
+}
+
+.brown-card {
+  background: rgb(205,127,50);
+  background: linear-gradient(180deg, rgba(205,127,50,1) 0%, rgba(205,127,50,1) 15%, rgba(243,255,239,1) 63%);
+}
+
+.grey-card {
+  background: rgb(161,161,161);
+background: linear-gradient(180deg, rgba(161,161,161,1) 0%, rgba(161,161,161,1) 15%, rgba(243,255,239,1) 63%);
+}
+
+.black-card {
+  background: rgb(105,139,88);
+background: linear-gradient(180deg, rgba(105,139,88,1) 0%, rgba(105,139,88,1) 15%, rgba(243,255,239,1) 63%);
+  h3, h4 {
+    color: white;
+  }
 }
 
 .info-page-container {
@@ -9,9 +46,10 @@
   flex-direction: column;
   justify-content: flex-start;
 
+  width: 90%;
   min-height: 80vh;
+  margin: auto;
   margin-top: 20px;
-
   padding-bottom: 10vh;
 }
 
@@ -20,17 +58,17 @@
 }
 
 .info-page-container hr {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 40px;
-  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  // margin-right: 10px;
+  // margin-left: 10px;
 }
 
 .info-card {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  background-color: $secondary-color;
+  gap: 20px;
+  // background-color: $secondary-color;
   border-radius: 10px;
   box-shadow: $shadow-card;
   width: 95%;
@@ -38,25 +76,36 @@
   margin-bottom: 20px;
   margin-right: 10px;
   margin-left: 10px;
-  padding: 5px;
+  padding: 20px;
 }
 
 // picture div
 .spot-illustration-helper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
   gap: 5px;
+  text-align: center;
+}
+
+.bubble-tea {
+  margin: 0;
+  border: black solid 2px;
+  border-radius: 999px;
+  padding: 10px;
+  background-color: rgb(243, 243, 243);
+  box-shadow: $shadow-card;
 }
 
 .small-image-info {
   display: flex;
-  height: 150px;
+  height: 200px;
   width: auto;
 
-  border-radius: 10px;
+  //border-radius: 50%;
 }
 
 .left-arrow-icon {
@@ -67,8 +116,25 @@
 
 // Produits recyclables
 .thumb-icon {
-  color: black;
-  font-size: 20px;
+  color: #186D58;
+  font-size: 24px;
+}
+
+// .indent-skip-line {
+//   padding-left: 1.5em;
+//   text-indent:-1.5em;
+// }
+
+.pack-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.packaging-content {
+  text-align: justify;
+  text-justify: auto;
 }
 
 // nono win
@@ -77,23 +143,47 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 .nono, .win {
   flex: 1;
 }
 
+.nono-content {
+  margin-bottom: 20px;
+}
+
 .win {
   text-align: center;
+  background-color: white;
 }
 
 .nono fa-solid {
   color: black;
   font-size: 20px;
+  gap: 20px;
 }
 
 .nope-icon {
   color: darkred;
-  font-size: 20px;
+  font-size: 24px;
+}
+
+.pack-div-smallgap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.so-much-divs {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  gap: 10px;
+  padding-right: 20px;
+
 }
 
 .sketchy {
@@ -245,6 +335,10 @@
   width: 100%;
 }
 
+.front-spot2, .edge-spot2, .shadow-spot2 {
+  width: 90%;
+}
+
 .front-spot span {
   margin: 0;
   margin-right: 10px;
@@ -255,3 +349,7 @@
   fill: white;
   font-size: 24px;
 }
+
+// .front-spot-spot {
+//   width: 90%;
+// }
