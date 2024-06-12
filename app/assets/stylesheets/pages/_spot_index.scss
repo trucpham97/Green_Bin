@@ -1,6 +1,6 @@
 .sticky-sticky-icon {
   position: sticky;
-  top: 10vh;
+  top: 1.5vh;
   z-index: 1000;
 }
 
@@ -115,4 +115,143 @@
       transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
       border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
   }
+}
+
+// Button to map intro
+.spot-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+
+  margin: auto;
+  // gap: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.booking-btn-link-spot {
+  color: white;
+  text-decoration: none;
+
+  p {
+    margin: 0;
+  }
+}
+
+.pushable-spot {
+  margin-left: 10px;
+  margin-right: 10px;
+
+  // margin-bottom: 20px;
+  // margin-top: 20px;
+  // margin-left: 10px;
+  // margin-right: 10px;
+  width: 100%;
+
+  position: relative;
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+
+  &:active {
+    .front-spot {
+      transform: translateY(0px);
+      transition: transform 34ms;
+    }
+
+    .shadow-spot {
+      transform: translateY(1px);
+      transition: transform 34ms;
+    }
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  .shadow-spot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+
+    background: rgba(hsl(0deg, 0%, 0%), 0.25);
+
+    will-change: transform;
+    transform: translateY(10px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+  }
+
+  .edge-spot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+
+    background: linear-gradient(to left,
+      rgba(hsl(116, 74%, 17%), 1) 0%,
+      rgba(hsl(339, 100%, 6%), 1) 8%,
+      rgba(hsl(129, 70%, 21%), 1) 92%,
+      rgba(hsl(124, 51%, 10%), 1) 100%);
+    background-color: #195F5B;
+  }
+
+  .front-spot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 80px;
+    padding-left: 80px;
+    justify-content: space-evenly;
+    //width: 100%;
+
+    color: white;
+
+    background:
+      //url('codebar4.png'),
+      linear-gradient(61deg, rgba(30,111,81,1) 1%, rgba(125,172,66,1) 73%, rgba(203,212,60,1) 85%);
+    background-color: #1A605D;
+    background-repeat: no-repeat;
+    background-position: center;
+    // background-size: 100% auto;
+    background-size: contain;
+    will-change: transform;
+    //transform: translateY(0px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+
+    // letter-spacing: 2px;
+    font-size: 18px;
+  }
+}
+
+.front-spot, .edge-spot, .shadow-spot {
+  border-radius: 10px;
+  // width: 180px; // adjust as needed
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.front-spot span {
+  margin: 0;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.fa-map-location-dot {
+  fill: white;
+  font-size: 24px;
 }
