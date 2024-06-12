@@ -32,12 +32,10 @@
       <hr>
 
       <div class="spot-illustration-helper">
-        <%= image_tag spot.illustration, class: "small-image-info" %>
-
         <% unless spot.helper.empty? %>
-          <i class="fa-solid fa-arrow-left left-arrow-icon"></i>
-          <p><strong><%= spot.helper %></strong></p>
+            <p class="bubble-tea"><strong><%= spot.helper %></strong></p>
         <% end %>
+        <%= image_tag spot.illustration, class: "small-image-info" %>
       </div>
 
       <hr>
@@ -86,9 +84,9 @@
       <!-- bouton map -->
       <div class="spot-btn-container">
         <%= link_to map_path, class: "pushable-spot booking-btn-link-spot" do %>
-          <span class="shadow-spot"></span>
-          <span class="edge-spot"></span>
-          <span class="front-spot"><span>Voir la carte</span><i class="fa-solid fa-map-location-dot"></i></span>
+          <span class="shadow-spot shadow-spot2"></span>
+          <span class="edge-spot edge-spot2"></span>
+          <span class="front-spot front-spot2"><span>Voir la carte</span><i class="fa-solid fa-map-location-dot"></i></span>
         <% end %>
       </div>
 
@@ -98,8 +96,6 @@
 </div>
 
 
-
-
 <% else %>
-  <em>Désolé, pas d'information retrouvée</em>
+  <em>Désolé, pas d'information retrouvée pour ce produit</em>
 <% end %>
