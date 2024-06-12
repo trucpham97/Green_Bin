@@ -1,10 +1,12 @@
 .mapboxgl-popup {
   max-width: 200px;
+  border-radius: 10px;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
+  border-radius: 10px;
 }
 
 .user-marker {
@@ -19,10 +21,12 @@
   display: none !important;
 }
 
-.mapboxgl-ctrl-geocoder--input {
-  max-width: 100vw !important;
+.mapboxgl-ctrl-geocoder {
+  max-width: 98vw !important;
   position: fixed;
-  margin-right: 15px;
-  margin-left: 15px;
-  border-radius: 999px;
+  top: 3%;
+  left: 50%;
+  border-radius: 50px;
+  transform: translate(-50%, -50%);
+  width: 100%;
 }
