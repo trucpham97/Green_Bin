@@ -1,3 +1,4 @@
+// Cookies for camera permission
 function setCookie(name, value, days) {
   const date = new Date();
   date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -39,6 +40,7 @@ function checkCameraPermission() {
 }
 
 function startCamera() {
+
   console.log("Starting camera...");
   let selectedDeviceId;
   const codeReader = new ZXing.BrowserMultiFormatReader();
@@ -46,7 +48,7 @@ function startCamera() {
 
   codeReader.listVideoInputDevices()
     .then((videoInputDevices) => {
-      selectedDeviceId = videoInputDevices[0].deviceId;
+      selectedDeviceId = videoInputDevices[1].deviceId;
       console.log('videoInputDevices', videoInputDevices);
       console.log('deviceId', selectedDeviceId);
       if (videoInputDevices.length >= 1) {
@@ -73,65 +75,10 @@ function startCamera() {
           console.log(result);
           document.getElementById('result').textContent = result.text;
 
-          async function fetchProduct() {
-            try {
-              const response = await fetch(`https://world.openfoodfacts.org/api/v0/product/${result.text}.json`);
-              const data = await response.json();
-
-              console.log("Your product is :", data.product.product_name);
-              console.log("image", data.product.image_url);
-
-              // Different ways to get the material of the product
-              console.log(data?.product?.packagings[0]?.material ?? 'Information non disponible');
-              console.log(data?.product?.packaging_tags ?? 'Information non disponible');
-
-              // Fill Form with product data
-              document.getElementById('product_name').value = data.product.product_name;
-              document.getElementById('product_image_url').value = data.product.image_url;
-
-              const material = data?.product?.packagings[0]?.material ?? 'Information non disponible';
-              let material_fr;
-
-              // Translate material to French (I know it's ugly, but it works for now)
-              if (material.includes('plastic')) {
-                material_fr = 'Plastique';
-              } else if (material.includes('pet-1-polyethylen-terephthalate')) {
-                material_fr = 'Plastique';
-              } else if (material.includes('pet-1-polyethylene-terephthalate')) {
-                material_fr = 'Plastique';
-              } else if (material.includes('glass')) {
-                material_fr = 'Verre';
-              } else if (material.includes('green-glass')) {
-                material_fr = 'Verre';
-              } else if (material.includes('clear-glass')) {
-                material_fr = 'Verre';
-              } else if (material.includes('bottle')) {
-                material_fr = 'Verre';
-              } else if (material.includes('cardboard')) {
-                material_fr = 'Carton';
-              } else if (material.includes('paperboard')) {
-                material_fr = 'Carton';
-              } else if (material.includes('aluminum')) {
-                material_fr = 'Aluminium';
-              } else if (material.includes('canned')) {
-                material_fr = 'Aluminium';
-              } else if (material.includes('metal')) {
-                material_fr = 'Metal';
-              } else if (material.includes('steel')) {
-                material_fr = 'Metal';
-              } else {
-                material_fr = 'Indisponible';
-              }
-
-              document.getElementById('product_material').value = material;
-              console.log(data?.product?.packaging_text_fr);
-              const description = data?.product?.packaging_text_fr ?? 'Description non disponible';
-              document.getElementById('product_description').value = description;
-
-              // Form Auto-Submit
-              // document.getElementById('product-form').submit();
+          // Form Auto-Submit function
+          function autoSubmitForm() {
+            return new Promise((resolve) => {
               const form = document.getElementById('product-form');
-
               const url = form.action;
               const formData = new FormData(form);
               fetch(url, {
@@ -143,40 +90,196 @@ function startCamera() {
                 .then(data => {
                   const id = data.id;
                   const cardLink = document.querySelector('.product-link');
-                  cardLink.href = `/products/${id}/recycling_spots`;
+                  const href = `/products/${id}/recycling_spots`;
+                  console.log("Link to recycling spots:", href);
+
+                  setTimeout(() => {
+                    resolve(href);
+                  }, 100);
                 });
 
-              document.getElementById('product-card').innerHTML = '';
-              // Custom Event for Stimulus in product_controller.js (ask Thomas for help if needed)
-              const newProduct = {
-                name: data.product.product_name,
-                imageUrl: data.product.image_url,
-                material: material_fr
-              };
-              document.dispatchEvent(new CustomEvent('product:created', { detail: { product: newProduct } }));
-
-            } catch (error) {
-              console.error('Erreur lors de la récupération du produit:', error);
-            }
+            });
           }
 
-          fetchProduct();
+          // Check if the barcode is included in the seed data
 
+          if (result.text === '3245414146068') {
+            // Porc à la Dijonnaise et ses pommes de terre
+            console.log("Your product is: Porc à la Dijonnaise et ses pommes de terre");
+
+            // Fill Form with product data
+            document.getElementById('product_name').value = 'Porc à la Dijonnaise et ses pommes de terre';
+            document.getElementById('product_image_url').value = 'https://www.zediet.fr/img/2/3245414146068.jpg';
+            document.getElementById('product_material').value = 'Carton';
+            document.getElementById('product_description').value = '1 étui en carton à recycler, 1 barquette en plastique à trier, 1 opercule en plastique à trier';
+
+            // Form Auto-Submit
+            autoSubmitForm().then((href) => {
+              console.log(href); // "Formulaire soumis avec succès"
+
+              const newProduct = {
+                name: 'Porc à la Dijonnaise et ses pommes de terre',
+                imageUrl: 'https://www.zediet.fr/img/2/3245414146068.jpg',
+                material: 'Carton',
+                description: '1 étui en carton à recycler, 1 barquette en plastique à trier, 1 opercule en plastique à trier',
+                link: href
+              };
+
+              document.dispatchEvent(new CustomEvent('product:created', { detail: { product: newProduct } }));
+            });
+
+          } else if (result.text === '3103220035214') {
+            // Haribo Croco
+            console.log("Your product is: Haribo Croco");
+
+            // Fill Form with product data
+            document.getElementById('product_name').value = 'Haribo Croco';
+            document.getElementById('product_image_url').value = 'https://www.mypanier.com/cdn/shop/products/3103220035214-photosite-20211119-170939-0_540x540.jpg?v=1662466678';
+            document.getElementById('product_material').value = 'Plastique';
+            document.getElementById('product_description').value = '1 emballage plastique à trier';
+
+            // Form Auto-Submit
+            autoSubmitForm().then((href) => {
+              console.log(href); // "Formulaire soumis avec succès"
+
+              const newProduct = {
+                name: 'Haribo Croco',
+                imageUrl: 'https://www.mypanier.com/cdn/shop/products/3103220035214-photosite-20211119-170939-0_540x540.jpg?v=1662466678',
+                material: 'Plastique',
+                description: '1 emballage plastique à trier',
+                link: href
+              };
+
+              document.dispatchEvent(new CustomEvent('product:created', { detail: { product: newProduct } }));
+            });
+
+          } else if (result.text === '3080216052885') {
+            // Bière 1664 25cl
+            console.log("Your product is: Bière 1664 25cl");
+
+            // Fill Form with product data
+            document.getElementById('product_name').value = 'Bière 1664 25cl';
+            document.getElementById('product_image_url').value = 'https://www.charlemagne-boissons.com/666-large_default/1664-blonde-25cl.jpg';
+            document.getElementById('product_material').value = 'Verre';
+            document.getElementById('product_description').value = '1 bouteille en verre à recycler, 1 capsule en métal à recycler';
+
+            // Form Auto-Submit
+            autoSubmitForm().then((href) => {
+              console.log(href); // "Formulaire soumis avec succès"
+
+              const newProduct = {
+                name: 'Bière 1664 25cl',
+                imageUrl: 'https://www.concept-boissons.fr/1390-large_default/1664-25cl-55.jpg',
+                material: 'Verre',
+                description: '1 bouteille en verre à recycler, 1 capsule en métal à recycler',
+                link: href
+              };
+
+              document.dispatchEvent(new CustomEvent('product:created', { detail: { product: newProduct } }));
+            });
+
+          } else {
+            // Fetch product data from OpenFoodFacts API
+            console.log("Fetching product data from OpenFoodFacts API...");
+
+            async function fetchProduct() {
+              try {
+                const response = await fetch(`https://world.openfoodfacts.org/api/v0/product/${result.text}.json`);
+                const data = await response.json();
+
+                console.log("Your product is :", data.product.product_name);
+                console.log("image", data.product.image_url);
+
+                // Different ways to get the material of the product
+                console.log(data?.product?.packagings[0]?.material ?? 'Information non disponible');
+                console.log(data?.product?.packaging_tags ?? 'Information non disponible');
+
+                // Fill Form with product data
+                document.getElementById('product_name').value = data.product.product_name;
+                document.getElementById('product_image_url').value = data.product.image_url;
+
+                const material = data?.product?.packagings[0]?.material ?? 'Information non disponible';
+                let material_fr;
+
+                // Translate material to French (I know it's ugly, but it works for now)
+                if (material.includes('plastic')) {
+                  material_fr = 'Plastique';
+                } else if (material.includes('pet-1-polyethylen-terephthalate')) {
+                  material_fr = 'Plastique';
+                } else if (material.includes('pet-1-polyethylene-terephthalate')) {
+                  material_fr = 'Plastique';
+                } else if (material.includes('glass')) {
+                  material_fr = 'Verre';
+                } else if (material.includes('green-glass')) {
+                  material_fr = 'Verre';
+                } else if (material.includes('clear-glass')) {
+                  material_fr = 'Verre';
+                } else if (material.includes('bottle')) {
+                  material_fr = 'Verre';
+                } else if (material.includes('cardboard')) {
+                  material_fr = 'Carton';
+                } else if (material.includes('paperboard')) {
+                  material_fr = 'Carton';
+                } else if (material.includes('aluminum')) {
+                  material_fr = 'Aluminium';
+                } else if (material.includes('canned')) {
+                  material_fr = 'Aluminium';
+                } else if (material.includes('metal')) {
+                  material_fr = 'Metal';
+                } else if (material.includes('steel')) {
+                  material_fr = 'Metal';
+                } else {
+                  material_fr = 'Indisponible';
+                }
+
+                document.getElementById('product_material').value = material;
+                console.log(data?.product?.packaging_text_fr);
+                const description = data?.product?.packaging_text_fr ?? 'Description non disponible';
+                document.getElementById('product_description').value = description;
+
+                // Form Auto-Submit
+                autoSubmitForm().then((href) => {
+                  console.log(href); // "Formulaire soumis avec succès"
+
+                  const newProduct = {
+                    name: data.product.product_name,
+                    imageUrl: data.product.image_url,
+                    material: material_fr,
+                    description: 'Description non disponible',
+                    link: href
+                  };
+
+                  document.dispatchEvent(new CustomEvent('product:created', { detail: { product: newProduct } }));
+                });
+
+              } catch (error) {
+                console.error('Erreur lors de la récupération du produit:', error);
+              }
+            }
+
+            fetchProduct();
+
+          }
         }
+
         if (err && !(err instanceof ZXing.NotFoundException)) {
+
           console.error(err);
           document.getElementById('result').textContent = err;
+
         }
       });
+
       console.log(`Started continuous decode from camera with id ${selectedDeviceId}`);
 
     })
+
     .catch((err) => {
       console.error(err);
     });
 }
 
-// Check permission when the page loads
+// Check permissions when the page loads
 window.addEventListener('load', function () {
   checkCameraPermission();
 });
