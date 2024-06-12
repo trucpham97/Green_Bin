@@ -14,8 +14,8 @@
 }
 
 .greeen-card {
-  background: rgb(45,192,150);
-background: linear-gradient(180deg, rgba(45,192,150,1) 0%, rgba(45,192,150,1) 15%, rgba(243,255,239,1) 63%);
+  background: rgb(34,221,84);
+  background: linear-gradient(180deg, rgba(34,221,84,1) 0%, rgba(34,221,84,1) 15%, rgba(243,255,239,1) 63%);
 }
 
 .blue-card {
@@ -24,8 +24,8 @@ background: linear-gradient(180deg, rgba(15,189,244,1) 0%, rgba(15,189,244,1) 15
 }
 
 .brown-card {
-  background: rgb(250,163,0);
-  background: linear-gradient(180deg, rgba(250,163,0,1) 0%, rgba(250,163,0,1) 15%, rgba(243,255,239,1) 63%);
+  background: rgb(205,127,50);
+  background: linear-gradient(180deg, rgba(205,127,50,1) 0%, rgba(205,127,50,1) 15%, rgba(243,255,239,1) 63%);
 }
 
 .grey-card {
@@ -34,8 +34,11 @@ background: linear-gradient(180deg, rgba(161,161,161,1) 0%, rgba(161,161,161,1) 
 }
 
 .black-card {
-  background: rgb(230,104,255);
-  background: linear-gradient(180deg, rgba(230,104,255,1) 0%, rgba(230,104,255,1) 15%, rgba(243,255,239,1) 63%);
+  background: rgb(105,139,88);
+background: linear-gradient(180deg, rgba(105,139,88,1) 0%, rgba(105,139,88,1) 15%, rgba(243,255,239,1) 63%);
+  h3, h4 {
+    color: white;
+  }
 }
 
 .info-page-container {
@@ -84,7 +87,7 @@ background: linear-gradient(180deg, rgba(161,161,161,1) 0%, rgba(161,161,161,1) 
   align-items: center;
   height: 100%;
   width: 100%;
-  gap: 10px;
+  gap: 5px;
   text-align: center;
 }
 
@@ -93,7 +96,8 @@ background: linear-gradient(180deg, rgba(161,161,161,1) 0%, rgba(161,161,161,1) 
   border: black solid 2px;
   border-radius: 999px;
   padding: 10px;
-  background-color: white;
+  background-color: rgb(243, 243, 243);
+  box-shadow: $shadow-card;
 }
 
 .small-image-info {
