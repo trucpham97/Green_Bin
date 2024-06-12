@@ -55,14 +55,18 @@
   </div>
 
   <div class="option-card">
-    <p class="margin-p">Production de CO2 (kg/sem):</p>
-
-    <div class="counter">
-      <div class="counter-item">0</div>
-      <div class="counter-item">2</div>
-      <div class="counter-item">1</div>
-      <div class="counter-item">9</div>
+    <h3 class="margin-p2">Vous avez économisé :</h2>
+    <% total_carbon = 0 %>
+    <% Product.all.each do |product| %>
+      <% total_carbon += product.carbon.to_f %>
+    <% end %>
+    <div class="co2-display1">
+      <%= image_tag 'co2_cloud.png', width: "50px", height: "50px", class: 'co2-image' %>
+      <%= (total_carbon/1000).round(2) %>kg de CO²
     </div>
-
+    <div class="co2-display2">
+      <%= image_tag 'co2_car.svg', class: 'co2-image' %>
+      Equivalant à <%= (((36000 + total_carbon) * 5)/1000).round(1) %> km en voiture
+    </div>
   </div>
 </div>
