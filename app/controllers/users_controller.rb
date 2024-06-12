@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   # layout 'just_no_navbar', only: [:score]
   # layout 'no_navbar', only: [:intro]
 
-
   def show
     @user = User.find(params[:id])
   end
