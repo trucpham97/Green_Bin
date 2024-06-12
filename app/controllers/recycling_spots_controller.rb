@@ -1,6 +1,8 @@
 class RecyclingSpotsController < ApplicationController
   # before_action :set_product, only: [:index]
   layout 'just_no_navbar', only: [:index, :list]
+
+  caches_action :index, :list, expires_in: 24.hours
   def index
     @product = Product.find(params[:product_id])
     @recycling_spots = find_recycling_spots_by_tags(@product.tag_list)
@@ -12,9 +14,7 @@ class RecyclingSpotsController < ApplicationController
     # @recycling_spots.concat(RecyclingSpot.near("Place Jean Macé, Lyon", 2))
     # @recycling_spots = find_nearby_recycling_spots("20 rue des Capucins, Lyon", 1.1)
     location = "20 rue des Capucins, Lyon"
-    @recycling_spots = Rails.cache.fetch("nearby_recycling_spots/#{location.parameterize}", expires_in: 24.hours) do
-      find_nearby_recycling_spots(location, 1)
-    end
+    @recycling_spots = find_nearby_recycling_spots(location, 1)
     set_markers
   end
 
@@ -42,8 +42,8 @@ class RecyclingSpotsController < ApplicationController
       {
         lat: recycling_spot.latitude,
         lng: recycling_spot.longitude,
-        info_window_html: render_to_string(partial: "shared/info_window", locals: {recycling_spot: recycling_spot}, cache: true),
-        marker_html: render_to_string(partial: "shared/marker", locals: {recycling_spot: recycling_spot}, cache: true)
+        info_window_html: render_to_string(partial: "shared/info_window", locals: {recycling_spot: recycling_spot}),
+        marker_html: render_to_string(partial: "shared/marker", locals: {recycling_spot: recycling_spot})
       }
     end
   end
