@@ -97,6 +97,7 @@ puts "Destroying users"
 User.destroy_all
 puts "Destroying products"
 Product.destroy_all
+
 # puts "Destroying informations"
 # RecyclingPointInfo.destroy_all
 

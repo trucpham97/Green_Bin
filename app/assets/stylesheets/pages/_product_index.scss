@@ -37,8 +37,8 @@
 
 .small-square-image {
   border-radius: 10px;
-  height: 100px;
-  width: 100px;
+  height: 110px;
+  width: 110px;
   object-fit: cover;
 }
 
@@ -111,9 +111,8 @@
 }
 
 .index-card:active {
- background-color: #d0d83b;
+  background-color: #d0d83b;
 }
-
 
 .clickable-icon {
   transition: transform 0.2s ease;
