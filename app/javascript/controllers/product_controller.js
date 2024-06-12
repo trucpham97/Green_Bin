@@ -3,17 +3,20 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
 
+    console.log('Hello, Stimulus!');
     console.log('Product controller connected');
 
     // Custom Event Listener for Stimulus (See Thomas for help if needed)
     document.addEventListener('product:created', this.handleProductCreated.bind(this));
 
+    document.addEventListener('click', this.handlePageClick.bind(this));
+
   }
 
-  // When the custom event is triggered in barcode_scanner.js, this function is called
+  // When the custom event is triggered in barcode_scanner.js
   handleProductCreated(event) {
     const newProduct = event.detail.product;
-    console.log(`New product created: ${newProduct.name} (${newProduct.imageUrl}) (${newProduct.material})`);
+    console.log(`Stimulus Info === New product created: NAME : ${newProduct.name}, IMAGE URL : (${newProduct.imageUrl}), MATERIAL : (${newProduct.material}), DESCRIPTION : (${newProduct.description}), LINK : (${newProduct.link})`);
 
     // Variable to check if the card is already displayed (different animation if it is already displayed)
     var card = document.getElementById('product-card');
@@ -33,15 +36,16 @@ export default class extends Controller {
                   <img src="${newProduct.imageUrl}">
                   <div>
                     <h1>${newProduct.name}</h1>
-                    <br>
+                    <h2>${newProduct.description}</h2>
                     <div id=${newProduct.material}>
                       ${newProduct.material}
                     </div>
                   </div>
                 </div>
                 <div id="product-card-bottom">
-                  <span class="product-link">Poubelle ${newProduct.material}</span>
-                  <a href=${newProduct.link} class="product-link">Localiser une borne de tri</a>
+                  <a href=${newProduct.link} class="product-link">
+                    <btn>Trouver une poubelle</btn>
+                  </a>
                 </div>
 
         `);
@@ -66,19 +70,41 @@ export default class extends Controller {
             <img src="${newProduct.imageUrl}">
             <div>
               <h1>${newProduct.name}</h1>
-              <br>
+              <h2>${newProduct.description}</h2>
               <div id=${newProduct.material}>
                 ${newProduct.material}
               </div>
             </div>
           </div>
           <div id="product-card-bottom">
-          <span class="product-link">Poubelle ${newProduct.material}</span>
-            <a class="product-link">Localiser une borne de tri</a>
+            <a href=${newProduct.link} class="product-link">
+              <btn>Trouver une poubelle</btn>
+            </a>
           </div>
 
           `);
         }, 500);
     }
   }
+
+  handlePageClick(event) {
+    // Check if the clicked element or any of its parents has the class 'hello'
+    const videoElement = event.target.closest('#video');
+    if (videoElement) {
+      console.log('Element with id "video" was clicked', videoElement);
+
+      var card = document.getElementById('product-card');
+      var cardClass = card.className;
+
+      if (cardClass === 'd-none') {
+        console.log('Card is hidden');
+      } else {
+        document.getElementById('product-card').style.animation="popdown 0.5s linear";
+        setTimeout(() => {
+          document.getElementById('product-card').classList.add('d-none');
+        }, 500);
+      }
+    }
+  }
+
 }

@@ -11,14 +11,18 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  position: absolute;
-  bottom: 14vh;
-  z-index: 100;
+  // position: absolute;
+  // bottom: 30vh;
+  z-index: 10000;
   background-color: white;
+
+  position: fixed;
+  bottom: 0px;
+
   width: 100%;
-  height: 45vh;
+  height: fit-content;
   padding: 20px;
-  border-radius: 30px 30px 0 0;
+  border-radius: 40px 40px 0px 0px;
   // Pop-Up Animation
   animation-name: popup;
   animation-name: popdown;
@@ -29,13 +33,13 @@
     bottom: -100vh;
   }
   to {
-    bottom: 14vh;
+    bottom: 0px;
   }
 }
 
 @keyframes popdown {
   from {
-    bottom: 14vh;
+    bottom: 0px;
   }
   to {
     bottom: -100vh;
@@ -60,7 +64,7 @@
   position: relative;
   width: 100%;
   display: flex;
-  gap: 20px;
+  gap: 0px;
 }
 
 #product-card-middle img {
@@ -68,12 +72,20 @@
   width: 35%;
   height: 100px;
   object-fit: cover;
+  margin-right: 20px;
 }
 
 #product-card-middle h1 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin: 0;
   font-weight: 400;
+  color: black;
+}
+
+#product-card-middle h2 {
+  font-size: 0.5rem;
+  margin-top: 5px;
+  font-weight: 200;
   color: black;
 }
 
@@ -82,6 +94,7 @@
   flex-direction: column;
   gap: 10px;
   justify-content: center;
+  margin-bottom: 15px;
 }
 
 #product-card-bottom .product-link {
@@ -89,9 +102,10 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin: 0;
   // General Tag Styling
   border-radius: 999px;
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: 10px 20px;
   // Specific Tag Styling
   background-color: $background-color;
@@ -99,19 +113,19 @@
   border: solid 1px black;
 }
 
-#product-card-bottom .smoke-screen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  // General Tag Styling
-  border-radius: 999px;
-  font-size: 1.5rem;
-  padding: 10px 20px;
-  // Specific Tag Styling
-  background-color: $background-color;
-  color: black;
-}
+// #product-card-bottom .smoke-screen {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 100%;
+//   // General Tag Styling
+//   border-radius: 999px;
+//   font-size: 1.5rem;
+//   padding: 10px 20px;
+//   // Specific Tag Styling
+//   background-color: $background-color;
+//   color: black;
+// }
 
 // #product-card h2 {
 //   font-size: 1.2rem;
@@ -128,7 +142,7 @@
   justify-content: center;
   // General Tag Styling
   border-radius: 999px;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   padding: 0px 10px;
   // Specific Tag Styling
   background-color: rgb(58, 58, 255);
@@ -138,12 +152,14 @@
 }
 
 #Verre {
+  position: absolute;
+  bottom: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   // General Tag Styling
   border-radius: 999px;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   padding: 0px 10px;
   // Specific Tag Styling
   background-color: rgb(0, 93, 0);
@@ -153,12 +169,14 @@
 }
 
 #Carton {
+  position: absolute;
+  bottom: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   // General Tag Styling
   border-radius: 999px;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   padding: 0px 10px;
   // Specific Tag Styling
   background-color: yellow;
@@ -168,12 +186,14 @@
 }
 
 #Aluminium {
+  position: absolute;
+  bottom: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   // General Tag Styling
   border-radius: 999px;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   padding: 0px 10px;
   // Specific Tag Styling
   background-color: rgb(58, 58, 255);
@@ -183,12 +203,14 @@
 }
 
 #Metal {
+  position: absolute;
+  bottom: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   // General Tag Styling
   border-radius: 999px;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   padding: 0px 10px;
   // Specific Tag Styling
   background-color: rgb(76, 76, 76);
