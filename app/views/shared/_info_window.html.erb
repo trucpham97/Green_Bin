@@ -2,7 +2,7 @@
   <h5>Borne à collection sélective</h5>
   <p><%= recycling_spot.address%></p>
   <div class= "d-flex gap-1 flex-wrap">
-    <span class="badge rounded-pill bg-dark-subtle">Ordures ménagères</span>
+    <span class="badge rounded-pill bg-dark-subtle text-black">Ordures ménagères</span>
     <span class="badge rounded-pill bg-warning">Plastique</span>
     <span class="badge rounded-pill bg-success">Verre</span>
     <span class="badge rounded-pill bg-primary">Carton</span>
@@ -12,7 +12,7 @@
 <% elsif recycling_spot.tag_list == ["house waste"] %>
   <h5>Borne à ordures ménagères</h5>
   <p><%= recycling_spot.address%></p>
-  <span class="badge rounded-pill bg-tertiary">Ordures ménagères</span>
+  <span class="badge rounded-pill bg-secondary bg-gradient">Ordures ménagères</span>
 <% elsif recycling_spot.tag_list == ["glass"] %>
   <h5>Silo à verre</h5>
   <p><%= recycling_spot.address%></p>
@@ -21,4 +21,23 @@
   <h5>Silo à carton</h5>
   <p><%= recycling_spot.address%></p>
   <span class="badge rounded-pill bg-success">Carton</span>
+<% elsif recycling_spot.tag_list == ["compost"] %>
+  <h5>Borne à compost</h5>
+  <p><%= recycling_spot.address%></p>
+  <span class="badge rounded-pill bg-success-subtle text-black">Matères vertes</span>
+  <span class="badge rounded-pill bg-secondary-subtle text-black">Matères brunes</span>
+<% elsif recycling_spot.tag_list == ["glass", "plastic", "paper", "aluminum", "house waste", "metal", "household applicances", "batteries"] %>
+  <h5>Déchèterie</h5>
+  <p><%= recycling_spot.address%></p>
+  <p><%= recycling_spot.telephone %></p>
+  <div class= "d-flex gap-1 flex-wrap">
+    <span class="badge rounded-pill bg-dark-subtle text-black">Ordures ménagères</span>
+    <span class="badge rounded-pill bg-warning">Plastique</span>
+    <span class="badge rounded-pill bg-success">Verre</span>
+    <span class="badge rounded-pill bg-primary">Carton</span>
+    <span class="badge rounded-pill bg-secondary">Métal</span>
+    <span class="badge rounded-pill bg-secondary">Aluminium</span>
+    <span class="badge rounded-pill bg-danger">Piles</span>
+    <span class="badge rounded-pill bg-danger">Appareils électroménagers</span>
+  </div>
 <% end %>
