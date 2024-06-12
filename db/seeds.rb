@@ -56,11 +56,11 @@ require 'json'
 #   silo.save!
 # end
 
-# puts "(4/5) Creating recycling centers..."
 # recycling_center_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gip_proprete.gipdecheterie_3_0_0/all.json?maxfeatures=-1&start=1"
 # recycling_center_serialized = URI.open(recycling_center_url).read
 # recycling_center = JSON.parse(recycling_center_serialized)
 
+# puts "(4/5) Creating recycling centers..."
 # # Check data paths!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # recycling_center["values"].each do |waste|
 #   silo = RecyclingSpot.new(
@@ -205,250 +205,249 @@ RecyclingPointInfo.create!(
   "déchèteries", "déchets occasionnels", "réemploi", "recyclage", "réparer"]
 )
 
-# user_test = User.create!(
-#   username: '@TimTeam',
-#   emission: '60',
-#   email: 'lewagon@lewagon.com',
-#   password: '123456',
-#   avatar: 'userpictures/photo Tim.jpg'
-# )
+# Seeds user test
+user_test = User.create!(
+  username: '@TimTeam',
+  emission: '60',
+  email: 'lewagon@lewagon.com',
+  password: '123456',
+  avatar: 'userpictures/photo Tim.jpg'
+)
 
-# # Seeds de produits
-# puts "Seeding products"
+# Seeds products
+puts "Seeding products"
 
-# Product.create!(
-#   user: user_test,
-#   name: 'Porc à la Dijonnaise et ses pommees de terre',
-#   material: 'plastic',
-#   score: '92',
-#   image_url: 'products/Porcdijonnaise.jpg',
-#   description: '1 étui en carton à recycler, 1 barquette en plastique à trier, 1 opercule en plastique à trier',
-#   barcode: '3245414146068'
-# )
+Product.create!(
+  user: user_test,
+  name: 'Porc à la Dijonnaise et ses pommees de terre',
+  material: 'plastic',
+  score: '92',
+  image_url: 'products/Porcdijonnaise.jpg',
+  description: '1 étui en carton à recycler, 1 barquette en plastique à trier, 1 opercule en plastique à trier',
+  barcode: '3245414146068'
+)
 
-# Product.create!(
-#   user: user_test,
-#   name: 'Haribo Croco',
-#   material: 'plastic',
-#   score: '74',
-#   image_url: 'products/Haribocroco.jpg',
-#   description: '1 emballage plastique à trier',
-#   barcode: '3103220035214'
-# )
+Product.create!(
+  user: user_test,
+  name: 'Haribo Croco',
+  material: 'plastic',
+  score: '74',
+  image_url: 'products/Haribocroco.jpg',
+  description: '1 emballage plastique à trier',
+  barcode: '3103220035214'
+)
 
-# Product.create!(
-#   user: user_test,
-#   name: 'Bière 1664 25cl',
-#   material: 'glass',
-#   score: '81',
-#   image_url: 'products/Biere1664.png',
-#   description: '1 bouteille en verre à recycler, 1 capsule en métal à recycler',
-#   barcode: '3080216052885'
-# )
+Product.create!(
+  user: user_test,
+  name: 'Bière 1664 25cl',
+  material: 'glass',
+  score: '81',
+  image_url: 'products/Biere1664.png',
+  description: '1 bouteille en verre à recycler, 1 capsule en métal à recycler',
+  barcode: '3080216052885'
+)
 
-# Product.create!(
-#   user: user_test,
-#   name: "Sardines de Bretagne préparées à l'ancienne à l'huilde d'olive",
-#   material: 'aluminum',
-#   score: '64',
-#   image_url: 'products/SardinesBretagne.png',
-#   description: '1 conserve en almunium à recycler, 1 emballage carton à recycler',
-#   barcode: '3560070894772'
-# )
+Product.create!(
+  user: user_test,
+  name: "Sardines de Bretagne préparées à l'ancienne à l'huilde d'olive",
+  material: 'aluminum',
+  score: '64',
+  image_url: 'products/SardinesBretagne.png',
+  description: '1 conserve en almunium à recycler, 1 emballage carton à recycler',
+  barcode: '3560070894772'
+)
 
-# Product.create!(
-#   user: user_test,
-#   name: 'Ananas en morceaux',
-#   material: 'metal',
-#   score: '76',
-#   image_url: 'products/Ananas.jpg',
-#   description: '1 boîte de conserve à recycler',
-#   barcode: '3560070347308'
-# )
+Product.create!(
+  user: user_test,
+  name: 'Ananas en morceaux',
+  material: 'metal',
+  score: '76',
+  image_url: 'products/Ananas.jpg',
+  description: '1 boîte de conserve à recycler',
+  barcode: '3560070347308'
+)
 
-# Product.create!(
-#   user: user_test,
-#   name: 'Nutella',
-#   material: 'glass',
-#   score: '22',
-#   image_url: 'products/Nutella.jpg',
-#   description: '1 pot en verre à recycler, 1 bouchon en plastique à trier',
-#   barcode: '3017620422003'
-# )
+Product.create!(
+  user: user_test,
+  name: 'Nutella',
+  material: 'glass',
+  score: '22',
+  image_url: 'products/Nutella.jpg',
+  description: '1 pot en verre à recycler, 1 bouchon en plastique à trier',
+  barcode: '3017620422003'
+)
 
-# Product.create!(
-#   user: user_test,
-#   name: "Huilde d'olive vierge extra 50cl",
-#   material: 'glass',
-#   score: '81',
-#   image_url: 'products/huileolive.webp',
-#   description: '1 bouteille en verre à recycler, 1 bouchon en métal à recycler',
-#   barcode: '3270190008279'
-# )
+Product.create!(
+  user: user_test,
+  name: "Huilde d'olive vierge extra 50cl",
+  material: 'glass',
+  score: '81',
+  image_url: 'products/huileolive.webp',
+  description: '1 bouteille en verre à recycler, 1 bouchon en métal à recycler',
+  barcode: '3270190008279'
+)
 
-# Product.create!(
-#   user: user_test,
-#   name: 'President Camembert',
-#   material: 'paper',
-#   score: '92',
-#   image_url: 'products/camembert.jpg',
-#   description: '1 emballage carton à recycler',
-#   barcode: '3228021170039'
-# )
+Product.create!(
+  user: user_test,
+  name: 'President Camembert',
+  material: 'paper',
+  score: '92',
+  image_url: 'products/camembert.jpg',
+  description: '1 emballage carton à recycler',
+  barcode: '3228021170039'
+)
 
-# Product.create!(
-#   user: user_test,
-#   name: 'Madeleines Moelleuses',
-#   material: 'plastic',
-#   score: '54',
-#   image_url: 'products/madeleines.jpg',
-#   description: '1 emballage plastique à trier',
-#   barcode: '3270190207887'
-# )
+Product.create!(
+  user: user_test,
+  name: 'Madeleines Moelleuses',
+  material: 'plastic',
+  score: '54',
+  image_url: 'products/madeleines.jpg',
+  description: '1 emballage plastique à trier',
+  barcode: '3270190207887'
+)
 
-# Product.create!(
-#   user: user_test,
-#   name: 'Sauce soja salée Suzy Wan 143ml',
-#   material: 'glass',
-#   score: '71',
-#   image_url: 'products/soja.webp',
-#   description: '1 boouteille en verre à recycler, 1 bouchon en plastique à trier',
-#   barcode: '4002359018268'
-# )
+Product.create!(
+  user: user_test,
+  name: 'Sauce soja salée Suzy Wan 143ml',
+  material: 'glass',
+  score: '71',
+  image_url: 'products/soja.webp',
+  description: '1 boouteille en verre à recycler, 1 bouchon en plastique à trier',
+  barcode: '4002359018268'
+)
 
+# Seeds users for ranking
+puts "Seeding users"
+User.create!(
+  username: '@DenverLeDernierDino',
+  emission: '0',
+  email: 'test1@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Denverthelastdino.jpg'
+)
 
+User.create!(
+  username: '@AlexMieral',
+  emission: '8',
+  email: 'test2@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Alex.jpg'
+)
 
-# # Seeds d'utilisateurs pour le classement
-# puts "Seeding users"
-# User.create!(
-#   username: '@DenverLeDernierDino',
-#   emission: '0',
-#   email: 'test1@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/Denverthelastdino.jpg'
-# )
+User.create!(
+  username: '@Mercuriot',
+  emission: '79',
+  email: 'test3@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/ThoMercuriot.jpg'
+)
 
-# User.create!(
-#   username: '@AlexMieral',
-#   emission: '8',
-#   email: 'test2@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/Alex.jpg'
-# )
+User.create!(
+  username: '@TrucPham',
+  emission: '41',
+  email: 'test4@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/TrucBTSLover.png'
+)
 
-# User.create!(
-#   username: '@Mercuriot',
-#   emission: '79',
-#   email: 'test3@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/ThoMercuriot.jpg'
-# )
+User.create!(
+  username: '@Messycodegames',
+  emission: '42',
+  email: 'test5@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Rob1.jpg'
+)
 
-# User.create!(
-#   username: '@TrucPham',
-#   emission: '41',
-#   email: 'test4@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/TrucBTSLover.png'
-# )
+User.create!(
+  username: '@Choucrouteland',
+  emission: '13',
+  email: 'test6@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Ptitien.jpg'
+)
 
-# User.create!(
-#   username: '@Messycodegames',
-#   emission: '42',
-#   email: 'test5@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/Rob1.jpg'
-# )
+User.create!(
+  username: '@TheG',
+  emission: '61',
+  email: 'test7@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/GGraldine.jpg'
+)
 
-# User.create!(
-#   username: '@Choucrouteland',
-#   emission: '13',
-#   email: 'test6@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/Ptitien.jpg'
-# )
+User.create!(
+  username: '@Anatole',
+  emission: '51',
+  email: 'test8@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Joaquin.jpg'
+)
 
-# User.create!(
-#   username: '@TheG',
-#   emission: '61',
-#   email: 'test7@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/GGraldine.jpg'
-# )
+User.create!(
+  username: '@xX_T-O_Xx',
+  emission: '38',
+  email: 'test9@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Theo.jpg'
+)
 
-# User.create!(
-#   username: '@Anatole',
-#   emission: '51',
-#   email: 'test8@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/Joaquin.jpg'
-# )
+User.create!(
+  username: '@Egovox',
+  emission: '44',
+  email: 'test10@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Steph.jpg'
+)
 
-# User.create!(
-#   username: '@xX_T-O_Xx',
-#   emission: '38',
-#   email: 'test9@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/Theo.jpg'
-# )
+User.create!(
+  username: '@EtLesHautNords',
+  emission: '33',
+  email: 'test11@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Eleonore.jpg'
+)
 
-# User.create!(
-#   username: '@Egovox',
-#   emission: '44',
-#   email: 'test10@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/Steph.jpg'
-# )
+User.create!(
+  username: '@LadyCapulet',
+  emission: '29',
+  email: 'test12@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Jess.jpg'
+)
 
-# User.create!(
-#   username: '@EtLesHautNords',
-#   emission: '33',
-#   email: 'test11@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/Eleonore.jpg'
-# )
+User.create!(
+  username: '@BCBen',
+  emission: '22',
+  email: 'test13@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Ben.png'
+)
 
-# User.create!(
-#   username: '@LadyCapulet',
-#   emission: '29',
-#   email: 'test12@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/Jess.jpg'
-# )
+User.create!(
+  username: '@Yanis51commelepastis',
+  emission: '7',
+  email: 'test14@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/YanisPastis.png'
+)
 
-# User.create!(
-#   username: '@BCBen',
-#   emission: '22',
-#   email: 'test13@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/Ben.png'
-# )
+User.create!(
+  username: '@NicoGone69',
+  emission: '38',
+  email: 'test15@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Nico.jpg'
+)
 
-# User.create!(
-#   username: '@Yanis51commelepastis',
-#   emission: '7',
-#   email: 'test14@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/YanisPastis.png'
-# )
+User.create!(
+  username: '@LeWagon',
+  emission: '73',
+  email: 'test16@gmail.com',
+  password: '123456',
+  avatar: 'userpictures/Lewagon.jpg'
+)
 
-# User.create!(
-#   username: '@NicoGone69',
-#   emission: '38',
-#   email: 'test15@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/Nico.jpg'
-# )
+puts "Seeding users done"
 
-# User.create!(
-#   username: '@LeWagon',
-#   emission: '73',
-#   email: 'test16@gmail.com',
-#   password: '123456',
-#   avatar: 'userpictures/Lewagon.jpg'
-# )
-
-
-
-# puts "Seeds are all done"
-# puts "Now get back to work or I'll fire you"
+puts "Seeds are all done"
+puts "Now get back to work or I'll fire you"
