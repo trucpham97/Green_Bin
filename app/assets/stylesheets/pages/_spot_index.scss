@@ -1,0 +1,118 @@
+.sticky-sticky-icon {
+  position: sticky;
+  top: 10vh;
+  z-index: 1000;
+}
+
+.info-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  min-height: 80vh;
+  margin-top: 20px;
+
+  padding-bottom: 10vh;
+}
+
+.info-page-container h3, h4, p {
+  margin: 0;
+}
+
+.info-page-container hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: $secondary-color;
+  border-radius: 10px;
+  box-shadow: $shadow-card;
+  width: 95%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+// picture div
+.spot-illustration-helper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 5px;
+}
+
+.small-image-info {
+  display: flex;
+  height: 150px;
+  width: auto;
+
+  border-radius: 10px;
+}
+
+.left-arrow-icon {
+  display: flex;
+  color: black;
+  font-size: 30px;
+}
+
+// Produits recyclables
+.thumb-icon {
+  color: black;
+  font-size: 20px;
+}
+
+// nono win
+.nono-win {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.nono, .win {
+  flex: 1;
+}
+
+.win {
+  text-align: center;
+}
+
+.nono fa-solid {
+  color: black;
+  font-size: 20px;
+}
+
+.nope-icon {
+  color: darkred;
+  font-size: 20px;
+}
+
+.sketchy {
+  padding: 10px;
+  display: inline-block;
+  border: 3px solid #333333;
+  border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+  position: relative;
+
+  &::before {
+      content: '';
+      border: 2px solid #353535;
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
+      border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
+  }
+}

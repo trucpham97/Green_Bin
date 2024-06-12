@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_11_134048) do
+
+ActiveRecord::Schema[7.1].define(version: 2024_06_11_170150) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +34,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_134048) do
     t.string "packaging", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description_title"
+    t.string "descriptions", default: [], array: true
+    t.string "search_terms_hidden", default: [], array: true
+    t.string "we_win"
+    t.string "helper"
+    t.string "no_no", default: [], array: true
+    t.string "subheading"
   end
 
   create_table "recycling_spots", force: :cascade do |t|
