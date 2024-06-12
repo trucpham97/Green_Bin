@@ -110,7 +110,7 @@ function startCamera() {
             // Fill Form with product data
             document.getElementById('product_name').value = 'Porc à la Dijonnaise et ses pommes de terre';
             document.getElementById('product_image_url').value = 'https://www.zediet.fr/img/2/3245414146068.jpg';
-            document.getElementById('product_material').value = 'Carton';
+            document.getElementById('product_material').value = 'en:carton';
             document.getElementById('product_description').value = '1 étui en carton à recycler, 1 barquette en plastique à trier, 1 opercule en plastique à trier';
 
             // Form Auto-Submit
@@ -135,7 +135,7 @@ function startCamera() {
             // Fill Form with product data
             document.getElementById('product_name').value = 'Haribo Croco';
             document.getElementById('product_image_url').value = 'https://www.mypanier.com/cdn/shop/products/3103220035214-photosite-20211119-170939-0_540x540.jpg?v=1662466678';
-            document.getElementById('product_material').value = 'Plastique';
+            document.getElementById('product_material').value = 'en:plastic';
             document.getElementById('product_description').value = '1 emballage plastique à trier';
 
             // Form Auto-Submit
@@ -160,7 +160,7 @@ function startCamera() {
             // Fill Form with product data
             document.getElementById('product_name').value = 'Bière 1664 25cl';
             document.getElementById('product_image_url').value = 'https://www.charlemagne-boissons.com/666-large_default/1664-blonde-25cl.jpg';
-            document.getElementById('product_material').value = 'Verre';
+            document.getElementById('product_material').value = 'en:glass';
             document.getElementById('product_description').value = '1 bouteille en verre à recycler, 1 capsule en métal à recycler';
 
             // Form Auto-Submit
