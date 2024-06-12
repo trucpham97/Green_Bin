@@ -97,119 +97,114 @@ puts "Destroying users"
 User.destroy_all
 puts "Destroying products"
 Product.destroy_all
-puts "Destroying informations"
-RecyclingPointInfo.destroy_all
 
-puts "Creating informations..."
+# puts "Destroying informations"
+# RecyclingPointInfo.destroy_all
 
-# Bac jaune
-RecyclingPointInfo.create!(
-  title: "Bac à couvercle jaune",
-  subheading: "Tous les emballages et papiers",
-  illustration: "trash_bins/yellow_trash.png",
-  packaging: ["Emballages en plastique: bouteilles, pots de yaourt, sachets de surgelés...",
-              "Emballages en métal: canettes, capsules de café, conserves...",
-            "Papiers et emballages en carton: cartons à pizza, enveloppes..."],
-  description_title: "Pour éviter les emballages et papiers durant mes courses:",
-  descriptions: ["Je présente mes propres contenants réutilisables (boîtes, sachets) aux commerçants, ces derniers ne pouvant pas les refuser",
-                "Je privilégie les produits en vrac et les grands formats"],
-  we_win: "En buvant l'eau du robinet du Grand Lyon, une famille de 4 personnes économise environ 200 euros en moyenne chaque année!",
-  helper: "Vidés, non lavés, non imbriqués et en vrac. Cartons à plat",
-  no_no: ["Sacs d'ordures ménagères", "Couches", "Piles et batteries", "Objets plastiques"],
-  search_terms_hidden: ["Briques alimentaire", "Emballages en carton", "Emballages",
-                      "Emballages en plastique", "Bouteilles et flacons en plastique", "Bouteilles en plastique",
-                      "Pots de yaourt", "Sachets de surgelés", "Canettes", "Capsules de café", "Conserves",
-                      "Cartons à pizza", "Enveloppes", "Boîtes", "Sachets", "Produits en vrac", "Grands formats", "Papiers",
-                    "journal", "journaux"]
-)
+# puts "Creating informations..."
+# RecyclingPointInfo.create!(
+#   title: "Bac à couvercle jaune",
+#   subheading: "Tous les emballages et papiers",
+#   illustration: "trash_bins/point_de_collecte.jpg",
+#   packaging: ["Emballages en plastique: bouteilles, pots de yaourt, sachets de surgelés...",
+#               "Emballages en métal: canettes, capsules de café, conserves...",
+#             "Papiers et emballages en carton: cartons à pizza, enveloppes..."],
+#   description_title: "Pour éviter les emballages et papiers durant mes courses:",
+#   descriptions: ["Je présente mes propres contenants réutilisables (boîtes, sachets) aux commerçants, ces derniers ne pouvant pas les refuser",
+#                 "Je privilégie les produits en vrac et les grands formats"],
+#   we_win: "En buvant l'eau du robinet du Grand Lyon, une famille de 4 personnes économise environ 200 euros en moyenne chaque année!",
+#   helper: "Vidés, non lavés, non imbriqués et en vrac. Cartons à plat",
+#   no_no: ["Sacs d'ordures ménagères", "Couches", "Piles et batteries", "Objets plastiques"],
+#   search_terms_hidden: ["Briques alimentaire", "Emballages en carton", "Emballages",
+#                       "Emballages en plastique", "Bouteilles et flacons en plastique", "Bouteilles en plastique",
+#                       "Pots de yaourt", "Sachets de surgelés", "Canettes", "Capsules de café", "Conserves",
+#                       "Cartons à pizza", "Enveloppes", "Boîtes", "Sachets", "Produits en vrac", "Grands formats", "Papiers",
+#                     "journal", "journaux"]
+# )
 
-# Poubelle a verre
-RecyclingPointInfo.create!(
-  title: "Poubelle à verre",
-  subheading: "Recyclage",
-  illustration: "trash_bins/green_trash.png",
-  packaging: ["Bouteilles", "Bocaux", "Flacons"],
-  description_title: "Pour limiter mes déchets:",
-  descriptions: ["J'achète des bouteilles et bocaux consignés. Une fois rapportés en magasin, les contenants sont réutilisés"],
-  we_win: "Chaque tonne consignée ou triée se transforme en un don pour la recherche contre le cancer",
-  helper: "Vidés, sans couvercle et en vrac",
-  no_no: ["Vaisselle cassée", "Miroirs cassés"],
-  search_terms_hidden: ["Pots et bocaux en verre", "Bouteilles en verre", "bocal", "flacon", "bouteille", "verre",
-                        "pot en verre"]
-)
+# RecyclingPointInfo.create!(
+#   title: "Poubelle à verre",
+#   subheading: "Recyclage",
+#   illustration: "trash_bins/point_de_collecte.jpg",
+#   packaging: ["Bouteilles", "Bocaux", "Flacons"],
+#   description_title: "Pour limiter mes déchets:",
+#   descriptions: ["J'achète des bouteilles et bocaux consignés. Une fois rapportés en magasin, les contenants sont réutilisés"],
+#   we_win: "Chaque tonne consignée ou triée se transforme en un don pour la recherche contre le cancer",
+#   helper: "Vidés, sans couvercle et en vrac",
+#   no_no: ["Vaisselle cassée", "Miroirs cassés"],
+#   search_terms_hidden: ["Pots et bocaux en verre", "Bouteilles en verre", "bocal", "flacon", "bouteille", "verre",
+#                         "pot en verre"]
+# )
 
-# Bac a couvercle bleu
-RecyclingPointInfo.create!(
-  title: "Bac à couvercle bleu",
-  subheading: "Papiers, journaux, prospectus...",
-  illustration: "trash_bins/blue_trash.png",
-  packaging: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
-              "Courriers, enveloppes et livres"],
-  description_title: "",
-  descriptions: [""],
-  we_win: "",
-  helper: "",
-  no_no: [],
-  search_terms_hidden: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
-              "Courriers, enveloppes et livres", "Papiers", "journal"]
-)
+# RecyclingPointInfo.create!(
+#   title: "Bac à couvercle bleu",
+#   subheading: "Papiers, journaux, prospectus...",
+#   illustration: "trash_bins/point_de_collecte.jpg",
+#   packaging: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
+#               "Courriers, enveloppes et livres"],
+#   description_title: "",
+#   descriptions: [""],
+#   we_win: "",
+#   helper: "",
+#   no_no: [],
+#   search_terms_hidden: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
+#               "Courriers, enveloppes et livres", "Papiers", "journal"]
+# )
 
-# Bac a compostage
-RecyclingPointInfo.create!(
-  title: "Bac à compostage",
-  subheading: "Déchets alimentaires",
-  illustration: "trash_bins/composte_trash.png",
-  packaging: ["Préparations de repas et restes", "Marc de café et thé",
-            "Aliments périmés sans emballage"],
-  description_title: "Pour éviter le gaspillage alimentaire au quotidien:",
-  descriptions: ["Je fais mes courses selon mon menu de la semaine.",
-                "S'il y a des restes, je congèle"],
-  we_win: "Le compost naturel obtenu permet d'enrichir les sols",
-  helper: "En vrac ou dans un sac en papier",
-  no_no: ["Sacs plastiques même compostables"],
-  search_terms_hidden: ["compost", "compostage", "composter", "composteur",
-                        "déchets alimentaires", "déchets organiques", "déchets verts",
-                      "Matières brunes", "Matières vertes", "déchets de cuisine","banane",
-                    "fruits", "légumes", "épluchures", "restes de repas", "pain", "pâtes",
-                  "riz", "pâtes", "pommes de terre", "coquilles d'oeufs", "marc de café",
-                "thé", "filtre à café", "sachet de thé", "sachet de café", "sachet de thé"]
-)
+# # Bac a compostage
+# RecyclingPointInfo.create!(
+#   title: "Bac à compostage",
+#   subheading: "Déchets alimentaires",
+#   illustration: "trash_bins/point_de_collecte.jpg",
+#   packaging: ["Préparations de repas et restes", "Marc de café et thé",
+#             "Aliments périmés sans emballage"],
+#   description_title: "Pour éviter le gaspillage alimentaire au quotidien:",
+#   descriptions: ["Je fais mes courses selon mon menu de la semaine.",
+#                 "S'il y a des restes, je congèle"],
+#   we_win: "Le compost naturel obtenu permet d'enrichir les sols",
+#   helper: "En vrac ou dans un sac en papier",
+#   no_no: ["Sacs plastiques même compostables"],
+#   search_terms_hidden: ["compost", "compostage", "composter", "composteur",
+#                         "déchets alimentaires", "déchets organiques", "déchets verts",
+#                       "Matières brunes", "Matières vertes", "déchets de cuisine","banane",
+#                     "fruits", "légumes", "épluchures", "restes de repas", "pain", "pâtes",
+#                   "riz", "pâtes", "pommes de terre", "coquilles d'oeufs", "marc de café",
+#                 "thé", "filtre à café", "sachet de thé", "sachet de café", "sachet de thé"]
+# )
 
-# Bac a couvercle gris
-RecyclingPointInfo.create!(
-  title: "Bac à couvercle gris",
-  subheading: "Ordures ménagères, incinération",
-  illustration: "trash_bins/trash_trash.png",
-  packaging: ["Couches", "Objets plastiques", "Vaisselle cassée en verre ou en porcelaine", "Essuie-tout, mouchoirs et lingettes"],
-  description_title: "Pour ce qui n'a pu être trié:",
-  descriptions: ["Je jette les déchets qui n'ont pu être évités et qui ne peuvent être ni recyclés ni compostés"],
-  we_win: "",
-  helper: "Dans un sac fermé",
-  no_no: ["Piles et batteries", "Ampoules"],
-  search_terms_hidden: ["Ce qu'il reste après le tri", "impossible",
-"couches", "vaisselle cassée", "porcelaine", "essuie-tout",
-"mouchoirs", "lingettes"]
-)
+# RecyclingPointInfo.create!(
+#   title: "Bac à couvercle gris",
+#   subheading: "Ordures ménagères, incinération",
+#   illustration: "trash_bins/point_de_collecte.jpg",
+#   packaging: ["Couches", "Objets plastiques", "Vaisselle cassée en verre ou en porcelaine", "Essuie-tout, mouchoirs et lingettes"],
+#   description_title: "Pour ce qui n'a pu être trié:",
+#   descriptions: ["Je jette les déchets qui n'ont pu être évités et qui ne peuvent être ni recyclés ni compostés"],
+#   we_win: "",
+#   helper: "Dans un sac fermé",
+#   no_no: ["Piles et batteries", "Ampoules"],
+#   search_terms_hidden: ["Ce qu'il reste après le tri", "impossible",
+# "couches", "vaisselle cassée", "porcelaine", "essuie-tout",
+# "mouchoirs", "lingettes"]
+# )
 
-# Décheterie
-RecyclingPointInfo.create!(
-  title: "En déchèterie",
-  subheading: "Déchets occasionnels, réemploi et recyclage",
-  illustration: "trash_bins/decheterie_trash.png",
-  packaging: ["Déchets verts", "Electroménager, appareils électriques et électroniques",
-              "Bois", "Déchets dangereux", "Meubles abîmés, encombrants", "Métal",
-              "Gravats et plâtre", "Cartons"],
-  description_title: "Pour éviter de jeter un objet:",
-  descriptions: ["J'essaie de le réparer", "Je le réemploie autrement",
-    "Je le donne"],
-    we_win: "Les donneries installées dans les déchèteries sont des espaces de dons d'objets encore en bon état. Ces derniers sont remis à des associations partenaires qui les redistribuent",
-    helper: "Je rapporte en magasin: piles, ampoules, petits appareils électriques, jouets, articles de sport, articles de bricolage",
-    no_no: [],
-    search_terms_hidden: ["Déchets verts", "Electroménager, appareils électriques et électroniques",
-      "Bois", "Déchets dangereux", "Meubles abîmés, encombrants", "Métal",
-      "Gravats et plâtre", "Cartons", "Déchèterie", "déchetterie", "déchetteries",
-      "déchèteries", "déchets occasionnels", "réemploi", "recyclage", "réparer"]
-  )
+# RecyclingPointInfo.create!(
+#   title: "En déchèterie",
+#   subheading: "Déchets occasionnels, réemploi et recyclage",
+#   illustration: "trash_bins/point_de_collecte.jpg",
+#   packaging: ["Déchets verts", "Electroménager, appareils électriques et électroniques",
+#               "Bois", "Déchets dangereux", "Meubles abîmés, encombrants", "Métal",
+#               "Gravats et plâtre", "Cartons"],
+#   description_title: "Pour éviter de jeter un objet:",
+#   descriptions: ["J'essaie de le réparer", "Je le réemploie autrement",
+#     "Je le donne"],
+#     we_win: "Les donneries installées dans les déchèteries sont des espaces de dons d'objets encore en bon état. Ces derniers sont remis à des associations partenaires qui les redistribuent",
+#     helper: "Je rapporte en magasin: piles, ampoules, petits appareils électriques, jouets, articles de sport, articles de bricolage",
+#     no_no: [],
+#     search_terms_hidden: ["Déchets verts", "Electroménager, appareils électriques et électroniques",
+#       "Bois", "Déchets dangereux", "Meubles abîmés, encombrants", "Métal",
+#       "Gravats et plâtre", "Cartons", "Déchèterie", "déchetterie", "déchetteries",
+#       "déchèteries", "déchets occasionnels", "réemploi", "recyclage", "réparer"]
+#   )
 
 # Seeds user test
 user_test = User.create!(
@@ -223,7 +218,7 @@ user_test = User.create!(
 # Seeds products
 puts "Seeding products"
 
-Product.create!(
+product = Product.new(
   user: user_test,
   name: 'Porc à la Dijonnaise et ses pommes de terre',
   material: 'cardboard',
@@ -233,8 +228,10 @@ Product.create!(
   barcode: '3245414146068',
   carbon: '555'
 )
+product.tag_list.add("paper")
+product.save!
 
-Product.create!(
+product = Product.new(
   user: user_test,
   name: 'Haribo Croco',
   material: 'plastic',
@@ -244,8 +241,10 @@ Product.create!(
   barcode: '3103220035214',
   carbon: '436'
 )
+product.tag_list.add("plastic")
+product.save!
 
-Product.create!(
+product = Product.new(
   user: user_test,
   name: 'Bière 1664 25cl',
   material: 'glass',
@@ -255,8 +254,10 @@ Product.create!(
   barcode: '3080216052885',
   carbon: '280'
 )
+product.tag_list.add("glass")
+product.save!
 
-Product.create!(
+product = Product.new(
   user: user_test,
   name: "Sardines de Bretagne préparées à l'ancienne à l'huilde d'olive",
   material: 'aluminum',
@@ -266,8 +267,10 @@ Product.create!(
   barcode: '3560070894772',
   carbon: '487'
 )
+product.tag_list.add("aluminum")
+product.save!
 
-Product.create!(
+product = Product.new(
   user: user_test,
   name: 'Ananas en morceaux',
   material: 'metal',
@@ -277,8 +280,10 @@ Product.create!(
   barcode: '3560070347308',
   carbon: '442'
 )
+product.tag_list.add("metal")
+product.save!
 
-Product.create!(
+product = Product.new(
   user: user_test,
   name: 'Nutella',
   material: 'glass',
@@ -288,8 +293,10 @@ Product.create!(
   barcode: '3017620422003',
   carbon: '3024'
 )
+product.tag_list.add("glass")
+product.save!
 
-Product.create!(
+product = Product.new(
   user: user_test,
   name: "Huilde d'olive vierge extra 50cl",
   material: 'glass',
@@ -299,8 +306,10 @@ Product.create!(
   barcode: '3270190008279',
   carbon: '49'
 )
+product.tag_list.add("glass")
+product.save!
 
-Product.create!(
+product = Product.new(
   user: user_test,
   name: 'President Camembert',
   material: 'paper',
@@ -310,8 +319,10 @@ Product.create!(
   barcode: '3228021170039',
   carbon: '1310'
 )
+product.tag_list.add("paper")
+product.save!
 
-Product.create!(
+product = Product.new(
   user: user_test,
   name: 'Madeleines Moelleuses',
   material: 'plastic',
@@ -321,8 +332,10 @@ Product.create!(
   barcode: '3270190207887',
   carbon: '457'
 )
+product.tag_list.add("plastic")
+product.save!
 
-Product.create!(
+product = Product.new(
   user: user_test,
   name: 'Sauce soja salée Suzy Wan 143ml',
   material: 'glass',
@@ -332,6 +345,8 @@ Product.create!(
   barcode: '4002359018268',
   carbon: '106'
 )
+product.tag_list.add("glass")
+product.save!
 
 # Seeds users for ranking
 puts "Seeding users"
