@@ -101,6 +101,8 @@ puts "Destroying informations"
 RecyclingPointInfo.destroy_all
 
 puts "Creating informations..."
+
+# Bac jaune
 RecyclingPointInfo.create!(
   title: "Bac à couvercle jaune",
   subheading: "Tous les emballages et papiers",
@@ -121,6 +123,7 @@ RecyclingPointInfo.create!(
                     "journal", "journaux"]
 )
 
+# Poubelle a verre
 RecyclingPointInfo.create!(
   title: "Poubelle à verre",
   subheading: "Recyclage",
@@ -135,6 +138,7 @@ RecyclingPointInfo.create!(
                         "pot en verre"]
 )
 
+# Bac a couvercle bleu
 RecyclingPointInfo.create!(
   title: "Bac à couvercle bleu",
   subheading: "Papiers, journaux, prospectus...",
@@ -171,6 +175,7 @@ RecyclingPointInfo.create!(
                 "thé", "filtre à café", "sachet de thé", "sachet de café", "sachet de thé"]
 )
 
+# Bac a couvercle gris
 RecyclingPointInfo.create!(
   title: "Bac à couvercle gris",
   subheading: "Ordures ménagères, incinération",
@@ -186,6 +191,7 @@ RecyclingPointInfo.create!(
 "mouchoirs", "lingettes"]
 )
 
+# Décheterie
 RecyclingPointInfo.create!(
   title: "En déchèterie",
   subheading: "Déchets occasionnels, réemploi et recyclage",
