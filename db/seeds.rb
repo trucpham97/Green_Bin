@@ -2,96 +2,96 @@ require 'open-uri'
 require 'json'
 
 # DECOMMENTER CE PASSAGE POUR SEED LES SILOS:
-puts "Destroying all Recycling spots"
-RecyclingSpot.destroy_all
+# puts "Destroying all Recycling spots"
+# RecyclingSpot.destroy_all
 
-puts "Starting to seed the Recycling spots"
-url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.siloverre/all.json?maxfeatures=-1"
-glass_silo_serialized = URI.open(url).read
-glass_silo = JSON.parse(glass_silo_serialized)
+# puts "Starting to seed the Recycling spots"
+# url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.siloverre/all.json?maxfeatures=-1"
+# glass_silo_serialized = URI.open(url).read
+# glass_silo = JSON.parse(glass_silo_serialized)
 
-puts "(1/5) Creating glass silos..."
+# puts "(1/5) Creating glass silos..."
 
-glass_silo["values"].each do |glass|
-  silo = RecyclingSpot.new(
-    address: glass["adresse"],
-    category: "glass",
-    latitude: glass["lat"],
-    longitude: glass["lon"]
-  )
-  silo.tag_list.add("glass")
-  silo.save!
-end
+# glass_silo["values"].each do |glass|
+#   silo = RecyclingSpot.new(
+#     address: glass["adresse"],
+#     category: "glass",
+#     latitude: glass["lat"],
+#     longitude: glass["lon"]
+#   )
+#   silo.tag_list.add("glass")
+#   silo.save!
+# end
 
-house_waste_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.orduresmenageres/all.json?maxfeatures=-1&start=1"
-house_waste_silo_serialized = URI.open(house_waste_url).read
-house_waste_silo = JSON.parse(house_waste_silo_serialized)
+# house_waste_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.orduresmenageres/all.json?maxfeatures=-1&start=1"
+# house_waste_silo_serialized = URI.open(house_waste_url).read
+# house_waste_silo = JSON.parse(house_waste_silo_serialized)
 
-puts "(2/5) Creating house waste silos..."
-house_waste_silo["values"].each do |waste|
-  silo = RecyclingSpot.new(
-    address: waste["adresse"],
-    category: "house waste",
-    latitude: waste["lat"],
-    longitude: waste["lon"]
-  )
-  silo.tag_list.add("house waste")
-  silo.save!
-end
+# puts "(2/5) Creating house waste silos..."
+# house_waste_silo["values"].each do |waste|
+#   silo = RecyclingSpot.new(
+#     address: waste["adresse"],
+#     category: "house waste",
+#     latitude: waste["lat"],
+#     longitude: waste["lon"]
+#   )
+#   silo.tag_list.add("house waste")
+#   silo.save!
+# end
 
-selective_collection_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.collecteselective/all.json?maxfeatures=-1&start=1"
-selective_collection_serialized = URI.open(selective_collection_url).read
-selective_collection = JSON.parse(selective_collection_serialized)
+# selective_collection_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.collecteselective/all.json?maxfeatures=-1&start=1"
+# selective_collection_serialized = URI.open(selective_collection_url).read
+# selective_collection = JSON.parse(selective_collection_serialized)
 
-puts "(3/5) Creating selective collection silos..."
+# puts "(3/5) Creating selective collection silos..."
 
-selective_collection["values"].each do |waste|
-  silo = RecyclingSpot.new(
-    address: waste["adresse"],
-    category: "selective collection",
-    latitude: waste["lat"],
-    longitude: waste["lon"]
-  )
-  silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal")
-  silo.save!
-end
+# selective_collection["values"].each do |waste|
+#   silo = RecyclingSpot.new(
+#     address: waste["adresse"],
+#     category: "selective collection",
+#     latitude: waste["lat"],
+#     longitude: waste["lon"]
+#   )
+#   silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal")
+#   silo.save!
+# end
 
-recycling_center_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gip_proprete.gipdecheterie_3_0_0/all.json?maxfeatures=-1&start=1"
-recycling_center_serialized = URI.open(recycling_center_url).read
-recycling_center = JSON.parse(recycling_center_serialized)
+# recycling_center_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gip_proprete.gipdecheterie_3_0_0/all.json?maxfeatures=-1&start=1"
+# recycling_center_serialized = URI.open(recycling_center_url).read
+# recycling_center = JSON.parse(recycling_center_serialized)
 
-puts "(4/5) Creating recycling centers..."
-# Check data paths!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-recycling_center["values"].each do |waste|
-  silo = RecyclingSpot.new(
-    address: waste["adresse"],
-    category: "recycling center",
-    latitude: waste["lat"],
-    longitude: waste["lon"],
-    telephone: waste["telephone"]
-  )
-  silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal", "household applicances", "batteries")
-  silo.save!
-end
+# puts "(4/5) Creating recycling centers..."
+# # Check data paths!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# recycling_center["values"].each do |waste|
+#   silo = RecyclingSpot.new(
+#     address: waste["adresse"],
+#     category: "recycling center",
+#     latitude: waste["lat"],
+#     longitude: waste["lon"],
+#     telephone: waste["telephone"]
+#   )
+#   silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal", "household applicances", "batteries")
+#   silo.save!
+# end
 
-composting_silo_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.bornecompost/all.json?maxfeatures=-1&start=1"
-composting_silo_serialized = URI.open(composting_silo_url).read
-composting_silo = JSON.parse(composting_silo_serialized)
+# composting_silo_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.bornecompost/all.json?maxfeatures=-1&start=1"
+# composting_silo_serialized = URI.open(composting_silo_url).read
+# composting_silo = JSON.parse(composting_silo_serialized)
 
-puts "(5/5) Creating recycling center silos..."
-composting_silo["values"].each do |waste|
-  silo = RecyclingSpot.new(
-    address: waste["adresse"],
-    category: "composting silo",
-    latitude: waste["lat"],
-    longitude: waste["lon"]
-  )
-  silo.tag_list.add("compost")
-  silo.save!
-end
+# puts "(5/5) Creating recycling center silos..."
+# composting_silo["values"].each do |waste|
+#   silo = RecyclingSpot.new(
+#     address: waste["adresse"],
+#     category: "composting silo",
+#     latitude: waste["lat"],
+#     longitude: waste["lon"]
+#   )
+#   silo.tag_list.add("compost")
+#   silo.save!
+# end
 
 
-puts "Recycling spots are all seeded"
+# puts "Recycling spots are all seeded"
 
 puts "Destroying users"
 User.destroy_all
@@ -195,15 +195,15 @@ RecyclingPointInfo.create!(
               "Gravats et plâtre", "Cartons"],
   description_title: "Pour éviter de jeter un objet:",
   descriptions: ["J'essaie de le réparer", "Je le réemploie autrement",
-              "Je le donne"],
-  we_win: "Les donneries installées dans les déchèteries sont des espaces de dons d'objets encore en bon état. Ces derniers sont remis à des associations partenaires qui les redistribuent",
-  helper: "Je rapporte en magasin: piles, ampoules, petits appareils électriques, jouets, articles de sport, articles de bricolage",
-  no_no: [],
-  search_terms_hidden: ["Déchets verts", "Electroménager, appareils électriques et électroniques",
-  "Bois", "Déchets dangereux", "Meubles abîmés, encombrants", "Métal",
-  "Gravats et plâtre", "Cartons", "Déchèterie", "déchetterie", "déchetteries",
-  "déchèteries", "déchets occasionnels", "réemploi", "recyclage", "réparer"]
-)
+    "Je le donne"],
+    we_win: "Les donneries installées dans les déchèteries sont des espaces de dons d'objets encore en bon état. Ces derniers sont remis à des associations partenaires qui les redistribuent",
+    helper: "Je rapporte en magasin: piles, ampoules, petits appareils électriques, jouets, articles de sport, articles de bricolage",
+    no_no: [],
+    search_terms_hidden: ["Déchets verts", "Electroménager, appareils électriques et électroniques",
+      "Bois", "Déchets dangereux", "Meubles abîmés, encombrants", "Métal",
+      "Gravats et plâtre", "Cartons", "Déchèterie", "déchetterie", "déchetteries",
+      "déchèteries", "déchets occasionnels", "réemploi", "recyclage", "réparer"]
+  )
 
 # Seeds user test
 user_test = User.create!(
@@ -219,12 +219,13 @@ puts "Seeding products"
 
 Product.create!(
   user: user_test,
-  name: 'Porc à la Dijonnaise et ses pommees de terre',
-  material: 'plastic',
+  name: 'Porc à la Dijonnaise et ses pommes de terre',
+  material: 'cardboard',
   score: '92',
   image_url: 'products/Porcdijonnaise.jpg',
   description: '1 étui en carton à recycler, 1 barquette en plastique à trier, 1 opercule en plastique à trier',
-  barcode: '3245414146068'
+  barcode: '3245414146068',
+  carbon: '555'
 )
 
 Product.create!(
@@ -234,7 +235,8 @@ Product.create!(
   score: '74',
   image_url: 'products/Haribocroco.jpg',
   description: '1 emballage plastique à trier',
-  barcode: '3103220035214'
+  barcode: '3103220035214',
+  carbon: '436'
 )
 
 Product.create!(
@@ -244,7 +246,8 @@ Product.create!(
   score: '81',
   image_url: 'products/Biere1664.png',
   description: '1 bouteille en verre à recycler, 1 capsule en métal à recycler',
-  barcode: '3080216052885'
+  barcode: '3080216052885',
+  carbon: '280'
 )
 
 Product.create!(
@@ -254,7 +257,8 @@ Product.create!(
   score: '64',
   image_url: 'products/SardinesBretagne.png',
   description: '1 conserve en almunium à recycler, 1 emballage carton à recycler',
-  barcode: '3560070894772'
+  barcode: '3560070894772',
+  carbon: '487'
 )
 
 Product.create!(
@@ -264,7 +268,8 @@ Product.create!(
   score: '76',
   image_url: 'products/Ananas.jpg',
   description: '1 boîte de conserve à recycler',
-  barcode: '3560070347308'
+  barcode: '3560070347308',
+  carbon: '442'
 )
 
 Product.create!(
@@ -274,7 +279,8 @@ Product.create!(
   score: '22',
   image_url: 'products/Nutella.jpg',
   description: '1 pot en verre à recycler, 1 bouchon en plastique à trier',
-  barcode: '3017620422003'
+  barcode: '3017620422003',
+  carbon: '3024'
 )
 
 Product.create!(
@@ -284,7 +290,8 @@ Product.create!(
   score: '81',
   image_url: 'products/huileolive.webp',
   description: '1 bouteille en verre à recycler, 1 bouchon en métal à recycler',
-  barcode: '3270190008279'
+  barcode: '3270190008279',
+  carbon: '49'
 )
 
 Product.create!(
@@ -294,7 +301,8 @@ Product.create!(
   score: '92',
   image_url: 'products/camembert.jpg',
   description: '1 emballage carton à recycler',
-  barcode: '3228021170039'
+  barcode: '3228021170039',
+  carbon: '1310'
 )
 
 Product.create!(
@@ -304,7 +312,8 @@ Product.create!(
   score: '54',
   image_url: 'products/madeleines.jpg',
   description: '1 emballage plastique à trier',
-  barcode: '3270190207887'
+  barcode: '3270190207887',
+  carbon: '457'
 )
 
 Product.create!(
@@ -314,7 +323,8 @@ Product.create!(
   score: '71',
   image_url: 'products/soja.webp',
   description: '1 boouteille en verre à recycler, 1 bouchon en plastique à trier',
-  barcode: '4002359018268'
+  barcode: '4002359018268',
+  carbon: '106'
 )
 
 # Seeds users for ranking
@@ -451,3 +461,4 @@ puts "Seeding users done"
 
 puts "Seeds are all done"
 puts "Now get back to work or I'll fire you"
+puts "WTF WHO TOUCHED MY SEEDS MESSAGES?!"
