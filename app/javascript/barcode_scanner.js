@@ -110,7 +110,7 @@ function startCamera() {
             // Fill Form with product data
             document.getElementById('product_name').value = 'Porc à la Dijonnaise et ses pommes de terre';
             document.getElementById('product_image_url').value = 'https://www.zediet.fr/img/2/3245414146068.jpg';
-            document.getElementById('product_material').value = 'en:carton';
+            document.getElementById('product_material').value = 'en:cardboard';
             document.getElementById('product_description').value = '1 étui en carton à recycler, 1 barquette en plastique à trier, 1 opercule en plastique à trier';
 
             // Form Auto-Submit
