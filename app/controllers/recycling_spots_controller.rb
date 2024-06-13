@@ -5,7 +5,7 @@ class RecyclingSpotsController < ApplicationController
   caches_action :index, :list, expires_in: 24.hours
   def index
     @product = Product.find(params[:product_id])
-    @all_recycling_spots = find_nearby_recycling_spots("20 rue des Capucins, Lyon", 1.3)
+    @all_recycling_spots = find_nearby_recycling_spots("20 rue des Capucins, Lyon", 0.8)
     @recycling_spots = @all_recycling_spots.tagged_with(@product.tag_list, any: true)
     set_markers
   end
