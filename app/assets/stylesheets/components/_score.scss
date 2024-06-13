@@ -3,9 +3,10 @@
   text-align: center;
 }
 
-.current-user .current-avatar {
-  // border: 5px solid rgb(0, 163, 3);
-  animation: glow 1.5s infinite;
+.current-user .username,
+.current-user .ranking-number span,
+.current-user .total-emission {
+  font-weight: bold;
 }
 
 @keyframes glow {
@@ -38,7 +39,7 @@
 .ranking-number {
   width: 30px;
   text-align: right;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .user-info {
@@ -55,6 +56,7 @@
 
 .total-emission {
   margin-left: auto;
+  margin-right: 20px;
 }
 
 .bigcontainer {
