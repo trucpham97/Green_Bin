@@ -278,10 +278,10 @@ background: linear-gradient(180deg, rgba(105,139,88,1) 0%, rgba(105,139,88,1) 15
     left: 0;
     padding: 30px;
 
-    background: rgba(hsl(0deg, 0%, 0%), 0.25);
+    background: rgba(hsl(0, 0%, 24%), 0.25);
 
     will-change: transform;
-    transform: translateY(10px);
+    transform: translateY(8px);
     transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
   }
 
