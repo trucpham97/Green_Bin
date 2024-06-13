@@ -22,8 +22,7 @@
 <h1 class="text-center big-title historic">🌱 Historique 🌱</h1>
 <h2 class="text-start sub-title month">Juin</h2>
 <div class="homepage-container-index-product">
-
-  <% @products.reverse_each do |product| %>
+  <% @products.each do |product| %>
 
     <%= link_to product_path(product), class: "product-link" do %>
 
