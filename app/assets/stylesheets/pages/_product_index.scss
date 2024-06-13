@@ -1,3 +1,9 @@
+.product-show-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .homepage-container-index-product {
   display: flex;
   flex-direction: column;
@@ -126,4 +132,8 @@
 
 .ghost-icon {
   color: $secondary-color
+}
+
+.show-product-title {
+  margin: auto;
 }
