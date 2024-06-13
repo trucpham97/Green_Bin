@@ -20,6 +20,11 @@ export default class extends Controller {
       zoom: 2,
       attributionControl: false
     })
+    const geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
+      placeholder: 'Entrez votre adresse'
+    });
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         const userLocation = [position.coords.longitude, position.coords.latitude];
@@ -51,8 +56,7 @@ export default class extends Controller {
     this.#fitMapToMarkers()
 
     // Add the search to the map
-    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl }))
+    this.map.addControl(geocoder);
   }
 
   #addMarkersToMap() {
