@@ -2,18 +2,21 @@
 <h2 class="m-4 text-center sub-title">Nombre de produits recyclés</h2>
 <div class="bigcontainer">
   <% @users.each_with_index do |user, index| %>
-    <div class="option-card2 <%= 'current-user' if user == current_user %> <%= rank_class(index) %>">
-      <div class="ranking-number">
-        <span><%= index + 1 %>.</span>
+    <% if user.avatar.present? %>
+      <div class="option-card2 <%= 'current-user' if user == current_user %> <%= rank_class(index) %>">
+        <div class="ranking-number">
+          <span><%= index + 1 %>.</span>
+        </div>
+        <div class="user-info position-relative">
+          <%= image_tag(asset_path(user.avatar), class: "avatar #{'current-avatar' if user == current_user}") %>
+          <% if index == 0 %>
+            <%= image_tag('rank1crown.png', class: 'crown-overlay') %>
+          <% end %>
+
+          <span class="username"><%= user.username %></span>
+          <span class="total-emission"><%= user.total_emission.to_i %></span>
+        </div>
       </div>
-      <div class="user-info position-relative">
-        <%= image_tag(asset_path(user.avatar), class: "avatar #{'current-avatar' if user == current_user}") %>
-        <% if index == 0 %>
-          <%= image_tag('rank1crown.png', class: 'crown-overlay') %>
-        <% end %>
-        <span class="username"><%= user.username %></span>
-        <span class="total-emission"><%= user.total_emission.to_i %></span>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
