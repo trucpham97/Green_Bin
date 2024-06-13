@@ -108,9 +108,12 @@
   font-size: 1rem;
   padding: 10px 20px;
   // Specific Tag Styling
-  background-color: $background-color;
-  color: black;
-  border: solid 1px black;
+  // background-color: $background-color;
+  background: $green-color;
+      // linear-gradient(61deg, rgba(30,111,81,1) 1%, rgba(125,172,66,1) 73%, rgba(203,212,60,1) 85%);
+  color: white;
+  // border: solid 1px black;
+  box-shadow: $shadow-card;
 }
 
 // #product-card-bottom .smoke-screen {
