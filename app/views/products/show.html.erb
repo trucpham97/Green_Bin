@@ -15,7 +15,7 @@
       <%= image_tag @product.image_url, class: "small-square-image"%>
 
       <div class="mat-tag-div">
-        <p>Matériaux:</p>
+        <p>Matériaux :</p>
         <p class="p-no-margin-index material-gellule" style="background-color:
         <%= display_material(@product)[:color] %>;">
         <% if display_material(@product)[:name] != "Plastique" %>
@@ -27,11 +27,11 @@
       </div>
     </div>
 
-    <p><strong>Desription:</strong>
+    <p><strong>Description :</strong>
     <br>
     <%= @product.description %></p>
 
-    <p><strong>Eco score: </strong><%= @product.score %></p>
+    <p><strong>Eco score : </strong><%= @product.score %></p>
 
     <div class="spot-btn-container">
       <%= link_to product_recycling_spots_path(@product), class: "pushable-spot booking-btn-link-spot" do %>
