@@ -34,7 +34,7 @@
     <p><strong>Eco score: </strong><%= @product.score %></p>
 
     <div class="spot-btn-container">
-      <%= link_to map_path, class: "pushable-spot booking-btn-link-spot" do %>
+      <%= link_to product_recycling_spots_path(@product), class: "pushable-spot booking-btn-link-spot" do %>
         <span class="shadow-spot"></span>
         <span class="edge-spot"></span>
         <span class="front-spot"><span>Voir la carte</span><i class="fa-solid fa-map-location-dot"></i></span>
