@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   caches_action :index, :new, :create, :show, :display_material, expires_in: 24.hours
 
   def index
-    @products = Product.all
+    @products = Product.all.sort.reverse
   end
 
   def new
