@@ -217,9 +217,9 @@ background: linear-gradient(180deg, rgba(105,139,88,1) 0%, rgba(105,139,88,1) 15
   text-align: center;
 
   margin: auto;
-  // gap: 40px;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .booking-btn-link-spot {
@@ -232,13 +232,6 @@ background: linear-gradient(180deg, rgba(105,139,88,1) 0%, rgba(105,139,88,1) 15
 }
 
 .pushable-spot {
-  margin-left: 10px;
-  margin-right: 10px;
-
-  // margin-bottom: 20px;
-  // margin-top: 20px;
-  // margin-left: 10px;
-  // margin-right: 10px;
   width: 100%;
 
   position: relative;
@@ -295,14 +288,12 @@ background: linear-gradient(180deg, rgba(105,139,88,1) 0%, rgba(105,139,88,1) 15
   .front-spot {
     display: flex;
     justify-content: center;
+    gap: 10px;
     align-items: center;
     position: relative;
     padding-top: 25px;
     padding-bottom: 25px;
-    padding-right: 80px;
-    padding-left: 80px;
-    justify-content: space-evenly;
-    //width: 100%;
+    width: 100%;
 
     color: white;
 
@@ -336,20 +327,20 @@ background: linear-gradient(180deg, rgba(105,139,88,1) 0%, rgba(105,139,88,1) 15
 }
 
 .front-spot2, .edge-spot2, .shadow-spot2 {
-  width: 90%;
+  //width: 90%;
 }
 
-.front-spot span {
-  margin: 0;
-  margin-right: 10px;
-  white-space: nowrap;
+.front-spot2 {
+  justify-content: center;
 }
+
+// .front-spot span {
+//   margin: 0;
+//   //margin-right: 10px;
+//   white-space: nowrap;
+// }
 
 .fa-map-location-dot {
   fill: white;
   font-size: 24px;
 }
-
-// .front-spot-spot {
-//   width: 90%;
-// }

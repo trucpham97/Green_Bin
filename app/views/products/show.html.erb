@@ -1,44 +1,45 @@
-<h1>Informations sur votre emballage</h1>
-
-
-
 <%= link_to products_path, class: "clickable-icon" do %>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
     <path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM217.4 376.9L117.5 269.8c-3.5-3.8-5.5-8.7-5.5-13.8s2-10.1 5.5-13.8l99.9-107.1c4.2-4.5 10.1-7.1 16.3-7.1c12.3 0 22.3 10 22.3 22.3l0 57.7 96 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32l-96 0 0 57.7c0 12.3-10 22.3-22.3 22.3c-6.2 0-12.1-2.6-16.3-7.1z"/>
   </svg>
 <% end %>
 
-<div class="product-show-container">
+<div class="product-show-body">
+  <!-- <h1 class="show-product-title">Emballage</h1> -->
+  <h4 class="product-name-center"><strong><%= @product.name %></strong></h4>
 
-  <h4><strong><%= @product.name %></strong></h4>
+  <div class="product-show-container">
 
-  <div class="image-matos-div">
+    <div class="image-matos-div">
 
-    <%= image_tag @product.image_url, class: "small-square-image"%>
+      <%= image_tag @product.image_url, class: "small-square-image"%>
 
-    <div class="mat-tag-div">
-      <p>Matériaux:</p>
-      <p class="p-no-margin-index material-gellule" style="background-color:
-      <%= display_material(@product)[:color] %>;">
-      <% if display_material(@product)[:name] != "Plastique" %>
-        <%= display_material(@product)[:name] %>
-      <% else %>
-        <span class="plastic-text"><%= display_material(@product)[:name] %></span>
-      <% end %>
-      </p>
+      <div class="mat-tag-div">
+        <p>Matériaux:</p>
+        <p class="p-no-margin-index material-gellule" style="background-color:
+        <%= display_material(@product)[:color] %>;">
+        <% if display_material(@product)[:name] != "Plastique" %>
+          <%= display_material(@product)[:name] %>
+        <% else %>
+          <span class="plastic-text"><%= display_material(@product)[:name] %></span>
+        <% end %>
+        </p>
+      </div>
     </div>
+
+    <p><strong>Desription:</strong>
+    <br>
+    <%= @product.description %></p>
+
+    <p><strong>Eco score: </strong><%= @product.score %></p>
+
+    <div class="spot-btn-container">
+      <%= link_to map_path, class: "pushable-spot booking-btn-link-spot" do %>
+        <span class="shadow-spot"></span>
+        <span class="edge-spot"></span>
+        <span class="front-spot"><span>Voir la carte</span><i class="fa-solid fa-map-location-dot"></i></span>
+      <% end %>
+    </div>
+
   </div>
-
-  <p><strong>Desription: </strong><%= @product.description %></p>
-
-  <p><strong>Eco score: </strong><%= @product.score %></p>
-
-  <div class="spot-btn-container">
-    <%= link_to map_path, class: "pushable-spot booking-btn-link-spot" do %>
-      <span class="shadow-spot"></span>
-      <span class="edge-spot"></span>
-      <span class="front-spot"><span>Voir la carte</span><i class="fa-solid fa-map-location-dot"></i></span>
-    <% end %>
-  </div>
-
 </div>
