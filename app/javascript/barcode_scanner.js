@@ -112,6 +112,7 @@ function startCamera() {
             document.getElementById('product_image_url').value = 'https://www.zediet.fr/img/2/3245414146068.jpg';
             document.getElementById('product_material').value = 'en:cardboard';
             document.getElementById('product_description').value = '1 étui en carton à recycler, 1 barquette en plastique à trier, 1 opercule en plastique à trier';
+            document.getElementById('product_score').value = '92';
 
             // Form Auto-Submit
             autoSubmitForm().then((href) => {
@@ -137,6 +138,7 @@ function startCamera() {
             document.getElementById('product_image_url').value = 'https://www.mypanier.com/cdn/shop/products/3103220035214-photosite-20211119-170939-0_540x540.jpg?v=1662466678';
             document.getElementById('product_material').value = 'en:plastic';
             document.getElementById('product_description').value = '1 emballage plastique à trier';
+            document.getElementById('product_score').value = '74';
 
             // Form Auto-Submit
             autoSubmitForm().then((href) => {
@@ -162,6 +164,7 @@ function startCamera() {
             document.getElementById('product_image_url').value = 'https://www.charlemagne-boissons.com/666-large_default/1664-blonde-25cl.jpg';
             document.getElementById('product_material').value = 'en:glass';
             document.getElementById('product_description').value = '1 bouteille en verre à recycler, 1 capsule en métal à recycler';
+            document.getElementById('product_score').value = '81';
 
             // Form Auto-Submit
             autoSubmitForm().then((href) => {
@@ -226,18 +229,25 @@ function startCamera() {
                   material_fr = 'Aluminium';
                 } else if (material.includes('metal')) {
                   material_fr = 'Metal';
-                } else if (material.includes('steel')) {
-                  material_fr = 'Metal';
-                } else {
+                  } else if (material.includes('steel')) {
+                    material_fr = 'Metal';
+                    } else {
                   material_fr = 'Indisponible';
-                }
+                  }
 
-                document.getElementById('product_material').value = material;
-                console.log(data?.product?.packaging_text_fr);
-                const description = data?.product?.packaging_text_fr ?? 'Description non disponible';
-                document.getElementById('product_description').value = description;
+                  document.getElementById('product_material').value = material;
+                  console.log(data?.product?.packaging_text_fr);
+                  const description = data?.product?.packaging_text_fr ?? 'Description non disponible';
+                  document.getElementById('product_description').value = description;
+                  const score = data?.product?.ecoscore_data?.adjustments?.packaging?.score  ?? 'Information non disponible';
+                  const parsedScore = Number.parseFloat(score);
+                  if (!isNaN(parsedScore) && parsedScore > 0) {
+                    document.getElementById('product_score').value = score;
+                  } else {
+                    document.getElementById('product_score').value = 'Information non disponible';
+                  }
 
-                // Form Auto-Submit
+                  // Form Auto-Submit
                 autoSubmitForm().then((href) => {
                   console.log(href); // "Formulaire soumis avec succès"
 
