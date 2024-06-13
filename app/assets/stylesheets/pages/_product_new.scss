@@ -1,5 +1,6 @@
 #no-scroll {
   overflow: hidden;
+  touch-action: none;
 }
 
 .scan-window {
@@ -76,14 +77,15 @@
 }
 
 #product-card-middle h1 {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.3rem;
   margin: 0;
-  font-weight: 400;
+  font-weight: 600;
   color: black;
 }
 
 #product-card-middle h2 {
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   margin-top: 5px;
   font-weight: 200;
   color: black;

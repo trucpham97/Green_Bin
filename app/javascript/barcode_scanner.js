@@ -121,7 +121,7 @@ function startCamera() {
                 name: 'Porc à la Dijonnaise et ses pommes de terre',
                 imageUrl: 'https://www.zediet.fr/img/2/3245414146068.jpg',
                 material: 'Carton',
-                description: '1 étui en carton à recycler, 1 barquette en plastique à trier, 1 opercule en plastique à trier',
+                description: 'Étui en carton, barquette en plastique',
                 link: href
               };
 
