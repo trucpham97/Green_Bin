@@ -5,8 +5,6 @@ class ProductsController < ApplicationController
   # layout 'no_navbar', only: [:new, :create]
   # layout 'just_no_navbar', only: [:index, :show]
 
-  caches_action :index, :new, :create, :show, :display_material, expires_in: 24.hours
-
   def index
     @products = Product.all.sort.reverse
   end
