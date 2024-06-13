@@ -1,5 +1,6 @@
 .infos-spot-title-elements {
-  margin-left: 40px;
+  //margin-left: 40px;
+  text-align: center;
 }
 
 .sticky-sticky-icon {
@@ -125,6 +126,12 @@ background: linear-gradient(180deg, rgba(105,139,88,1) 0%, rgba(105,139,88,1) 15
 //   text-indent:-1.5em;
 // }
 
+.good-and-bad {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .pack-div {
   display: flex;
   flex-direction: row;
@@ -133,7 +140,7 @@ background: linear-gradient(180deg, rgba(105,139,88,1) 0%, rgba(105,139,88,1) 15
 }
 
 .packaging-content {
-  text-align: justify;
+  // text-align: justify;
   text-justify: auto;
 }
 
@@ -145,13 +152,16 @@ background: linear-gradient(180deg, rgba(105,139,88,1) 0%, rgba(105,139,88,1) 15
   align-items: center;
   gap: 10px;
 }
+.nono {
+  //gap: 50px;
+  margin-top: 20px;
+}
+
 .nono, .win {
   flex: 1;
 }
 
-.nono-content {
-  margin-bottom: 20px;
-}
+
 
 .win {
   text-align: center;
@@ -173,7 +183,11 @@ background: linear-gradient(180deg, rgba(105,139,88,1) 0%, rgba(105,139,88,1) 15
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  gap: 5px;
+  gap: 15px;
+}
+
+.pack-div-smallgap:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .so-much-divs {
