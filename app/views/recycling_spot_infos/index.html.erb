@@ -5,7 +5,7 @@
   </svg>
 <% end %>
 
-<h1 class="infos-spot-title-elements">Informations</h1>
+<h1 class="infos-spot-title-elements">📚 Informations 📚</h1>
 
 <% if params[:query].present? %>
   <p class="infos-spot-title-elements">Votre recherche pour: "<%= params[:query] %>"</p>
@@ -40,17 +40,21 @@
 
       <hr>
 
-      <% spot.packaging.each do |pack| %>
-        <div class="pack-div">
-          <span><i class="fa-solid fa-thumbs-up thumb-icon"></i></span>
-          <span class="packaging-content"><%= pack %></span>
-        </div>
-      <% end %>
 
-      <% unless (spot.no_no.empty? && spot.we_win.empty?) %>
-        <hr>
 
-        <div class="nono-win">
+
+
+      <div class="good-and-bad">
+        <% spot.packaging.each do |pack| %>
+
+          <div class="pack-div">
+            <!-- <span><i class="fa-solid fa-thumbs-up thumb-icon"></i></span> -->
+            <span><i class="fa-solid fa-check thumb-icon"></i></span>
+            <span class="packaging-content"><%= pack %></span>
+          </div>
+        <% end %>
+
+        <% unless (spot.no_no.empty? && spot.we_win.empty?) %>
           <div class="nono">
             <% spot.no_no.each do |no| %>
             <div class="pack-div-smallgap">
@@ -59,14 +63,20 @@
             </div>
             <% end %>
           </div>
+        <% end %>
+      </div>
 
-          <% unless spot.we_win.empty? %>
-            <div class="win sketchy">
-              <p><em><%= spot.we_win %></em></p>
-            </div>
-          <% end %>
+      <% unless spot.we_win.empty? %>
+        <hr>
+        <div class="win sketchy">
+          <p><em><%= spot.we_win %></em></p>
         </div>
       <% end %>
+
+
+
+
+
 
       <% unless spot.description_title.empty? %>
         <hr>

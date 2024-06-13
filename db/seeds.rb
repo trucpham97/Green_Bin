@@ -145,7 +145,7 @@ RecyclingPointInfo.create!(
   description_title: "",
   descriptions: [""],
   we_win: "",
-  helper: "",
+  helper: "Journaux, papiers en vrac, sans emballage plastique",
   no_no: [],
   search_terms_hidden: ["Cahiers, bloc-notes, impressions","Journaux, catalogues et prospectus",
               "Courriers, enveloppes et livres", "Papiers", "journal"]
