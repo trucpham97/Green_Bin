@@ -64,16 +64,15 @@ class ProductsController < ApplicationController
   helper_method :display_material
 
   def display_material(product)
-    case product.material
-    when 'en:plastic' || "en:pet-1-polyethylen-terephthalate"
+    if product.material == 'en:plastic' || product.material ==  "en:pet-1-polyethylen-terephthalate"
       { name: 'Plastique', color: 'yellow', text: 'black'}
-    when 'en:glass' || "en:green-glass" || "en:clear-glass" || "en:bottle"
+    elsif product.material == 'en:glass' || product.material == "en:green-glass" || product.material == "en:clear-glass" || product.material == "en:bottle"
       { name: 'Verre', color: 'green' }
-    when "en:cardboard" || "en:paperboard"
+    elsif product.material == "en:cardboard" || product.material == "en:paperboard"
       { name: 'Carton', color: 'blue' }
-    when "en:aluminum"  || "en:canned"
+    elsif product.material == "en:aluminum"  || product.material == "en:canned"
       { name: 'Aluminium', color: 'grey' }
-    when "en:metal" || "en:steel"
+    elsif product.material == "en:metal" || product.material == "en:steel"
       { name: 'Métal', color: 'grey' }
     else
       { name: 'Materiaux non disponibles', color: 'black' }
