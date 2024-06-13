@@ -8,7 +8,7 @@
 <h1 class="infos-spot-title-elements">📚 Informations 📚</h1>
 
 <% if params[:query].present? %>
-  <p class="infos-spot-title-elements">Votre recherche pour: "<%= params[:query] %>"</p>
+  <p class="infos-spot-title-elements">Votre recherche pour "<%= params[:query] %>"</p>
 <% end %>
 
 <% if @spots.any? %>
@@ -102,5 +102,8 @@
 
 
 <% else %>
-  <em>Désolé, pas d'information retrouvée pour ce produit</em>
+  <div class="mx-3 p-2 d-flex flex-column gap-2">
+    <em>Désolé, pas d'information retrouvée pour ce produit</em>
+    <%= image_tag "search.png", alt: "Pas d'information trouvée" %>
+  </div>
 <% end %>
