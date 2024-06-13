@@ -39,9 +39,9 @@
         </div>
 
           <%= form_with url: product_path(product), method: :delete, local: true do %>
-              <button type="submit" style="background: none; border: none; display: none;">
-                <%= image_tag "bin_icon.png", alt: "Delete", class: "small-bin-icon" %>
-              </button>
+            <button type="submit" style="background: none; border: none;">
+              <i class="fa-solid fa-map-location-dot small-bin-icon ghost-icon"></i>
+            </button>
           <% end %>
 
       </div>
