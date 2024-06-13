@@ -4,7 +4,7 @@
       <%= form_with url: recycling_spot_infos_path, method: :get do %>
         <%= text_field_tag :query,
               params[:query],
-              placeholder: "Objet, emballage,...",
+              placeholder: "Objet, emballage...",
               class: "search-bar"
           %>
         <%= button_tag(type: 'submit', class: "looking-btn") do %>
