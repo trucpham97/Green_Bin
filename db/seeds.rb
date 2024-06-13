@@ -221,7 +221,7 @@ puts "Seeding products"
 product = Product.new(
   user: user_test,
   name: 'Porc à la Dijonnaise et ses pommes de terre',
-  material: 'cardboard',
+  material: 'en:cardboard',
   score: '92',
   image_url: 'products/Porcdijonnaise.jpg',
   description: '1 étui en carton à recycler, 1 barquette en plastique à trier, 1 opercule en plastique à trier',
@@ -234,7 +234,7 @@ product.save!
 product = Product.new(
   user: user_test,
   name: 'Haribo Croco',
-  material: 'plastic',
+  material: 'en:plastic',
   score: '74',
   image_url: 'products/Haribocroco.jpg',
   description: '1 emballage plastique à trier',
@@ -247,7 +247,7 @@ product.save!
 product = Product.new(
   user: user_test,
   name: 'Bière 1664 25cl',
-  material: 'glass',
+  material: 'en:glass',
   score: '81',
   image_url: 'products/Biere1664.png',
   description: '1 bouteille en verre à recycler, 1 capsule en métal à recycler',
@@ -260,7 +260,7 @@ product.save!
 product = Product.new(
   user: user_test,
   name: "Sardines de Bretagne préparées à l'ancienne à l'huilde d'olive",
-  material: 'aluminum',
+  material: 'en:aluminum',
   score: '64',
   image_url: 'products/SardinesBretagne.png',
   description: '1 conserve en almunium à recycler, 1 emballage carton à recycler',
@@ -273,7 +273,7 @@ product.save!
 product = Product.new(
   user: user_test,
   name: 'Ananas en morceaux',
-  material: 'metal',
+  material: 'en:metal',
   score: '76',
   image_url: 'products/Ananas.jpg',
   description: '1 boîte de conserve à recycler',
@@ -286,7 +286,7 @@ product.save!
 product = Product.new(
   user: user_test,
   name: 'Nutella',
-  material: 'glass',
+  material: 'en:glass',
   score: '22',
   image_url: 'products/Nutella.jpg',
   description: '1 pot en verre à recycler, 1 bouchon en plastique à trier',
@@ -299,7 +299,7 @@ product.save!
 product = Product.new(
   user: user_test,
   name: "Huilde d'olive vierge extra 50cl",
-  material: 'glass',
+  material: 'en:glass',
   score: '81',
   image_url: 'products/huileolive.webp',
   description: '1 bouteille en verre à recycler, 1 bouchon en métal à recycler',
@@ -312,7 +312,7 @@ product.save!
 product = Product.new(
   user: user_test,
   name: 'President Camembert',
-  material: 'paper',
+  material: 'en:paperboard',
   score: '92',
   image_url: 'products/camembert.jpg',
   description: '1 emballage carton à recycler',
@@ -325,7 +325,7 @@ product.save!
 product = Product.new(
   user: user_test,
   name: 'Madeleines Moelleuses',
-  material: 'plastic',
+  material: 'en:plastic',
   score: '54',
   image_url: 'products/madeleines.jpg',
   description: '1 emballage plastique à trier',
@@ -338,7 +338,7 @@ product.save!
 product = Product.new(
   user: user_test,
   name: 'Sauce soja salée Suzy Wan 143ml',
-  material: 'glass',
+  material: 'en:glass',
   score: '71',
   image_url: 'products/soja.webp',
   description: '1 boouteille en verre à recycler, 1 bouchon en plastique à trier',
