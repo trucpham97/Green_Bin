@@ -2,96 +2,100 @@ require 'open-uri'
 require 'json'
 
 # DECOMMENTER CE PASSAGE POUR SEED LES SILOS:
-# puts "Destroying all Recycling spots"
-# RecyclingSpot.destroy_all
+puts "Destroying all Recycling spots"
+RecyclingSpot.destroy_all
 
-# puts "Starting to seed the Recycling spots"
-# url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.siloverre/all.json?maxfeatures=-1"
-# glass_silo_serialized = URI.open(url).read
-# glass_silo = JSON.parse(glass_silo_serialized)
+puts "Starting to seed the Recycling spots"
+url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.siloverre/all.json?maxfeatures=-1"
+glass_silo_serialized = URI.open(url).read
+glass_silo = JSON.parse(glass_silo_serialized)
 
-# puts "(1/5) Creating glass silos..."
+puts "(1/5) Creating glass silos..."
 
-# glass_silo["values"].each do |glass|
-#   silo = RecyclingSpot.new(
-#     address: glass["adresse"],
-#     category: "glass",
-#     latitude: glass["lat"],
-#     longitude: glass["lon"]
-#   )
-#   silo.tag_list.add("glass")
-#   silo.save!
-# end
+glass_silo["values"].each do |glass|
+  puts "#{RecyclingSpot.all.count} silos created"
+  silo = RecyclingSpot.new(
+    address: glass["adresse"],
+    category: "glass",
+    latitude: glass["lat"],
+    longitude: glass["lon"]
+  )
+  silo.tag_list.add("glass")
+  silo.save!
+end
 
-# house_waste_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.orduresmenageres/all.json?maxfeatures=-1&start=1"
-# house_waste_silo_serialized = URI.open(house_waste_url).read
-# house_waste_silo = JSON.parse(house_waste_silo_serialized)
+house_waste_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.orduresmenageres/all.json?maxfeatures=-1&start=1"
+house_waste_silo_serialized = URI.open(house_waste_url).read
+house_waste_silo = JSON.parse(house_waste_silo_serialized)
 
-# puts "(2/5) Creating house waste silos..."
-# house_waste_silo["values"].each do |waste|
-#   silo = RecyclingSpot.new(
-#     address: waste["adresse"],
-#     category: "house waste",
-#     latitude: waste["lat"],
-#     longitude: waste["lon"]
-#   )
-#   silo.tag_list.add("house waste")
-#   silo.save!
-# end
+puts "(2/5) Creating house waste silos..."
+house_waste_silo["values"].each do |waste|
+  puts "#{RecyclingSpot.all.count} silos created"
+  silo = RecyclingSpot.new(
+    address: waste["adresse"],
+    category: "house waste",
+    latitude: waste["lat"],
+    longitude: waste["lon"]
+  )
+  silo.tag_list.add("house waste")
+  silo.save!
+end
 
-# selective_collection_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.collecteselective/all.json?maxfeatures=-1&start=1"
-# selective_collection_serialized = URI.open(selective_collection_url).read
-# selective_collection = JSON.parse(selective_collection_serialized)
+selective_collection_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.collecteselective/all.json?maxfeatures=-1&start=1"
+selective_collection_serialized = URI.open(selective_collection_url).read
+selective_collection = JSON.parse(selective_collection_serialized)
 
-# puts "(3/5) Creating selective collection silos..."
+puts "(3/5) Creating selective collection silos..."
 
-# selective_collection["values"].each do |waste|
-#   silo = RecyclingSpot.new(
-#     address: waste["adresse"],
-#     category: "selective collection",
-#     latitude: waste["lat"],
-#     longitude: waste["lon"]
-#   )
-#   silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal")
-#   silo.save!
-# end
+selective_collection["values"].each do |waste|
+  puts "#{RecyclingSpot.all.count} silos created"
+  silo = RecyclingSpot.new(
+    address: waste["adresse"],
+    category: "selective collection",
+    latitude: waste["lat"],
+    longitude: waste["lon"]
+  )
+  silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal")
+  silo.save!
+end
 
-# recycling_center_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gip_proprete.gipdecheterie_3_0_0/all.json?maxfeatures=-1&start=1"
-# recycling_center_serialized = URI.open(recycling_center_url).read
-# recycling_center = JSON.parse(recycling_center_serialized)
+recycling_center_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gip_proprete.gipdecheterie_3_0_0/all.json?maxfeatures=-1&start=1"
+recycling_center_serialized = URI.open(recycling_center_url).read
+recycling_center = JSON.parse(recycling_center_serialized)
 
-# puts "(4/5) Creating recycling centers..."
-# # Check data paths!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# recycling_center["values"].each do |waste|
-#   silo = RecyclingSpot.new(
-#     address: waste["adresse"],
-#     category: "recycling center",
-#     latitude: waste["lat"],
-#     longitude: waste["lon"],
-#     telephone: waste["telephone"]
-#   )
-#   silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal", "household applicances", "batteries")
-#   silo.save!
-# end
+puts "(4/5) Creating recycling centers..."
+# Check data paths!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+recycling_center["values"].each do |waste|
+  puts "#{RecyclingSpot.all.count} silos created"
+  silo = RecyclingSpot.new(
+    address: waste["adresse"],
+    category: "recycling center",
+    latitude: waste["lat"],
+    longitude: waste["lon"],
+    telephone: waste["telephone"]
+  )
+  silo.tag_list.add("glass", "plastic", "paper", "aluminum", "house waste", "metal", "household applicances", "batteries")
+  silo.save!
+end
 
-# composting_silo_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.bornecompost/all.json?maxfeatures=-1&start=1"
-# composting_silo_serialized = URI.open(composting_silo_url).read
-# composting_silo = JSON.parse(composting_silo_serialized)
+composting_silo_url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/gic_collecte.bornecompost/all.json?maxfeatures=-1&start=1"
+composting_silo_serialized = URI.open(composting_silo_url).read
+composting_silo = JSON.parse(composting_silo_serialized)
 
-# puts "(5/5) Creating recycling center silos..."
-# composting_silo["values"].each do |waste|
-#   silo = RecyclingSpot.new(
-#     address: waste["adresse"],
-#     category: "composting silo",
-#     latitude: waste["lat"],
-#     longitude: waste["lon"]
-#   )
-#   silo.tag_list.add("compost")
-#   silo.save!
-# end
+puts "(5/5) Creating recycling center silos..."
+composting_silo["values"].each do |waste|
+  puts "#{RecyclingSpot.all.count} silos created"
+  silo = RecyclingSpot.new(
+    address: waste["adresse"],
+    category: "composting silo",
+    latitude: waste["lat"],
+    longitude: waste["lon"]
+  )
+  silo.tag_list.add("compost")
+  silo.save!
+end
 
-
-# puts "Recycling spots are all seeded"
+puts "Recycling spots are all seeded"
 
 puts "Destroying users"
 User.destroy_all
