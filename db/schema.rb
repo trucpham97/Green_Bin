@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_12_083807) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_13_155429) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -93,7 +93,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_12_083807) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.float "emission"
+    t.float "emission", default: 0.0
     t.string "location"
     t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
